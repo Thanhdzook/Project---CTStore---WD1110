@@ -1,7 +1,7 @@
 <?php
 class App{
-    protected $controller="Login_Sigin";
-    protected $action="View_Login_Sinin";
+    protected $controller="Show_MobilePhone";
+    protected $action="ShowMobilePhone";
     protected $params=[];
 
     function __construct(){

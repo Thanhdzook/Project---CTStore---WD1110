@@ -1,6 +1,6 @@
 <?php
 
-class Login_Sigin extends AccountCore{
+class Login_Sigin extends Controller{
     public $accountModel;
 
     function __construct(){

@@ -1,5 +1,5 @@
 <?php
-class AccountCore{
+class Controller{
 
     public function model($model){
         require_once "./MVC/Models/".$model.".php";
@@ -9,6 +9,5 @@ class AccountCore{
     public function view($view , $data = []){
         require_once "./MVC/Views/".$view."/".$view.".php";
     }
-
 }
 ?>
