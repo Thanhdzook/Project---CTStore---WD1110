@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="../../wwwroot/css/login_sigin/style.css">
+  <link rel="stylesheet" href="../../wwwroot/css/login_sigin/style.css">
 </head>
 <body>  
 	<div class="section">
@@ -24,7 +24,7 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 
-                                            <form method="post" action="">
+                                            <form method="post" action="./Login_Sigin/Check_Login">
                                                 <h4 class="mb-4 pb-3">Đăng nhập</h4>
                                                 <div class="form-group">
                                                     <input type="email" class="form-style" placeholder="Email" name="email">

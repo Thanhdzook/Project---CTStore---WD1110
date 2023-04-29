@@ -1,4 +1,5 @@
-<?php 
-    header("Location: ./View/login_sigin/login_sigin.php");
-    exit;
+<?php
+    session_start();
+    require_once "./MVC/Birdge.php";
+    $myApp = new App();
 ?>
