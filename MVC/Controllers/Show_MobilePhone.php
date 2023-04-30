@@ -8,7 +8,6 @@ class Show_MobilePhone extends Controller{
 
     function ShowMobilePhone(){
         $this->view("Index" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone()]);
-
     }
 
 }

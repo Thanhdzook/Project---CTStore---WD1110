@@ -6,14 +6,14 @@
             return mysqli_query($this->con , $qr);
         }
 
-        // public function Create_Account($full_name , $phone_number , $email , $password ){
-        //     $qr = "insert into account (full_name, phone_number, email, password , role) values ('$full_name','$phone_number','$email','$password' , 2 )";
-        //     $result = false;
-        //     if(mysqli_query($this->con , $qr)){
-        //         $result = true;
-        //     }
+        public function Create_MobilePhone($mobilePhone_name, $chip, $memory, $camera, $operatingSystem, $weight, $pin, $warrantyPeriod, $price, $amount, $img){
+            $qr = "insert into mobilephone (mobilePhone_name, chip, memory, camera, operatingSystem, weight, pin, warrantyPeriod, price, amount, img) values ('$mobilePhone_name', '$chip', '$memory', '$camera', '$operatingSystem', '$weight', '$pin', '$warrantyPeriod', '$price', '$amount', '$img')";
+            $result = false;
+            if(mysqli_query($this->con , $qr)){
+                $result = true;
+            }
 
-        //     return json_encode($result);
-        // }
+            return json_encode($result);
+        }
     }
 ?>
