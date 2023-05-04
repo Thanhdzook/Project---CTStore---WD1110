@@ -12,16 +12,13 @@
         }
 
         public function Count_MobilePhone_By_Value($name,$data){
-            $qr = "select count(*) from mobilephone where '$name' = '$data'";
-            mysqli_query($this->con , $qr);
-            return var_dump(MYSQLI_STORE_RESULT);
+            $qr = "select count(*) from mobilephone where ".$name." = '$data'";
+            return mysqli_query($this->con , $qr);
         }
 
         public function Count_MobilePhone(){
             $qr = "select count(*) from mobilephone";
-            mysqli_query($this->con , $qr);
-            return MYSQLI_STORE_RESULT;
-
+            return mysqli_query($this->con , $qr);
         }
 
         public function Create_MobilePhone($mobilePhone_name, $chip, $memory, $camera, $operatingSystem, $weight, $pin, $warrantyPeriod, $price, $amount, $img){
