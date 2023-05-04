@@ -6,6 +6,24 @@
             return mysqli_query($this->con , $qr);
         }
 
+        public function Sreach_MobilePhone_By_Value($name, $data){
+            $qr = "select * from mobilephone where ".$name." = '$data'";
+            return mysqli_query($this->con , $qr);
+        }
+
+        public function Count_MobilePhone_By_Value($name,$data){
+            $qr = "select count(*) from mobilephone where '$name' = '$data'";
+            mysqli_query($this->con , $qr);
+            return var_dump(MYSQLI_STORE_RESULT);
+        }
+
+        public function Count_MobilePhone(){
+            $qr = "select count(*) from mobilephone";
+            mysqli_query($this->con , $qr);
+            return MYSQLI_STORE_RESULT;
+
+        }
+
         public function Create_MobilePhone($mobilePhone_name, $chip, $memory, $camera, $operatingSystem, $weight, $pin, $warrantyPeriod, $price, $amount, $img){
             $qr = "insert into mobilephone (mobilePhone_name, chip, memory, camera, operatingSystem, weight, pin, warrantyPeriod, price, amount, img) values ('$mobilePhone_name', '$chip', '$memory', '$camera', '$operatingSystem', '$weight', '$pin', '$warrantyPeriod', '$price', '$amount', '$img')";
             $result = false;
