@@ -18,12 +18,29 @@
                     $img = $row['img'];
                     echo $row["mobilePhone_id"];
                     echo "<br>";
+                    echo $row["mobilePhone_name"];
+                    echo "<br>";
+                    echo $row["chip"];
+                    echo "<br>";
+                    echo $row["memory"];
+                    echo "<br>";
+                    echo $row["camera"];
+                    echo "<br>";
+                    echo $row["operatingSystem"];
+                    echo "<br>";
+                    echo $row["weight"];
+                    echo "<br>";
+                    echo $row["pin"];
+                    echo "<br>";
+                    echo $row["warrantyPeriod"];
+                    echo "<br>";
+                    echo $row["price"];
+                    echo "<br>";
+                    echo $row["amount"];
+                    echo "<br>";
                     ?>
             <div>
                 <img src="<?php echo $img ?>">
-            </div>
-            <div>
-                <a href="./MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $row["mobilePhone_id"]; ?>"><button>DETAIL</button></a>
             </div>
             <?php
                 }

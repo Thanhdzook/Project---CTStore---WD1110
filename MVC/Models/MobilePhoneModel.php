@@ -27,8 +27,12 @@
             if(mysqli_query($this->con , $qr)){
                 $result = true;
             }
-
             return json_encode($result);
+        }
+
+        public function MobilePhone_Detail($id){
+            $qr = "select * from mobilephone where mobilePhone_id = '$id'";
+            return mysqli_query($this->con , $qr);
         }
     }
 ?>
