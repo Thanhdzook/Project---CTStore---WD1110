@@ -47,10 +47,7 @@
             ?>
     </div>
     <div>
-        <form method="post" action="./Show_MobilePhone/SreachMobilePhone/mobilePhone_name">
-            <input type="text" class="form-style" placeholder="sreach" name="NameMobilePhone">
-            <input class="btn mt-4" type="submit" name="Sreach" value="Sreach">
-        </form>
+        <a href=""><button>mua</button></a>
     </div>
     <div id="footer"></div>
 </body>

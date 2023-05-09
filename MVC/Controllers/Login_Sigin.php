@@ -6,7 +6,7 @@ class Login_Sigin extends Controller{
     function __construct(){
         $this->accountModel = $this->model("AccountModel");
     }
-    function View_Login_Sinin(){
+    function View_Login_Sigin(){
         $this->view("Login_sigin");
     }
 
@@ -25,7 +25,8 @@ class Login_Sigin extends Controller{
                 }
             }
             if($check == true){
-                echo "true";
+                header("Location: ../Show_MobilePhone/ShowMobilePhone");
+                exit();
             }
             else {
                 echo "false";

@@ -1,7 +1,7 @@
 <?php
 class App{
-    protected $controller="Show_MobilePhone";
-    protected $action="ShowMobilePhone";
+    protected $controller="Login_Sigin";
+    protected $action="View_Login_Sigin";
     protected $params=[];
 
     function __construct(){
@@ -32,7 +32,6 @@ class App{
         $this->params = $arr?array_values($arr):[];
 
         call_user_func_array([new $this->controller , $this->action] , $this->params);
-        // call_user_func_array([$this->controller, $this->action], $this->params );
 
     }
 
