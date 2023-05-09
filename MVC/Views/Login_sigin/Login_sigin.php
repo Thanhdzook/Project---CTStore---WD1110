@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel='shortcut icon' href='../../wwwroot/img/Untitled-1.png'/>
+  <link rel="shortcut icon" href="../../wwwroot/img/t2.png"/>
   <title>CTstore Đăng nhập - Đăng ký</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
