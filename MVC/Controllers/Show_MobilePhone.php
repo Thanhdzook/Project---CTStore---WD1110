@@ -21,6 +21,9 @@ class Show_MobilePhone extends Controller{
             }
         }
     }
+    function View_Login_Sigin(){
+        echo "ok";
+    }
     
 }
 ?>

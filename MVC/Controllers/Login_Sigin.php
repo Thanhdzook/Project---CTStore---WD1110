@@ -26,7 +26,6 @@ class Login_Sigin extends Controller{
             }
             if($check == true){
                 header("Location: ../Show_MobilePhone/ShowMobilePhone");
-                exit();
             }
             else {
                 echo "false";
