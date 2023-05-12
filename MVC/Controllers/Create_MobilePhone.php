@@ -88,7 +88,7 @@
                 $warrantyPeriod = $_POST["warrantyPeriod"];
                 $price = $_POST["price"];
                 $amount = $_POST["amount"];
-                $img = "../../wwwroot/img/".basename( $_FILES["fileupload"]["name"]);
+                $img = "/Project---CTStore---WD1110/MVC/wwwroot/img/".basename( $_FILES["fileupload"]["name"]);
 
                 //insert to database
                 $check = $this->MobilePhoneModel->Create_MobilePhone($mobilePhone_name, $chip, $memory, $camera, $operatingSystem, $weight, $pin, $warrantyPeriod, $price, $amount, $img);

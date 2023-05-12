@@ -11,7 +11,6 @@ class Login_Sigin extends Controller{
     }
 
     function Check_Login(){
-        //get data from
         $check = false;
         if(isset($_POST["Login"])){
             $email = $_POST["email"];
@@ -21,17 +20,21 @@ class Login_Sigin extends Controller{
             $arr_accounts = $this->accountModel->List_Account();
             while($row = mysqli_fetch_array($arr_accounts)){
                 if($email == $row["email"] && $password == $row["password"]){
+                    $id = $row["account_id"];
                     $check = true;
                 }
             }
             if($check == true){
-                header("Location: ../Show_MobilePhone/ShowMobilePhone");
+                $_SESSION['email'] = $email;
+                $_SESSION['account_id'] = $id;
+
+                header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
+                exit();
             }
             else {
                 echo "false";
             }
         }
-        
     }
     function Check_Sigin(){
         //get data from

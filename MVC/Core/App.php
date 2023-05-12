@@ -1,12 +1,13 @@
 <?php
 class App{
-    protected $controller="Login_Sigin";
-    protected $action="View_Login_Sigin";
+    protected $controller="Show_MobilePhone";
+    protected $action="ShowMobilePhone";
     protected $params=[];
 
     function __construct(){
- 
+        //
         $arr = $this->UrlProcess();
+      
         if($arr === null){
             $arr[0] = $this->controller;
         }
@@ -30,7 +31,7 @@ class App{
 
         //Params
         $this->params = $arr?array_values($arr):[];
-
+      
         call_user_func_array([new $this->controller , $this->action] , $this->params);
 
     }

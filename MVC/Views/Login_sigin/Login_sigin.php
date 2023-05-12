@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="shortcut icon" href="../../wwwroot/img/t2.png"/>
+  <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png"/>
   <title>CTstore Đăng nhập - Đăng ký</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 
-                                            <form method="post" action="./Login_Sigin/Check_Login">
+                                            <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Login">
                                                 <h4 class="mb-4 pb-3">Đăng nhập</h4>
                                                 <div class="form-group">
                                                     <input type="email" class="form-style" placeholder="Email" name="email">

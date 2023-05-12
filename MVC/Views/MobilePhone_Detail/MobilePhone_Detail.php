@@ -17,6 +17,7 @@
                 while($row = mysqli_fetch_array($data["mobilePhone"])){
                     $img = $row['img'];
                     echo $row["mobilePhone_id"];
+                    $id = $row["mobilePhone_id"];
                     echo "<br>";
                     echo $row["mobilePhone_name"];
                     echo "<br>";
@@ -35,19 +36,23 @@
                     echo $row["warrantyPeriod"];
                     echo "<br>";
                     echo $row["price"];
+                    $price = $row["price"];
                     echo "<br>";
                     echo $row["amount"];
                     echo "<br>";
                     ?>
             <div>
-                <img src="<?php echo $img ?>">
+                <img style="width: 100px; height: 100px;" src="<?php echo $img?>">
             </div>
             <?php
                 }
             ?>
     </div>
     <div>
-        <a href=""><button>mua</button></a>
+        <form method="post" action="/Project---CTStore---WD1110/Order_Detail/Create_Order_Detail/<?php echo $id?>/<?php echo $price?>">
+            <input type="number" name="quantity" value="số lượng">
+            <input type="submit" name="payment" value="mua">
+        </form>
     </div>
     <div id="footer"></div>
 </body>
