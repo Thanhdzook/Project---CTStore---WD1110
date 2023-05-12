@@ -29,7 +29,7 @@
               die;
             }
           
-            $target_dir    = "C:/xampp/htdocs/Project---CTStore---WD1110/MVC/wwwroot/img/";
+            $target_dir    = "/Project---CTStore---WD1110/MVC/wwwroot/img/";
             $target_file   = $target_dir . basename($_FILES["fileupload"]["name"]);
           
             $allowUpload   = true;

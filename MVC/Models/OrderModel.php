@@ -5,10 +5,6 @@
             $qr = "select * from orders where account_id = '$account_id' and status = 1";
             return mysqli_query($this->con , $qr);
         }
-        // public function List_Order_Detail($order_id){
-        //     $qr = "select * from orderdetails where order_id = '$order_id' ";
-        //     return mysqli_query($this->con , $qr);
-        // }
         public function Create_Order($account_id){
             $date = date("Y-m-d");
             $qr = "insert into orders (account_id, order_date, status) VALUES ('$account_id', '$date', '1')";

@@ -21,7 +21,6 @@
                         $this->order->Create_Order_Detail($row["order_id"] , $mobilephone_id , $unit_price , $quantity);
                         echo "ok";
                     }
-                    
                 }
                 else{
                     $this->order->Create_Order($_SESSION["account_id"]);
