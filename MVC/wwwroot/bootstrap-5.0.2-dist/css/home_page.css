@@ -1,0 +1,59 @@
+/* .container{
+    width: 100%;
+    height: 1100px;
+    background-color: red;
+} */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+:root{
+    --LightGold-color: #ffeba7; 
+    --Bg-color: #2b2e38;
+}
+body{
+	font-family: 'Poppins', sans-serif !important;
+	font-weight: 300 !important;
+	line-height: 1.7;
+	color: #ffeba7;
+	/* background-color: var(--LightGold-color) !important; */
+}
+
+.navbar-ed{
+    background-color: var(--Bg-color);
+    background-color: var(--Bg-color) !important;
+}
+.navbar-ed a{
+    color: var(--LightGold-color) !important;
+}
+button.btn.btn-outline-success.search-btn{
+    color: white;
+}
+.block-top-home{
+    width: 100%;
+    height: 600px;
+    background-color: rgb(171, 171, 171);
+    
+}
+.menu-tree{
+    background-color: rgb(33, 127, 55);
+}
+.block-slide{
+    background-color: blue;
+}
+.banner-right{
+    background-color: aqua;
+}
+.block-hot-sale{
+    
+}
+
+@media only screen and (max-width: 970px){
+    .banner-right{
+        display: none;
+    }
+}
+@media only screen and (max-width: 768px){
+    .menu-tree{
+        display: none;
+    }
+}
+
+
