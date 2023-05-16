@@ -50,8 +50,8 @@
     </div>
     <div>
         <form method="post" action="/Project---CTStore---WD1110/Order_Detail/Create_Order_Detail/<?php echo $id?>/<?php echo $price?>">
-            <input type="number" name="quantity" value="số lượng">
-            <input type="submit" name="payment" value="mua">
+            <input type="number" name="quantity" value="1">
+            <input type="submit" name="payment" value="Đặt hàng">
         </form>
     </div>
     <div id="footer"></div>
