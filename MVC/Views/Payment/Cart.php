@@ -13,6 +13,12 @@
 <body>
     <div id="header"></div>
     <div id="content">
+        <?php
+            if($data["message"] != "null"){
+                $message = $data["message"];
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            }
+        ?>
         <form method="post" action="/Project---CTStore---WD1110/Payment/ViewPay">
             <?php 
                 while($row = mysqli_fetch_array($data["orderdetails"])){

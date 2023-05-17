@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
+    <?php
+        if($data["message"] != null){
+            $message = $data["message"];
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
+    ?>
     <header class="Header">
 		<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top navbar-ed">
 			<div class="container">
@@ -25,23 +31,34 @@
 					</li>
 				</ul>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<form class="search-form d-flex" role="search">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success search-btn" type="submit">Search</button>
+					<form class="search-form d-flex" role="search" method="post" action="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/mobilePhone_name">
+						<input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="NameMobilePhone">
+						<button class="btn btn-outline-success search-btn" type="Sreach" name="Sreach">Search</button>
 					</form>
 					<li class="nav-item">
-					<a class="nav-link" href="#">Giỏ hàng</a>
+					<a class="nav-link" href="/Project---CTStore---WD1110/Payment/ViewCart/null">Giỏ hàng</a>
 					</li>
-					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Tài khoản
-					</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="/Project---CTStore---WD1110/Account/View_AccountInfo/<?php echo $_SESSION['email'];?>">Thông tin cá nhân</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Đăng xuất</a></li>
-					</ul>
+                    <?php if($_SESSION["email"] == ""){
+                    ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin">
+                            Đăng nhập
+                        </a>
 					</li>
+                    <?php }?>
+                    <?php if($_SESSION["email"] != ""){
+                    ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tài khoản
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/Project---CTStore---WD1110/Account/View_AccountInfo/<?php echo $_SESSION['email'];?>">Thông tin cá nhân</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                            </ul>
+					    </li>
+                    <?php }?>
 				</ul>
 			</div>
 		</nav>
@@ -109,7 +126,6 @@
                                 while($row = mysqli_fetch_array($data["mobilePhone"])){
                                 $img = $row['img'];
                                 echo $img;
-                                
                                 ?>
                         </div>
                         <div class="product-name">
@@ -133,7 +149,9 @@
                             <?php echo $row['mobilePhone_name']?>
                         </div>
                         <div class="product-price">
-                            <?php echo $row['price']?>
+                            <?php echo $row['price'];
+                                // echo $_SESSION["email"];
+                            ?>
                         </div>
                         <?php } ?>
                     </div>

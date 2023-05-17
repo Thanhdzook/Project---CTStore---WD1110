@@ -25,6 +25,7 @@ body{
 }
 button.btn.btn-outline-success.search-btn{
     color: white;
+    border-radius: 20px
 }
 .block-top-home{
     width: 100%;

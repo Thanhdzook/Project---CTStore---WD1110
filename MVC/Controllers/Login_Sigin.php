@@ -6,8 +6,8 @@ class Login_Sigin extends Controller{
     function __construct(){
         $this->accountModel = $this->model("AccountModel");
     }
-    function View_Login_Sigin(){
-        $this->view("Login_sigin");
+    function View_Login_Sigin($message){
+        $this->view("Login_sigin" , ["message" => $message]);
     }
 
     function Check_Login(){
@@ -28,7 +28,7 @@ class Login_Sigin extends Controller{
                 $_SESSION['email'] = $email;
                 $_SESSION['account_id'] = $id;
 
-                header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
+                header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone/null");
                 exit();
             }
             else {
@@ -47,7 +47,9 @@ class Login_Sigin extends Controller{
 
             //insert to database
             $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password);
-            echo $check;
+            if($check == true){
+                header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin/Đăng ký thành công!");
+            }
         }
     }
 }

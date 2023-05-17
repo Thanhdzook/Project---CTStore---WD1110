@@ -1,22 +1,33 @@
 <?php
     class Payment extends Controller{
         public $order;
+        public $account;
         function __construct(){
             $this->order = $this->model("OrderModel");
-            // $this->mobilephone = $this->model("MobilePhoneModel");
+            $this->account = $this->model("AccountModel");
         }
         
-        function ViewCart(){
+        function ViewCart($message){
             if($_SESSION['account_id'] == null){
                 header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin");
             }
-            $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id']));
-            $order_id = $row["order_id"];
-            
-            $this->view2("Payment" , "Cart" ,["orderdetails" => $this->order->List_Order_Detail($order_id)]);
+            if(mysqli_fetch_column($this->order->Check_Orer($_SESSION['account_id'])) != 0){
+                $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id']));
+                $order_id = $row["order_id"];
+                if(mysqli_fetch_column($this->order->Check_Orer_Detail("order_id",$order_id)) != 0){
+                    $this->view2("Payment" , "Cart" ,["orderdetails" => $this->order->List_Order_Detail($order_id) , "message" => $message]); 
+                }
+                else{
+                    header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Giỏ hàng trống !");
+                }
+            }
+            else{
+                $this->order->Create_Order($_SESSION["account_id"]);
+                $this->ViewCart($message);
+            }
         }
-
         function ViewPay(){
+            $data3 = "";
             $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id']));
             $order_id = $row["order_id"];
             $data = [
@@ -27,14 +38,34 @@
                 while($row2 = mysqli_fetch_array($data["id"])){
                     $mobilephone_id = $row2["mobilePhone_id"];
                     if(isset($_POST[$mobilephone_id])){
-                        $data2 = [
-                            "mobilePhone_id" => $mobilephone_id
-                        ];
+                        $data3 = $data3 . " mobilephone.mobilePhone_id = " . $row2["mobilePhone_id"] . " or"; 
                     }
                 }
             }
-            $this->view("Payment"  ,["payment" => $this->order->List_Order_Detail($order_id)]);
+            $check = mysqli_fetch_column($this->account->Check_Customer($_SESSION['account_id']));
+            if($check == 0){
+                header("Location: /Project---CTStore---WD1110/Account/View_Add_Address");
+            }
+            else{
+                $this->view("Payment"  ,["payment" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id'])]);
+            }
+        }
 
+        function Pay(){
+            $data = "";
+            for($i = 0 ; $i<= $_SESSION["count"] ; $i++){
+                $data = $data . " mobilePhone_id != " . $_SESSION["mobilePhone_id"][$i] . " and";
+            }
+            $check = $this->order->Pay($_SESSION['account_id'] , trim($data , "and"));
+            unset($_SESSION['count']);
+            unset($_SESSION['mobilePhone_id']);
+            // echo $check;
+            if($check == true){
+                header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành công !");
+            }
+            else{
+                header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành không công !");
+            }
         }
     }
 ?>

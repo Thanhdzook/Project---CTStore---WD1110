@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="../../wwwroot/css/login_sigin/style.css">
 </head>
 <body>  
+    <?php
+        if($data["message"] != "null"){
+            $message = $data["message"];
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
+    ?>
 	<div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">
@@ -44,7 +50,7 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 
-                                            <form method="post" action="./Login_Sigin/Check_Sigin">
+                                            <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Sigin">
                                                 <h4 class="mb-3 pb-3">Đăng ký</h4>
                                                 <div class="form-group">
                                                     <input type="text" class="form-style" placeholder="Họ và Tên" name="FullName">

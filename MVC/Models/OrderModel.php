@@ -16,14 +16,14 @@
             $qr = "INSERT INTO orderdetails (order_id, mobilePhone_id, unit_price, quantity) VALUES ('$order_id', '$mobilephone_id', '$unit_price', '$quantity');";
             return mysqli_query($this->con , $qr);
         }
-
+        
         public function Check_Orer($account_id){
             $qr = "select count(*) from orders where account_id = '$account_id' and status = 1";
             return mysqli_query($this->con , $qr);
         }
 
-        public function Check_Orer_Detail( $name ,$order_id){
-            $qr = "select count(*) from orderdetails where ".$name." = ".$order_id."";
+        public function Check_Orer_Detail( $name ,$data){
+            $qr = "select count(*) from orderdetails where ".$name." = ".$data."";
             return mysqli_query($this->con , $qr);
         }
 
@@ -31,9 +31,38 @@
             $qr = "select mobilephone.mobilePhone_id , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
             return mysqli_query($this->con , $qr);
         }
+
+        public function List_Payment($id , $data){
+            $qr = "select mobilephone.mobilePhone_id , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity from mobilephone , orderdetails where orderdetails.order_id = ".$id." and (".$data.") and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
+            return mysqli_query($this->con , $qr);
+        }
+        
         public function Fix_Order_Detail($mobilePhone_id , $order_id , $maths , $data){
             $qr = "update orderdetails set quantity = quantity ".$maths." ".$data." where mobilePhone_id = ".$mobilePhone_id." and order_id = ".$order_id.";";
             return mysqli_query($this->con , $qr);
         }
+
+        public function Pay( $account_id , $data){
+            $data2 = [
+                "Order" => $this->List_Order($account_id)
+            ];
+            while($row2 = mysqli_fetch_array($data2["Order"])){
+                $order_id2 = $row2["order_id"];
+            }
+            $qr= "update orders set status = 2 where account_id = ".$account_id."";
+            mysqli_query($this->con , $qr);
+            $this->Create_Order($account_id);
+            $row = mysqli_fetch_array($this->List_Order($account_id));
+            $order_id = $row['order_id'];
+            $qr2 = "update orderdetails set order_id = ".$order_id." where (order_id = ".$order_id2.") and (".$data.")";
+            // return $qr2;
+            $result = false;
+            if(mysqli_query($this->con , $qr2)){
+                $result = true;
+            }
+
+            return json_encode($result);
+        }
+        
     }
 ?>
