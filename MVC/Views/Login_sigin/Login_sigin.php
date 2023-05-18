@@ -11,10 +11,10 @@
 </head>
 <body>  
     <?php
-        if($data["message"] != "null"){
-            $message = $data["message"];
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
+        // if($data["message"] != "null"){
+        //     $message = $data["message"];
+        //     echo "<script type='text/javascript'>alert('$message');</script>";
+        // }
     ?>
 	<div class="section">
 		<div class="container">

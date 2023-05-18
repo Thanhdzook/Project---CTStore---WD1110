@@ -6,8 +6,8 @@ class Login_Sigin extends Controller{
     function __construct(){
         $this->accountModel = $this->model("AccountModel");
     }
-    function View_Login_Sigin($message){
-        $this->view("Login_sigin" , ["message" => $message]);
+    function View_Login_Sigin(){
+        $this->view("Login_sigin");
     }
 
     function Check_Login(){
