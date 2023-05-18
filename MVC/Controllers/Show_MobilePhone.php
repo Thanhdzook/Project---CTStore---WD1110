@@ -7,9 +7,8 @@ class Show_MobilePhone extends Controller{
     }
 
     function ShowMobilePhone(){
-            $this->view("Index" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone()]);     
+            $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index"]);     
     }
-
     function ShowMobilePhone_message($message){
         $this->view("Index" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "message"=> $message]);     
     }

@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../wwwroot/css/login_sigin/style.css">
+  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/style.css">
 </head>
 <body>  
     <?php
-        if($data["message"] != "null"){
-            $message = $data["message"];
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
+        // if($data["message"] != "null"){
+        //     $message = $data["message"];
+        //     echo "<script type='text/javascript'>alert('$message');</script>";
+        // }
     ?>
 	<div class="section">
 		<div class="container">
