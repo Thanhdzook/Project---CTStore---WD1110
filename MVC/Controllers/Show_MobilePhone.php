@@ -12,7 +12,7 @@ class Show_MobilePhone extends Controller{
 
     function ShowMobilePhone_message($message){
         $this->view("Index" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "message"=> $message]);     
-}
+    }
 
     function SreachMobilePhone($name){
         if(isset($_POST["Sreach"])){

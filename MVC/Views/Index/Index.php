@@ -12,9 +12,9 @@
 </head>
 <body>
     <?php
-        if($data["message"] != null){
-            $message = $data["message"];
-            echo "<script type='text/javascript'>alert('$message');</script>";
+        if(isset($data["message"])){
+                $message = $data["message"];
+                echo "<script type='text/javascript'>alert('$message');</script>";
         }
     ?>
     <header class="Header">
@@ -114,51 +114,24 @@
 		<div class="banner">
             
 		</div>
-        <div class="block-hot-sale mt-5">
-            <div class="box-title">
-            </div>
-            <div class="block-product">
-                <div class="product-title"></div>
-                <div class="product-list">
-                    <div class="product">
-                        <div class="product-img">
-                            <?php 
-                                while($row = mysqli_fetch_array($data["mobilePhone"])){
-                                $img = $row['img'];
-                                echo $img;
-                                ?>
-                        </div>
-                        <div class="product-name">
-                            <?php echo $row['mobilePhone_name']?>
-                        </div>
-                        <div class="product-price">
-                            <?php echo $row['price']?>
-                        </div>
-                        <?php } ?>
-                    </div>
-                    <div class="product">
-                        <div class="product-img">
-                            <?php 
-                                while($row = mysqli_fetch_array($data["mobilePhone"])){
-                                $img = $row['img'];
-                                echo $img;
-                                
-                                ?>
-                        </div>
-                        <div class="product-name">
-                            <?php echo $row['mobilePhone_name']?>
-                        </div>
-                        <div class="product-price">
-                            <?php echo $row['price'];
-                                // echo $_SESSION["email"];
-                            ?>
-                        </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
-            <div class="time">2</div>
+
+        <div>
+            <?php
+                while($row = mysqli_fetch_array($data["mobilePhone"])){
+                    echo $row["mobilePhone_name"];
+                    echo "<br/>";
+                    echo $row["price"];
+                    echo "<br/>";
+                    $img = $row["img"];
+                    $id = $row["mobilePhone_id"];
+            ?>
+                <img style="width: 100px; height: 100px;" src="<?php echo $img?>">
+                <br/>
+                <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>"><button>xem chi tiết</button></a>
+                <br/>
+            <?php }?>
         </div>
+        
 
 	</main>
 	<!-- <footer class="footer">

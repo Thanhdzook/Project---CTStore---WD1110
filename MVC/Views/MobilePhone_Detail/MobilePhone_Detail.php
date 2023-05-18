@@ -16,6 +16,7 @@
             <?php 
                 while($row = mysqli_fetch_array($data["mobilePhone"])){
                     $img = $row['img'];
+
                     echo $row["mobilePhone_id"];
                     $id = $row["mobilePhone_id"];
                     echo "<br>";
@@ -38,8 +39,7 @@
                     echo $row["price"];
                     $price = $row["price"];
                     echo "<br>";
-                    echo $row["amount"];
-                    echo "<br>";
+                    $amount = $row["amount"];
                     ?>
             <div>
                 <img style="width: 100px; height: 100px;" src="<?php echo $img?>">
@@ -50,8 +50,8 @@
     </div>
     <div>
         <form method="post" action="/Project---CTStore---WD1110/Order_Detail/Create_Order_Detail/<?php echo $id?>/<?php echo $price?>">
-            <input type="number" name="quantity" value="1">
-            <input type="submit" name="payment" value="Đặt hàng">
+            <input type="number" name="quantity" max="<?php echo $amount ?>" min="1" value="1">
+            <input type="submit" name="Order" value="Đặt hàng">
         </form>
     </div>
     <div id="footer"></div>
