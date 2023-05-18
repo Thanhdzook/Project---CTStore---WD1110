@@ -5,7 +5,7 @@ class DB{
     public $con;
     protected $servername = "localhost";
     protected $username = "root";
-    protected $password = "Ttadhp2608.";
+    protected $password = "anh2003";
     protected $dbname = "ctstore";
 
     function __construct(){

@@ -28,7 +28,7 @@ class Login_Sigin extends Controller{
                 $_SESSION['email'] = $email;
                 $_SESSION['account_id'] = $id;
 
-                header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone/null");
+                header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
                 exit();
             }
             else {
@@ -51,6 +51,12 @@ class Login_Sigin extends Controller{
                 header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin/Đăng ký thành công!");
             }
         }
+    }
+
+    function Log_out(){
+        unset($_SESSION['account_id']);
+        unset($_SESSION['email']);
+        header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
     }
 }
 ?>

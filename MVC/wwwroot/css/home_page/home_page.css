@@ -1,8 +1,3 @@
-/* .container{
-    width: 100%;
-    height: 1100px;
-    background-color: red;
-} */
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 :root{
     --LightGold-color: #ffeba7; 
@@ -15,7 +10,10 @@ body{
 	color: #ffeba7;
 	/* background-color: var(--LightGold-color) !important; */
 }
-
+::before{ 
+    margin-top: 6px;
+    border: none;
+}
 .navbar-ed{
     background-color: var(--Bg-color);
     background-color: var(--Bg-color) !important;
@@ -24,8 +22,7 @@ body{
     color: var(--LightGold-color) !important;
 }
 button.btn.btn-outline-success.search-btn{
-    color: white;
-    border-radius: 20px
+    color: var(--LightGold-color) !important;
 }
 .block-top-home{
     width: 100%;
@@ -44,17 +41,6 @@ button.btn.btn-outline-success.search-btn{
 }
 .block-hot-sale{
     
-}
-
-@media only screen and (max-width: 970px){
-    .banner-right{
-        display: none;
-    }
-}
-@media only screen and (max-width: 768px){
-    .menu-tree{
-        display: none;
-    }
 }
 
 
