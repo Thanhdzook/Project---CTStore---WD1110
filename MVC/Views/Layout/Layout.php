@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        
+    <header style="background : black ; height : 10px">
     </header>
+      <?php
+        require_once "./MVC/Views/".$data["content"]."/".$data["content"].".php";
+      ?>
+    <footer style="background : black ; height : 10px">
+
+    </footer>
 </body>
