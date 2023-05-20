@@ -35,5 +35,10 @@
 
             return json_encode($result);
         }
+
+        public function Search_Account($email){
+            $qr = "select * from account where email = '$email'";
+            return mysqli_query($this->con , $qr);
+        }
     }
 ?>

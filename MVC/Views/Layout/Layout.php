@@ -48,7 +48,7 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tài khoản</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/Project---CTStore---WD1110/Account/View_AccountInfo/<?php echo $_SESSION['email'];?>">Thông tin cá nhân</a></li>
+                  <li><a class="dropdown-item" href="/Project---CTStore---WD1110/Account/View_Account_Infor">Thông tin cá nhân</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="/Project---CTStore---WD1110/Login_Sigin/Log_out">Đăng xuất</a></li>
                 </ul>

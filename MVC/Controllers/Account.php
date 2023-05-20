@@ -7,7 +7,11 @@ class Account extends Controller{
         $this->accountModel = $this->model("AccountModel");
     }
     function View_Add_Address(){
-        $this->view("Layout" , ["content" => "Add_Address"]);
+        $this->view("Layout" , ["content" => "Account" , "content2" => "Add_Address"]);
+    }
+
+    function View_Account_Infor(){
+        $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account($_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account"]);
     }
 
     function Add_Address(){
@@ -25,6 +29,13 @@ class Account extends Controller{
                 header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Thêm địa chỉ người nhận không thành công");
             }
         }
+    }
+
+    public function View_Fix_Infor_Account(){
+        $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account($_SESSION["email"]) ,"content" => "Account" , "content2" => "Fix_Infor_Account"]);
+    }
+    public function Fix_Infor_Account(){
+
     }
 }
 ?>
