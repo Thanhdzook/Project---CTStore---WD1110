@@ -12,11 +12,20 @@
 <body>
     
     <?php
-        if(isset($data["message"])){
-            $message = $data["message"];
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
+        // if(isset($data["message"])){
+        //     $message = $data["message"];
+        //     echo "<script type='text/javascript'>alert('$message');</script>";
+        // }
     ?>
+    <div class="swiper-container">
+         <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+         <!-- Thêm các slide khác nếu cần -->
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
 	<main class="container mt-3">
 		<div class="block-top-home row">
 			<div class="menu-tree col-md-2 col-xs-2">
@@ -93,5 +102,15 @@
 		<p>Footer của trang web</p>
 	</footer> -->
     <script src="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+    </script>
 </body>
 </html>
