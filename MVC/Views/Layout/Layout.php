@@ -11,7 +11,31 @@
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
-    <header class="Header sticky-top">
+    <header class="header">
+      <div class="logo">
+          <a href="#">CTSTORE</a>
+      </div>
+      <div class="search">
+        <form action="">
+          <input type="text" placeholder="Bạn cần tìm gì?">
+        </form>
+      </div>
+      <div class="icons">
+        <a href="#" class="bi bi-telephone-fill"></a>
+        <a href="#" class="bi bi-geo-alt-fill"></a>
+        <a href="#" class="bi bi-basket3-fill"></a>
+        <a href="#" class="bi bi-person-circle"></a>
+      </div>
+    </header>
+    <div class="links">
+        <a href="#">Danh mục sản phẩm</a>
+        <a href="#">SamSung</a>
+        <a href="#">Iphone</a>
+        <a href="#">SamSung</a>
+        <a href="#">Iphone</a>
+        <a href="#">SamSung</a>
+    </div>
+    <!-- <header class="Header sticky-top">
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-ed ">
           <div class="container">
             <a class="navbar-brand" href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone" style="color: #ffeba7;">CTstore</a>
@@ -33,7 +57,7 @@
               <a class="nav-link" href="/Project---CTStore---WD1110/Payment/ViewCart/null"><i class="bi bi-cart"></i> Giỏ hàng</a>
               </li>
                         <?php
-                          if(!isset($_SESSION["email"])){
+                          // if(!isset($_SESSION["email"])){
                         ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin">
@@ -41,10 +65,10 @@
                             </a>
                         </li>
                         <?php 
-                        }
+                        //}
                         ?>
                         <?php 
-                        if(isset($_SESSION["email"])){
+                        //if(isset($_SESSION["email"])){
                         ?>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i> Tài khoản</a>
@@ -55,12 +79,12 @@
                 </ul>
                 </li>
                         <?php
-                         }
+                         //}
                         ?>
             </ul>
           </div>
         </nav>
-      </header>
+      </header> -->
       <?php
         if(isset($data["content2"])){
           require_once "./MVC/Views/".$data["content"]."/".$data["content2"].".php";

@@ -3,6 +3,16 @@
     --LightGold-color: #ffeba7; 
     --Bg-color: #2b2e38;
 }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header{
+    background-color: var(--Bg-color);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
 body{
 	font-family: 'Poppins', sans-serif !important;
 	font-weight: 300 !important;
