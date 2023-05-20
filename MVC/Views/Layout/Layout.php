@@ -13,7 +13,7 @@
 <body>
     <header class="header row">
       <div class="logo col-md-3">
-          <a href="#" class="logoC">CTSTORE</a>
+          <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone" class="logoC">CTSTORE</a>
       </div>
       <div class="search col-md-4">
         <form class="search-form d-flex" role="search" method="post" action="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/mobilePhone_name">
@@ -23,7 +23,7 @@
       </div>
       <div class="icons col-md-5">
 
-        <a href="#" href="/Project---CTStore---WD1110/Payment/ViewCart/null" class="bi bi-basket3-fill"><span> Giỏ hàng</span></a>
+        <a href="/Project---CTStore---WD1110/Payment/ViewCart/null" class="bi bi-basket3-fill"><span> Giỏ hàng</span></a>
           <?php
             if(!isset($_SESSION["email"])){
           ?>
@@ -39,7 +39,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="bi bi-person-circle">Tài khoản</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/Project---CTStore---WD1110/Account/View_Account_Info/<?php echo $_SESSION['email'];?>">Thông tin cá nhân</a></li>
+                  <li><a class="dropdown-item bi bi-person-circle" href="/Project---CTStore---WD1110/Account/View_AccountInfo/<?php echo $_SESSION['email'];?>">Thông tin cá nhân</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item bi bi-box-arrow-right" href="/Project---CTStore---WD1110/Login_Sigin/Log_out">Đăng xuất</a></li>
                 </ul>

@@ -85,7 +85,6 @@
                     echo "<br/>";
                     echo $row["price"];
                     echo "<br/>";
-                    // echo $_SESSION['email'];
                     $img = $row["img"];
                     $id = $row["mobilePhone_id"];
             ?>
@@ -98,9 +97,6 @@
         
 
 	</main>
-	<!-- <footer class="footer">
-		<p>Footer của trang web</p>
-	</footer> -->
     <script src="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
