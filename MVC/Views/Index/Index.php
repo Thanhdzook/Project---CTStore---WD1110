@@ -13,8 +13,8 @@
     
     <?php
         if(isset($data["message"])){
-                $message = $data["message"];
-                echo "<script type='text/javascript'>alert('$message');</script>";
+            $message = $data["message"];
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
     ?>
     <div class="swiper-container">

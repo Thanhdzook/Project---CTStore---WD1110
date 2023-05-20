@@ -10,17 +10,18 @@ class Show_MobilePhone extends Controller{
             $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index"]);     
     }
     function ShowMobilePhone_message($message){
-        $this->view("Index" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "message"=> $message]);     
+        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index" , "message"=> $message]);     
     }
 
     function SreachMobilePhone($name){
         if(isset($_POST["Sreach"])){
             $data = $_POST["NameMobilePhone"];
             if(mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,$data)) != 0){
-                    $this->view("Index" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , $data )]);
+                    $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , $data ) , "content" => "Index"]);
             }
             else {
-                echo "ko co gi";
+                // echo "ko co gi";
+                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index" , "message" => "Không tìm thấy sản phẩm !"]);
             }
         }
     }

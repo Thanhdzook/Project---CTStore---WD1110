@@ -14,7 +14,7 @@
     <header class="Header sticky-top">
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-ed ">
           <div class="container">
-            <a class="navbar-brand" href="#" style="color: #ffeba7;">CTstore</a>
+            <a class="navbar-brand" href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone" style="color: #ffeba7;">CTstore</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" style="color: #ffeba7;"><i class="bi bi-border-width"></i></span>
             </button>
@@ -61,11 +61,14 @@
           </div>
         </nav>
       </header>
-
       <?php
-        require_once "./MVC/Views/".$data["content"]."/".$data["content"].".php";
+        if(isset($data["content2"])){
+          require_once "./MVC/Views/".$data["content"]."/".$data["content2"].".php";
+        }
       ?>
-    <footer style="background : black ; height : 10px">
-
-    </footer>
+      <?php
+        if(!isset($data["content2"])){
+          require_once "./MVC/Views/".$data["content"]."/".$data["content"].".php";
+        }
+      ?>
 </body>

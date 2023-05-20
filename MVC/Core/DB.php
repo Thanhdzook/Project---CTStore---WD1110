@@ -5,7 +5,7 @@ class DB{
     public $con;
     protected $servername = "localhost";
     protected $username = "root";
-    protected $password = "anh2003";
+    protected $password = "Ttadhp2608.";
     protected $dbname = "ctstore";
 
     function __construct(){
@@ -14,6 +14,5 @@ class DB{
         mysqli_select_db($this->con, $this->dbname);
         mysqli_query($this->con, "SET NAMES 'utf8'");
     }
-
 }
 ?>
