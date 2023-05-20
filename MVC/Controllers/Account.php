@@ -7,7 +7,7 @@ class Account extends Controller{
         $this->accountModel = $this->model("AccountModel");
     }
     function View_Add_Address(){
-        $this->view("Add_Address");
+        $this->view("Layout" , ["content" => "Add_Address"]);
     }
 
     function Add_Address(){

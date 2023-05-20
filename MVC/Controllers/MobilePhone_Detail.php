@@ -7,7 +7,7 @@ class MobilePhone_Detail extends Controller{
     }
 
     function ShowMobilePhoneDetail($id){
-        $this->view("MobilePhone_Detail" , ["mobilePhone"=> $this->mobilePhone->MobilePhone_Detail($id)]);
+        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->MobilePhone_Detail($id) , "content" => "MobilePhone_Detail"]);
     }
 }
 ?>

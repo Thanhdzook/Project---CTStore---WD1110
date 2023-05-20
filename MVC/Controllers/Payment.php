@@ -15,7 +15,7 @@
                 $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id']));
                 $order_id = $row["order_id"];
                 if(mysqli_fetch_column($this->order->Check_Orer_Detail("order_id",$order_id)) != 0){
-                    $this->view2("Payment" , "Cart" ,["orderdetails" => $this->order->List_Order_Detail($order_id) , "message" => $message]); 
+                    $this->view("Layout" ,["orderdetails" => $this->order->List_Order_Detail($order_id) , "content" => "Payment" , "content2" => "Cart" , "message" => $message]); 
                 }
                 else{
                     header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Giỏ hàng trống !");
@@ -47,7 +47,7 @@
                 header("Location: /Project---CTStore---WD1110/Account/View_Add_Address");
             }
             else{
-                $this->view("Payment"  ,["payment" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id'])]);
+                $this->view("Layout"  ,["payment" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id']) , "content" => "Payment"]);
             }
         }
 
