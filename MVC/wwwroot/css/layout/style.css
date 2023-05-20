@@ -14,13 +14,20 @@ body{
     margin-top: 6px;
     border: none;
 }
+input.form-control.me-2{
+    width: 450px;
+}
 ul.dropdown-menu.show{
     background-color: var(--Bg-color);
 }
+a.nav-link{
+    margin-left: 10px;
+}
+a.dropdown-item:hover{
+    background-color: #198754;
+}
 .navbar-ed{
-    background-color: var(--Bg-color);
     background-color: var(--Bg-color) !important;
-    border-radius: 20px;
 }
 .navbar-ed a{
     color: var(--LightGold-color) !important;
@@ -38,3 +45,32 @@ button.btn.btn-outline-success.search-btn{
         display: none;
     }
 }
+/* vi du */
+.swiper-container {
+    width: 100%;
+    height: 300px; /* Điều chỉnh độ cao tùy ý */
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 30px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .swiper-pagination {
+    position: relative;
+  }
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #999;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .swiper-pagination-bullet-active {
+    background: #333;
+  }
