@@ -12,10 +12,10 @@
 <body>
     
     <?php
-        if(isset($data["message"])){
-            $message = $data["message"];
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
+        // if(isset($data["message"])){
+        //     $message = $data["message"];
+        //     echo "<script type='text/javascript'>alert('$message');</script>";
+        // }
     ?>
     <div class="swiper-container">
          <div class="swiper-wrapper">
