@@ -20,7 +20,6 @@ class Show_MobilePhone extends Controller{
                     $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , $data ) , "content" => "Index"]);
             }
             else {
-                // echo "ko co gi";
                 $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index" , "message" => "Không tìm thấy sản phẩm !"]);
             }
         }

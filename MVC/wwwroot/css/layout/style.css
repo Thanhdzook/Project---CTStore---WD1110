@@ -33,7 +33,6 @@ body{
     font-weight: 1000px;
 }
 .logoC:hover{
-    transform: scale(1.2);
     color: var(--green-color);
 }
 .search input{
@@ -43,19 +42,14 @@ body{
     border: none;
     outline: none;
     border-radius: 15px 0 0 15px;
-    /* padding: 10px; */
     font-size: 16px;
 }
 button.btn.btn-outline-success.search-btn{
-    /* position: absolute; */
+
     width: 45px;
     border: none;
     border-radius: 0 15px 15px 0;
     background-color: var(--green-color);
-    /* top: 50%;
-    left: 50%;
-    transform: translate(50,50); */
-
 }
 button.btn.btn-outline-success.search-btn:hover{
     color: var(--LightGold-color);
@@ -81,6 +75,7 @@ button.btn.btn-outline-success.search-btn:hover{
 }
 span{
     font-size: 18px;
+    color: var(--LightGold-color);
 }
 .bi:hover{
     color: var(--green-color);
@@ -111,6 +106,9 @@ span{
 }
 .dropdown-divider{
     list-style: none;
+}
+li.nav-item{
+    list-style-type: none;
 }
 li.nav-item.dropdown{
     list-style-type: none;
