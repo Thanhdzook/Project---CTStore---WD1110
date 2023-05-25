@@ -40,5 +40,15 @@
             $qr = "select * from account where email = '$email'";
             return mysqli_query($this->con , $qr);
         }
+
+        public function Update_Infor_Account($full_name , $phone_number , $email , $id){
+            $qr = "update account set full_name = '$full_name' , phone_number = '$phone_number' , email = '$email' where account_id = ".$id." ;";
+            $result = false;
+            if(mysqli_query($this->con , $qr)){
+                $result = true;
+            }
+
+            return json_encode($result);
+        }
     }
 ?>

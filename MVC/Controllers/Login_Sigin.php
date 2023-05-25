@@ -27,6 +27,7 @@ class Login_Sigin extends Controller{
             if($check == true){
                 $_SESSION['email'] = $email;
                 $_SESSION['account_id'] = $id;
+                $_SESSION['password'] = $password;
 
                 header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
                 exit();
