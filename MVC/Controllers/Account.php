@@ -39,6 +39,10 @@ class Account extends Controller{
         $this->view("Layout" , ["content" => "Account" , "content2" => "Check_Password"]);
     }
 
+    public function View_Fix_Password(){
+        $this->view("Layout" , ["content" => "Account" , "content2" => "Fix_Password"]);
+    }
+
     public function Check_Password($password){
             if($password == $_SESSION['password']){
                 return true;
@@ -46,7 +50,6 @@ class Account extends Controller{
             else{
                 return false;
             }
-
     }
     public function Fix_Infor_Account($message){
         if($message == "password ok"){
@@ -73,8 +76,6 @@ class Account extends Controller{
                 $_SESSION['phone_number'] = $_POST["phone_number"];
                 $_SESSION['email'] = $_POST["email"];
                 header("Location: /Project---CTStore---WD1110/Account/View_Check_Password");
-                // $check = $this->accountModel->Update_Infor_Account($_POST["full_name"],$_POST["phone_number"],$_POST["email"],$_SESSION["account_id"]);
-                // header("Location: /Pr
             }
         }
     }

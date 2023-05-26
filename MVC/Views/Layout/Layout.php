@@ -40,8 +40,15 @@
             <div class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="bi bi-person-circle">Tài khoản</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item bi bi-person-circle" href="/Project---CTStore---WD1110/Account/View_Account_Infor">Thông tin cá nhân</a></li>
-                  <li><hr class="dropdown-divider"></li>
+                  <?php
+                    if($data["content"] != "Account"){
+                  ?>
+                    <li><a class="dropdown-item bi bi-person-circle" href="/Project---CTStore---WD1110/Account/View_Account_Infor">Thông tin cá nhân</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                  <?php
+                  }
+                  ?>
+
                   <li><a class="dropdown-item bi bi-box-arrow-right" href="/Project---CTStore---WD1110/Login_Sigin/Log_out">Đăng xuất</a></li>
                 </ul>
           </div>
