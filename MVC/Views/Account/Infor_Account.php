@@ -28,6 +28,7 @@
         </div>
         <a href="/Project---CTStore---WD1110/Account/View_Fix_Infor_Account"><button>Sửa thông tin tài khoản</button></a>
         <a href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
+        <a href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Lịch sử mua hàng</button></a>
 	</main>
 </body>
 </html>
