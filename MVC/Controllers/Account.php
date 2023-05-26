@@ -105,8 +105,5 @@ class Account extends Controller{
         }
     }
 
-    public function View_Purchase_History(){
-        
-    }
 }
 ?>
