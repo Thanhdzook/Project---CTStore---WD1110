@@ -21,6 +21,7 @@ body{
     grid-template-columns: repeat(3,1fr);
     padding: 20px;
     align-items: center;
+    margin: 0 auto;
 }
 .logo{
     position: relative;
@@ -77,11 +78,6 @@ button.btn.btn-outline-success.search-btn:hover{
 ul.dropdown-menu.show{
     background-color: var(--Bg-color);
 }
-/* .bi-basket3-fill,
-.bi-person-circle,
-.bi-list{
-    font-size: 100px !important;
-} */
 span{
     font-size: 18px !important;
     color: var(--LightGold-color);
@@ -98,9 +94,7 @@ span:hover{
 .dropdown-item:hover{
     background-color: none;
 }
-/* a.dropdown-item.bi.bi-person-circle:hover{
-    background-color: rgb(133, 133, 133);
-} */
+
 .links{
     background-color: var(--Bg-color);
     display: none;
@@ -154,9 +148,7 @@ a.nav-link.dropdown-toggle{
     a.nav-link.dropdown-toggle{
         font-size: 16px;
     }
-    /* button.btn.btn-outline-success.search-btn{
-        height: 35px;
-    } */
+
     .search input{
         height: 35px;
     }

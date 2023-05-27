@@ -8,39 +8,10 @@ body{
 	font-weight: 300 !important;
 	line-height: 1.7;
 	color: #ffeba7;
-	/* background-color: var(--LightGold-color) !important; */
 }
-::before{ 
-    margin-top: 6px;
-    border: none;
+.slider{
+	margin-top: 30px;
 }
-.navbar-ed{
-    background-color: var(--Bg-color);
-    background-color: var(--Bg-color) !important;
-}
-.navbar-ed a{
-    color: var(--LightGold-color) !important;
-}
-button.btn.btn-outline-success.search-btn{
-    color: var(--LightGold-color) !important;
-}
-.block-top-home{
-    width: 100%;
-    height: 600px;
-    background-color: rgb(171, 171, 171);
-    
-}
-.menu-tree{
-    background-color: rgb(33, 127, 55);
-}
-.block-slide{
-    background-color: blue;
-}
-.banner-right{
-    background-color: aqua;
-}
-.block-hot-sale{
-    
-}
+
 
 
