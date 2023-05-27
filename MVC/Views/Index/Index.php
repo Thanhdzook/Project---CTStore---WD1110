@@ -1,22 +1,29 @@
-<?php
-    if(isset($data["message"])){
-        $message = $data["message"];
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
-?>
-        <div>
-            <?php
-                while($row = mysqli_fetch_array($data["mobilePhone"])){
-                    echo $row["mobilePhone_name"];
-                    echo "<br/>";
-                    echo $row["price"];
-                    echo "<br/>";
-                    $img = $row["img"];
-                    $id = $row["mobilePhone_id"];
-            ?>
-                <img style="width: 100px; height: 100px;" src="<?php echo $img?>">
-                <br/>
-                <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>"><button>xem chi tiết</button></a>
-                <br/>
-            <?php }?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="slider">
+        <div class="container">
+            <div class="slider-content">
+                <div class="slider-content-left">
+
+                </div>
+                <div class="slider-content-right">
+                    <div class="slider-content-right-top">
+                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/GTS%204.png" alt="">
+                    </div>
+                    <div class="slider-content-right-bottom">
+                    
+                    </div>
+                </div>
+            </div>
         </div>
+
+    </section>
+</body>
+</html>
