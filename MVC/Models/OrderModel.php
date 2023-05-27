@@ -49,7 +49,8 @@
             while($row2 = mysqli_fetch_array($data2["Order"])){
                 $order_id2 = $row2["order_id"];
             }
-            $qr= "update orders set status = 2 where account_id = ".$account_id."";
+            $date = date("Y-m-d");
+            $qr= "update orders set status = 2 where account_id = ".$account_id." and order_date = '$date'";
             mysqli_query($this->con , $qr);
             $this->Create_Order($account_id);
             $row = mysqli_fetch_array($this->List_Order($account_id , 1));
@@ -60,7 +61,6 @@
             if(mysqli_query($this->con , $qr2)){
                 $result = true;
             }
-
             return json_encode($result);
         }
         

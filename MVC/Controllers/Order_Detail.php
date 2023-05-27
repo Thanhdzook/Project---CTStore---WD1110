@@ -1,8 +1,10 @@
 <?php
     class Order_Detail extends Controller{
         public $order;
+        public $mobilephone;
         function __construct(){
             $this->order = $this->model("OrderModel");
+            $this->mobilephone = $this->model("MobilePhoneModel");
         }
 
         function Create_Order_Detail($mobilephone_id , $unit_price){
@@ -30,8 +32,41 @@
             }
         }
 
-        public function View_Purchase_History(){
-            
+        public function View_Purchase_History(){ // order , order_details , mobile_phone
+            $data = ["order" => $this -> order -> List_Order($_SESSION["account_id"] , 2)];
+            while($row = mysqli_fetch_array($data["order"])){
+                // echo $row["order_id"];
+                $data2 = ["order_detail" => $this->order->List_Order_Detail($row["order_id"])];
+                while($row2 = mysqli_fetch_array($data2["order_detail"])){
+                    $data3 = ["mobilephone" => $this->mobilephone->Sreach_MobilePhone_By_Value("mobilePhone_id" , $row2["mobilePhone_id"])];
+                    $row3 = mysqli_fetch_array($data3["mobilephone"]);
+                    // echo $row["order_date"];
+                    // echo $row2["unit_price"];
+                    // echo $row2["quantity"];
+                    // echo $row3["mobilePhone_name"];
+                    // echo $row3["img"];
+                    // $data4 = [
+                    //     "date" => $row["order_date"],
+                    //     "pice" => $row2["unit_price"],
+                    //     "quantity" => $row2["quantity"],
+                    //     "name" => $row3["mobilePhone_name"],
+                    //     "img" => $row3["img"]
+                    // ];
+                }
+            }
+            // while($data4){
+            //     echo $data4["date"];
+            //     echo "<br>";
+            //     echo $data4["pice"];
+            //     echo "<br>";
+            //     echo $data4["quantity"];
+            //     echo "<br>";
+            //     echo $data4["name"];
+            //     echo "<br>";
+            //     echo $data4["img"];
+            //     echo "<br>";
+            // }
+            // $this -> order -> List_Order($_SESSION["account_id"] , 2);
         }
     }
 ?>
