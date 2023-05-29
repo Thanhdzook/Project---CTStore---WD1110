@@ -10,7 +10,7 @@
         function Create_Order_Detail($mobilephone_id , $unit_price){
             if(isset($_POST["Order"])){
                 $quantity = $_POST["quantity"];
-                if(mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'])) != 0){
+                if(mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'] , 1)) != 0){
                     $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , 1));
                     $order_id = $row["order_id"];
                     if(mysqli_fetch_column($this->order->Check_Order_Detail( "mobilePhone_id", $mobilephone_id , $order_id)) != 0){
@@ -33,40 +33,28 @@
         }
 
         public function View_Purchase_History(){ // order , order_details , mobile_phone
+            $a = 0;
+            $b = 0;
+            $c = 0;
             $data = ["order" => $this -> order -> List_Order($_SESSION["account_id"] , 2)];
             while($row = mysqli_fetch_array($data["order"])){
-                // echo $row["order_id"];
+                $b = 0;
+                $c = 0;
+                $data4[$a][$b][$c] = $row["order_date"];
                 $data2 = ["order_detail" => $this->order->List_Order_Detail($row["order_id"])];
                 while($row2 = mysqli_fetch_array($data2["order_detail"])){
+                    $b++;
+                    $data4[$a][$b][$c] = $row2["unit_price"];
                     $data3 = ["mobilephone" => $this->mobilephone->Sreach_MobilePhone_By_Value("mobilePhone_id" , $row2["mobilePhone_id"])];
-                    $row3 = mysqli_fetch_array($data3["mobilephone"]);
-                    // echo $row["order_date"];
-                    // echo $row2["unit_price"];
-                    // echo $row2["quantity"];
-                    // echo $row3["mobilePhone_name"];
-                    // echo $row3["img"];
-                    // $data4 = [
-                    //     "date" => $row["order_date"],
-                    //     "pice" => $row2["unit_price"],
-                    //     "quantity" => $row2["quantity"],
-                    //     "name" => $row3["mobilePhone_name"],
-                    //     "img" => $row3["img"]
-                    // ];
+                    while($row3 = mysqli_fetch_array($data3["mobilephone"])){
+                        $c++;
+                        $data4[$a][$b][$c] = $row3["mobilePhone_name"];
+                    }
                 }
+                $a++;
             }
-            // while($data4){
-            //     echo $data4["date"];
-            //     echo "<br>";
-            //     echo $data4["pice"];
-            //     echo "<br>";
-            //     echo $data4["quantity"];
-            //     echo "<br>";
-            //     echo $data4["name"];
-            //     echo "<br>";
-            //     echo $data4["img"];
-            //     echo "<br>";
-            // }
-            // $this -> order -> List_Order($_SESSION["account_id"] , 2);
+            $this -> order -> List_Order($_SESSION["account_id"] , 2);
+            $this->view("Layout" , ["history" => $data4 , "content" => "Account" , "content2" => "Purchase_History"]);
         }
     }
 ?>

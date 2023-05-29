@@ -12,13 +12,12 @@
         }
 
         public function Create_Order_Detail($order_id , $mobilephone_id , $unit_price , $quantity){
-            $date = date("Y-m-d");
             $qr = "INSERT INTO orderdetails (order_id, mobilePhone_id, unit_price, quantity) VALUES ('$order_id', '$mobilephone_id', '$unit_price', '$quantity');";
             return mysqli_query($this->con , $qr);
         }
         
-        public function Check_Order($account_id){
-            $qr = "select count(*) from orders where account_id = '$account_id' and status = 1";
+        public function Check_Order($account_id , $status){
+            $qr = "select count(*) from orders where account_id = '$account_id' and status = '$status'";
             return mysqli_query($this->con , $qr);
         }
 
@@ -49,8 +48,8 @@
             while($row2 = mysqli_fetch_array($data2["Order"])){
                 $order_id2 = $row2["order_id"];
             }
-            $date = date("Y-m-d");
-            $qr= "update orders set status = 2 where account_id = ".$account_id." and order_date = '$date'";
+            $date = date('Y-m-d H:i:s');
+            $qr= "update orders set status = 2 ,  order_date = '$date' where account_id = ".$account_id." and order_id = ".$order_id2." ";
             mysqli_query($this->con , $qr);
             $this->Create_Order($account_id);
             $row = mysqli_fetch_array($this->List_Order($account_id , 1));

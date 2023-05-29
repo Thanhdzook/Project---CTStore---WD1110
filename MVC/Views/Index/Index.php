@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+    if(isset($data["message"])){
+        $message = $data["message"];
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,7 +41,29 @@
                 </div>
             </div>
         </div>
-
+        <?php 
+                while($row = mysqli_fetch_array($data["mobilePhone"])){
+                    $img = $row["img"];
+                    $mobilephone_id = $row["mobilePhone_id"];
+                    $price = $row["price"];
+                    echo $row["mobilePhone_name"];
+                    echo "<br>";
+                    echo $row["mobilePhone_id"];
+                    echo "<br>";
+                    echo $row["amount"];
+                    echo "<br>";
+                    ?>
+                <div>
+                    <img style="width: 100px; height: 100px;" src="<?php echo $img?>">
+                </div>
+                <div>
+                    <form method="post" action="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $mobilephone_id ?>">
+                        <input type="submit" name="Order" value="mua">
+                    </form>
+                </div>
+            <?php
+                }
+            ?>
     </section>
 </body>
 </html>
