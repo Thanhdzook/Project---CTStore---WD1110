@@ -1,6 +1,9 @@
 <?php 
     class OrderModel extends DB{
-
+        public function Count_All_Order(){
+            $qr = "select count(*) from orders where status = 3";
+            return mysqli_query($this->con , $qr);
+        }
         public function List_Order($account_id , $status){
             $qr = "select * from orders where account_id = '$account_id' and status = ".$status."";
             return mysqli_query($this->con , $qr);

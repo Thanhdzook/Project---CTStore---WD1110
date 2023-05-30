@@ -9,5 +9,8 @@ class Controller{
     public function view($view , $data = []){
         require_once "./MVC/Views/".$view."/".$view.".php";
     }
+    public function view2($view , $view2 , $data = []){
+        require_once "./MVC/Views/".$view."/".$view2.".php";
+    }
 }
 ?>

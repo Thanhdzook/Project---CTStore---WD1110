@@ -1,6 +1,10 @@
 <?php 
     class AccountModel extends DB{
 
+        public function Count_Account(){
+            $qr = "select count(*) from account where role = 2";
+            return mysqli_query($this->con , $qr);
+        }
         public function List_Account(){
             $qr = "select * from account";
             return mysqli_query($this->con , $qr);

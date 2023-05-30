@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/style.css">
 </head>
 <body>  
-    <?php
-        // if($data["message"] != "null"){
-        //     $message = $data["message"];
-        //     echo "<script type='text/javascript'>alert('$message');</script>";
-        // }
-    ?>
+<?php
+    if(isset($data["message"])){
+        $message = $data["message"];
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+?>
 	<div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">

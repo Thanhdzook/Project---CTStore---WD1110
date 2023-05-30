@@ -1,6 +1,9 @@
 <?php 
     class MobilePhoneModel extends DB{
-
+        public function Count_All_MobilePhone(){
+            $qr = "select count(*) from mobilephone";
+            return mysqli_query($this->con , $qr);
+        }
         public function List_MobilePhone(){
             $qr = "select * from mobilephone";
             return mysqli_query($this->con , $qr);

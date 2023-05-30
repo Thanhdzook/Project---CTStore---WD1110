@@ -3,7 +3,8 @@
         $message = $data["message"];
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

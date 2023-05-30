@@ -37,4 +37,5 @@
             </select>
             <input type="submit" name="Payment" value="Mua">
         </form>
+        <a href="/Project---CTStore---WD1110/Account/View_Add_Address"><button value="them dia chi">them dia chi</a>
     </div>
