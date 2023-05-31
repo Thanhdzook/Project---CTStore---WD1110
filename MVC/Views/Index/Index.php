@@ -1,9 +1,3 @@
-<?php
-    if(isset($data["message"])){
-        $message = $data["message"];
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/home_page.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/styleHP.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- <script type="text/javascript" src="/Project---CTStore---WD1110/MVC/wwwroot/js/index.js"></script> -->
 </head>
 <body>
     <section class="slider">
@@ -21,19 +16,29 @@
             <div class="slider-content row d-flex">
                 <div class="slider-content-left col-md-3">
                     <ul>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">3</a></li>
                         <li><a href="#"></a></li>
                     </ul>
                 </div>
                 <div class="slider-content-right col-md-9">
-                    <div class="slider-content-right-top">
-                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/GTS%204.png" alt="">
+                    <div class="slider-content-right-top-container">
+                        <div class="slider-content-right-top">
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner1.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
+                        </div>
+                        <div class="slider-content-right-top-btn">
+                            <i class="bi bi-chevron-left"></i>
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
                     </div>
                     <div class="slider-content-right-bottom">
-                        <li>Tieu de 1</li>
+                        <li class="active">Tieu de 1</li>
                         <li>Tieu de 1</li>
                         <li>Tieu de 1</li>
                         <li>Tieu de 1</li>
@@ -42,29 +47,71 @@
                 </div>
             </div>
         </div>
-        <?php 
-                while($row = mysqli_fetch_array($data["mobilePhone"])){
-                    $img = $row["img"];
-                    $mobilephone_id = $row["mobilePhone_id"];
-                    $price = $row["price"];
-                    echo $row["mobilePhone_name"];
-                    echo "<br>";
-                    echo $row["mobilePhone_id"];
-                    echo "<br>";
-                    echo $row["amount"];
-                    echo "<br>";
-                    ?>
-                <div>
-                    <img style="width: 100px; height: 100px;" src="<?php echo $img?>">
-                </div>
-                <div>
-                    <form method="post" action="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $mobilephone_id ?>">
-                        <input type="submit" name="Order" value="mua">
-                    </form>
-                </div>
-            <?php
-                }
-            ?>
+
     </section>
+    <div class="slider-product-one" >
+        <div class="container">
+            <div class="slider-product-one-content-title">
+                <h2>Nổi bật</h2>
+            </div>
+            <div class="slider-product-one-content-items">
+                <div class="slider-product-one-content-item">
+                    <img src="https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/t/gtt_7766_3__1.jpg" alt="">
+                </div>
+                <div class="slider-product-one-content-item-text">
+                    <li>ten dien thoai</li>
+                    <li>gia</li>
+                    <li></li>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    const rightbtn = document.querySelector('.bi-chevron-right')
+    const leftbtn = document.querySelector('.bi-chevron-left')
+    const imgNumber = document.querySelectorAll('.slider-content-right-top img')
+    const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom li')
+    let index = 0
+
+    rightbtn.addEventListener("click",function(){
+        index = index + 1
+        if (index>imgNumber.length-1) {
+            index = 0
+        }
+        removeActive ()
+        document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+        imgNumberLi[index].classList.add("active")
+    });
+    leftbtn.addEventListener("click",function(){
+        index = index - 1
+        if (index<=0) {
+            index = imgNumber.length-1
+        }
+        removeActive ()
+        document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+        imgNumberLi[index].classList.add("active")
+    });
+    imgNumberLi.forEach(function(image,index){
+        image.addEventListener("click",function(){
+            removeActive ()
+            document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+            image.classList.add("active")
+        })
+    })
+    function removeActive (){
+        let imgactive = document.querySelector('.active');
+        imgactive.classList.remove("active")
+    }
+    function imgAuto(){
+        index = index +1
+        if (index>imgNumber.length-1) {
+            index = 0
+        }
+        removeActive ()
+        document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+        imgNumberLi[index].classList.add("active")
+    }
+    setInterval(imgAuto,6000)
+</script>
 </body>
 </html>
