@@ -387,3 +387,6 @@ li{
 .slider-product-one-content-title{
     margin-top: 50px;
 }
+.slider-product-one-content-item img{
+    width: 300px;
+}

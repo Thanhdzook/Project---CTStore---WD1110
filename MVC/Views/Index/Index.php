@@ -60,15 +60,33 @@
             <div class="slider-product-one-content-title">
                 <h2>Nổi bật</h2>
             </div>
-            <div class="slider-product-one-content-items">
-                <div class="slider-product-one-content-item">
-                    <img src="https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/g/t/gtt_7766_3__1.jpg" alt="">
+            <div class="slider-product-one-content-items d-flex">
+                <?php
+                    while($row = mysqli_fetch_array($data["mobilePhone"])){
+                        $name_phone = $row["mobilePhone_name"];
+                        $price = $row["price"];
+                        $img = $row["img"];
+                ?>
+                <div>
+                    <div class="slider-product-one-content-item d-flex">
+                        <img src="<?php echo $img ?>">
+                    </div>
+                    <div class="slider-product-one-content-item-text">
+                        <li><?php echo $name_phone ?></li>
+                        <li><?php echo $price ?></li>
+                    </div>
                 </div>
-                <div class="slider-product-one-content-item-text">
-                    <li>ten dien thoai</li>
-                    <li>gia</li>
-                    <li></li>
+                <div>
+                    <div class="slider-product-one-content-item d-flex">
+                        <img src="<?php echo $img ?>">
+                    </div>
+                    <div class="slider-product-one-content-item-text">
+                        <li><?php echo $name_phone ?></li>
+                        <li><?php echo $price ?></li>
+                    </div>
                 </div>
+
+                <?php } ?>
             </div>
         </div>
     </div>

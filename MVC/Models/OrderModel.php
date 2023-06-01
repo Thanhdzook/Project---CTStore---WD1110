@@ -5,7 +5,7 @@
             return mysqli_query($this->con , $qr);
         }
         public function List_Order($account_id , $status){
-            $qr = "select * from orders where account_id = '$account_id' and status = ".$status."";
+            $qr = "select * from orders where account_id = ".$account_id." and status = ".$status."";
             return mysqli_query($this->con , $qr);
         }
         public function Create_Order($account_id){

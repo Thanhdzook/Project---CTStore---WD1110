@@ -6,8 +6,11 @@ class Show_MobilePhone extends Controller{
     function __construct(){
         $this->mobilePhone = $this->model("MobilePhoneModel");
         $this->order = $this->model("OrderModel");
-        $row = mysqli_fetch_array($this->order->List_Order($_SESSION["account_id"] , 1));
-        $_SESSION["Count_Cart"] = mysqli_fetch_column($this->order->Check_Order_Detail("order_id" , $row["order_id"] , $row["order_id"]));
+        if(isset($_SESSION["account_id"])){
+            $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , 1));
+            $_SESSION["Count_Cart"] = mysqli_fetch_column($this->order->Check_Order_Detail("order_id" , $row["order_id"] , $row["order_id"]));
+        }
+        
     }
 
     function ShowMobilePhone(){
