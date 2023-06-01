@@ -31,7 +31,7 @@
 -- create table Customer(
 --     account_id int NOT NULL,
 --     customer_name varchar(50) not null,
---     customer_phonenumber varchar(12)not null UNIQUE,
+--     customer_phonenumber varchar(12)not null,
 --     customer_address varchar(50),
 --     CONSTRAINT fk_Customer_Account_accountId FOREIGN KEY (account_id) REFERENCES account (account_id)
 -- );
@@ -54,4 +54,3 @@
 --   CONSTRAINT fk_OrderDetails_Orders_mobileid FOREIGN KEY (mobilePhone_id) REFERENCES mobilephone (mobilePhone_id) ON UPDATE CASCADE,
 --   CONSTRAINT fk_OrderDetails_Orders_orderid FOREIGN KEY (order_id) REFERENCES orders (order_id) ON UPDATE CASCADE
 -- ) ;
-

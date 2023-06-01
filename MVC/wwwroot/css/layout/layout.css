@@ -36,12 +36,12 @@ body{
 a.logoC{
     margin-left: 15px;
 }
-.logoC{
+/* .logoC{ */
     /* position: absolute; */
     /* top: 50%;
     left: 50%;
     transform: translate(-50%,-50%); */
-}
+/* } */
 .logoC:hover{
     color: var(--green-color);
 }

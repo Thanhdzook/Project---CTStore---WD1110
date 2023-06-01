@@ -30,7 +30,7 @@
       </div>
       <div class="icons">
 
-        <a href="/Project---CTStore---WD1110/Payment/ViewCart/null" class="bi bi-basket3-fill"><span> Giỏ hàng</span></a>
+        <a href="/Project---CTStore---WD1110/Payment/ViewCart/null" class="bi bi-basket3-fill"><span> <?php echo $_SESSION["Count_Cart"] ?></span></a>
         <a href="#" class="bi bi-list" id="category"><span> Danh mục</span></a>
           <?php
             if(!isset($_SESSION["email"])){

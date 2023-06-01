@@ -70,6 +70,7 @@ class Login_Sigin extends Controller{
         unset($_SESSION['email']);
         unset($_SESSION['password']);
         unset($_SESSION['role']);
+        unset($_SESSION["Count_Cart"]);
         header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
     }
 }
