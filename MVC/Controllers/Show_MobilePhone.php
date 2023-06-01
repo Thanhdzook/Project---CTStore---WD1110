@@ -7,8 +7,16 @@ class Show_MobilePhone extends Controller{
     }
 
     function ShowMobilePhone(){
-        if(isset($_SESSION["role"]) == 1){
-              header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin");
+        if(isset($_SESSION["role"])){
+            $role = $_SESSION["role"];
+            switch($role){
+                case 1:
+                    header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin");
+                    break;
+                case 2:
+                    $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index"]);
+                    break;
+            }
         }
         else{
             $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index"]);
