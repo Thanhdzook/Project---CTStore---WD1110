@@ -28,6 +28,7 @@ class Login_Sigin extends Controller{
                 $_SESSION['email'] = $email;
                 $_SESSION['account_id'] = $id;
                 $_SESSION['password'] = $password;
+                $_SESSION['role'] = $role;
                 switch($role){
                     case 1:
                         header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin");
@@ -68,6 +69,7 @@ class Login_Sigin extends Controller{
         unset($_SESSION['account_id']);
         unset($_SESSION['email']);
         unset($_SESSION['password']);
+        unset($_SESSION['role']);
         header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
     }
 }

@@ -58,30 +58,22 @@
                                 <th>Email</th>
                                 <th>Address</th>
                             </tr>
-                            <tr>
-                                <td>Long</td>
-                                <td>Long@gmail.com</td>
-                                <td>Long bien</td>
-                                <td><a href="#" class="btn">View</a></td>
-                            </tr>
-                            <tr>
-                                <td>Son</td>
-                                <td>Son@gmail.com</td>
-                                <td>Long bien</td>
-                                <td><a href="#" class="btn">View</a></td>
-                            </tr>
-                            <tr>
-                                <td>Ky</td>
-                                <td>Ky@gmail.com</td>
-                                <td>Minh Khai</td>
-                                <td><a href="#" class="btn">View</a></td>
-                            </tr>
-                            <tr>
-                                <td>Quan</td>
-                                <td>Quan@gmail.com</td>
-                                <td>Long bien</td>
-                                <td><a href="#" class="btn">View</a></td>
-                            </tr>
+                            <?php
+                                while($row = mysqli_fetch_array($data["Recent Account"])){
+                                    $id = $row["account_id"];
+                                    $name = $row["full_name"];
+                                    $email = $row["email"];
+                                    $phoneN = $row["phone_number"];
+                            ?>
+                                <tr>
+                                    <td><?php echo $name ?></td>
+                                    <td><?php echo $email ?></td>
+                                    <td><?php echo $phoneN ?></td>
+                                    <td><a href="#" class="btn">View</a></td>
+                                </tr>
+                            <?php
+                                }
+                            ?>
                         </table>
                     </div>
                     <div class="new-student">
@@ -91,16 +83,27 @@
                         </div>
                         <table>
                             <tr>
-                                <th>User image</th>
+                                <th>Order Id</th>
                                 <th>User Name</th>
-                                <th>Profit</th>
+                                <th>Date</th>
                             </tr>
-                            <tr>
-                                <td><img src="images/user1.jpg" alt=""></td>
-                                <td>Long</td>
-                                <td><img src="images/info.png" alt=""></td>
-                            </tr>
-                            <tr>
+                            <?php
+                                while($row = mysqli_fetch_array($data["Recent Payment"])){
+                                    $id = $row["order_id"];
+                                    $full_name = $row["full_name"];
+                                    $date = $row["order_date"];
+                            ?>
+                                <tr>
+                                    <td><?php echo $id ?></td>
+                                    <td><?php echo $full_name ?></td>
+                                    <td><?php echo $date ?></td>
+                                    <td><a href="#" class="btn">View</a></td>
+                                </tr>
+                            <?php
+                                }
+                            ?>
+                            
+                            <!-- <tr>
                                 <td><img src="images/user1.jpg" alt=""></td>
                                 <td>Son</td>
                                 <td><img src="images/info.png" alt=""></td>
@@ -114,7 +117,7 @@
                                 <td><img src="images/user1.jpg" alt=""></td>
                                 <td>Quan</td>
                                 <td><img src="images/info.png" alt=""></td>
-                            </tr>
+                            </tr> -->
                         </table>
                     </div>
                 </div>

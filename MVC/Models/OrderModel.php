@@ -1,7 +1,7 @@
 <?php 
     class OrderModel extends DB{
         public function Count_All_Order(){
-            $qr = "select count(*) from orders where status = 3";
+            $qr = "select count(*) from orders where status = 4";
             return mysqli_query($this->con , $qr);
         }
         public function List_Order($account_id , $status){
@@ -66,5 +66,12 @@
             return json_encode($result);
         }
         
+        public function Recent_Payment($data , $name , $check){
+            $qr = "SELECT ".$data."
+                    FROM ".$name."
+                    ORDER BY ".$check." DESC
+                    LIMIT 0,5";
+            return mysqli_query($this->con , $qr);
+        }
     }
 ?>

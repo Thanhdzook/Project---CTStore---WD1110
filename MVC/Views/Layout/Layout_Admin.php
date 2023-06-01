@@ -18,12 +18,12 @@
                 <h1><a href="index.php">CTStore</a></h1>
             </div>
             <ul>
-                <li><a href="?controller=admin">Dashboard</a></li>
+                <!-- <li><a href="?controller=admin">Dashboard</a></li> -->
                 <li><a href="?controller=admin&redirect=user">Thành viên</a></li>
                 <li><a href="?controller=admin&redirect=product">Sản phẩm</a></li>
                 <li><a href="#">Đơn hàng</a></li>
                 <li><a href="?controller=admin&redirect=category">Danh mục</a></li>
-                <li><a href="?controller=login&action=logout">Logout</a></li>
+                <li><a href="/Project---CTStore---WD1110/Login_Sigin/Log_out">Đăng xuất</a></li>
 
             </ul>
         </div>

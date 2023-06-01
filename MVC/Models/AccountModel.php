@@ -54,5 +54,13 @@
 
             return json_encode($result);
         }
+
+        public function Recent_Account($data , $name , $check){
+            $qr = "SELECT ".$data."
+                    FROM ".$name."
+                    ORDER BY ".$check." DESC
+                    LIMIT 0,5";
+            return mysqli_query($this->con , $qr);
+        }
     }
 ?>

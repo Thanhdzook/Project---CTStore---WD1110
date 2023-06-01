@@ -7,7 +7,12 @@ class Show_MobilePhone extends Controller{
     }
 
     function ShowMobilePhone(){
-            $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index"]);     
+        if(isset($_SESSION["role"]) == 1){
+              header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin");
+        }
+        else{
+            $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index"]);
+        }
     }
     function ShowMobilePhone_message($message){
         $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index" , "message"=> $message]);     
