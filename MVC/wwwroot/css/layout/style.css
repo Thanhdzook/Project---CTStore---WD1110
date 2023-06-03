@@ -388,5 +388,8 @@ li{
     margin-top: 50px;
 }
 .slider-product-one-content-item img{
-    width: 300px;
+    width: 100px !important;
+}
+.slider-product-one{
+    background-color: #2b2e38;
 }

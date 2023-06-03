@@ -60,33 +60,30 @@
             <div class="slider-product-one-content-title">
                 <h2>Nổi bật</h2>
             </div>
-            <div class="slider-product-one-content-items d-flex">
+            <div class="row row-cols-2 row-cols-lg-5 row-cols-md-4 row-cols-xs-1 g-2 g-lg-3">
                 <?php
                     while($row = mysqli_fetch_array($data["mobilePhone"])){
                         $name_phone = $row["mobilePhone_name"];
                         $price = $row["price"];
                         $img = $row["img"];
                 ?>
-                <div>
-                    <div class="slider-product-one-content-item d-flex">
-                        <img src="<?php echo $img ?>">
-                    </div>
-                    <div class="slider-product-one-content-item-text">
-                        <li><?php echo $name_phone ?></li>
-                        <li><?php echo $price ?></li>
-                    </div>
-                </div>
-                <div>
-                    <div class="slider-product-one-content-item d-flex">
-                        <img src="<?php echo $img ?>">
-                    </div>
-                    <div class="slider-product-one-content-item-text">
-                        <li><?php echo $name_phone ?></li>
-                        <li><?php echo $price ?></li>
-                    </div>
-                </div>
+                
+                <div class="col slider-product">
+                    <div class="p-3 product">
 
+                            <div class="product-item d-flex">
+                                <img src="<?php echo $img ?>">
+                            </div>
+                            <div class="slider-product-one-content-item-text">
+                                <li><?php echo $name_phone ?></li>
+                                <li><?php echo $price ?></li>
+                            </div>
+
+                        
+                    </div>
+                </div>
                 <?php } ?>
+                
             </div>
         </div>
     </div>
