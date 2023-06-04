@@ -1,4 +1,9 @@
-
+<?php
+    if($data["message"] != "null"){
+        $message = $data["message"];
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+?>
             <div class="content">
                 <div class="cards">
                     <div class="card">
@@ -37,9 +42,9 @@
                     <div class="card">
                         <div class="box">
                             <h1>
-                                <!-- <?= $arr['count_category'] ?> -->
+                                <?= $data['count_admin'] ?>
                             </h1>
-                            <h3>Danh mục</h3>
+                            <h3>Account Admin</h3>
                         </div>
                         <div class="icon-case">
                             <img src="#" alt="">

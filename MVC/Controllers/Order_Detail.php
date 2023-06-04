@@ -54,7 +54,13 @@
                 $a++;
             }
             $this -> order -> List_Order($_SESSION["account_id"] , 2);
-            $this->view("Layout" , ["history" => $data4 , "content" => "Account" , "content2" => "Purchase_History"]);
+            if(isset($data4)){
+                $this->view("Layout" , ["history" => $data4 , "content" => "Account" , "content2" => "Purchase_History"]);
+            }
+            else{
+                $this->view("Layout" , ["message" => "Lịch sử mua hàng trống" , "content" => "Account" , "content2" => "Purchase_History"]);
+            }
+            // $this->view("Layout" , ["history" => $data4 , "content" => "Account" , "content2" => "Purchase_History"]);
         }
     }
 ?>
