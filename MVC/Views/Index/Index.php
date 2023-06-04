@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/styleHP.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <!-- <script type="text/javascript" src="/Project---CTStore---WD1110/MVC/wwwroot/js/index.js"></script> -->
 </head>
 <body>
@@ -76,10 +77,8 @@
                             </div>
                             <div class="slider-product-one-content-item-text">
                                 <li><?php echo $name_phone ?></li>
-                                <li><?php echo $price ?></li>
+                                <li><?php echo number_format($price, 0, '', ',') ?>đ</li>
                             </div>
-
-                        
                     </div>
                 </div>
                 <?php } ?>
@@ -134,5 +133,7 @@
     }
     setInterval(imgAuto,6000)
 </script>
+
+
 </body>
 </html>

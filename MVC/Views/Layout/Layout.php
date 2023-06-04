@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/layout.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" src="/Project---CTStore---WD1110/MVC/wwwroot/js/index.js" ></script>
 </head>
 <body>
@@ -83,6 +84,71 @@
               require_once "./MVC/Views/".$data["content"]."/".$data["content"].".php";
             }
           ?>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6">
+            <div class="single-box single-box1">
+              <h1>CTSTORE</h1>
+              <p>Gọi mua hàng <span>1800.2097</span></p>
+              <p>Gọi bảo hành <span>1800.2097</span></p>
+              <h2>Phương thức thanh toán</h2>
+              <div class="card-area">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+                <i class="fa-solid fa-credit-card"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-box">
+              <h2>Thông tin và chính sách</h2>
+              <ul>
+                <li><a href="#">Mua hàng và thanh toán</a></li>
+                <li><a href="#">Tra cứu đơn hàng</a></li>
+                <li><a href="#">Xem ưu đãi CTStore</a></li>
+                <li><a href="#">Tra thông tin bảo hành</a></li>
+                <li><a href="#">Tra cứu hóa đơn điện tử</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="single-box">
+              <h2>Dịch vụ</h2>
+              <ul>
+                <li><a href="#">Khách hàng</a></li>
+                <li><a href="#">Ưu đãi</a></li>
+                <li><a href="#">Chính sách</a></li>
+                <li><a href="#">Tuyển dụng</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="single-box">
+              <h2>Gửi góp ý</h2>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nhập email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-arrow-right-long"></i></span>
+              </div>
+              <h2>Follow us on</h2>
+              <p class="socials">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="end-footer">
+      <div class="container content">
+      <p>Công ty TNHH CTStore. Địa chỉ văn phòng: 18 Đ. Tam Trinh, Mai Động, Hai Bà Trưng, Hà Nội, Việt Nam. Điện thoại: 0123123123 </p>
+      </div>
+        
+    </div>
 <script>
     document.getElementsByClassName("bi")[4].addEventListener("click", function(){
       document.getElementsByClassName("links")[0].classList.toggle("showmyLinks");

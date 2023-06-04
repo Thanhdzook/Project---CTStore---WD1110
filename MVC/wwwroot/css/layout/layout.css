@@ -405,3 +405,13 @@ li{
     width: 200px !important;
     align-items: center;
 }
+/* --------------------footer---------------------------------------------- */
+footer{
+    background-color: var(--Bg-color);
+    padding: 85px 0;
+}
+.single-box p{
+    color: var(--LightGold-color);
+    line-height: 1.9;
+    
+}
