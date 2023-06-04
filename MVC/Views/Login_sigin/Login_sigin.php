@@ -50,7 +50,7 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 
-                                            <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Sigin">
+                                            <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Sigin/2">
                                                 <h4 class="mb-3 pb-3">Đăng ký</h4>
                                                 <div class="form-group">
                                                     <input type="text" class="form-style" placeholder="Họ và Tên" name="FullName">

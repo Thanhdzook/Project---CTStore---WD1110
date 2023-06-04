@@ -1,8 +1,8 @@
 <?php 
     class AccountModel extends DB{
 
-        public function Count_Account(){
-            $qr = "select count(*) from account where role = 2";
+        public function Count_Account($role){
+            $qr = "select count(*) from account where role = ".$role."";
             return mysqli_query($this->con , $qr);
         }
         public function List_Account(){
@@ -10,8 +10,8 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function Create_Account($full_name , $phone_number , $email , $password ){
-            $qr = "insert into account (full_name, phone_number, email, password , role) values ('$full_name','$phone_number','$email','$password' , 2 )";
+        public function Create_Account($full_name , $phone_number , $email , $password , $role){
+            $qr = "insert into account (full_name, phone_number, email, password , role) values ('$full_name','$phone_number','$email','$password' , ".$role." )";
             $result = false;
             if(mysqli_query($this->con , $qr)){
                 $result = true;

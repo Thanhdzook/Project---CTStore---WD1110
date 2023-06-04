@@ -76,10 +76,8 @@
                             </div>
                             <div class="slider-product-one-content-item-text">
                                 <li><?php echo $name_phone ?></li>
-                                <li><?php echo $price ?></li>
+                                <li><?php echo number_format($price, 0, '', ',') ?>đ</li>
                             </div>
-
-                        
                     </div>
                 </div>
                 <?php } ?>

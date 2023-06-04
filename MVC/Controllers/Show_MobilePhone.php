@@ -7,10 +7,15 @@ class Show_MobilePhone extends Controller{
         $this->mobilePhone = $this->model("MobilePhoneModel");
         $this->order = $this->model("OrderModel");
         if(isset($_SESSION["account_id"])){
-            $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , 1));
-            $_SESSION["Count_Cart"] = mysqli_fetch_column($this->order->Check_Order_Detail("order_id" , $row["order_id"] , $row["order_id"]));
+            $row = mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'] , 1));
+            if($row == 0){
+                $_SESSION["Count_Cart"] = 0;
+            }
+            else{
+                $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , 1));
+                $_SESSION["Count_Cart"] = mysqli_fetch_column($this->order->Check_Order_Detail("order_id" , $row["order_id"] , $row["order_id"]));
+            }
         }
-        
     }
 
     function ShowMobilePhone(){
@@ -18,7 +23,7 @@ class Show_MobilePhone extends Controller{
             $role = $_SESSION["role"];
             switch($role){
                 case 1:
-                    header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin");
+                    header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/null");
                     break;
                 case 2:
                     $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone() , "content" => "Index"]);
