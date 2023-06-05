@@ -73,7 +73,6 @@
                         $sale = $row["sale"];
                         $img = $row["img"];
                 ?>
-                
                 <div class="col slider-product">
                     <div class="p-3 product">
                         <div class="product-item d-flex">
@@ -103,7 +102,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <?php } ?>
                 <?php
                     if($_SESSION["next"] != 0){
