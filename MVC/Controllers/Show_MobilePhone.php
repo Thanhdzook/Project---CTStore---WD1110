@@ -48,7 +48,8 @@ class Show_MobilePhone extends Controller{
         if(isset($_POST["Sreach"])){
             $data = $_POST["NameMobilePhone"];
             if(mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data))) != 0){
-                    $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , trim($data) ) , "content" => "Index"]);
+                $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data)));
+                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , trim($data) ) , "content" => "Index"]);
             }
             else {
                 $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "content" => "Index" , "message" => "Không tìm thấy sản phẩm !"]);
