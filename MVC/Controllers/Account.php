@@ -11,7 +11,7 @@ class Account extends Controller{
     }
 
     function View_Account_Infor(){
-        $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account($_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account"]);
+        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account($_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account"]);
     }
 
     function Add_Address(){

@@ -62,11 +62,18 @@
     <div class="slider-product-one" >
         <div class="container">
             <div class="slider-product-one-content-title">
-                <h2>Nổi bật</h2>
+                <h2>NỔI BẬT</h2>
+                <div class="list-related">
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">iPhone</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Samsung</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xiaomi</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">OPPO</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xem tất cả</a>
+                </div>
             </div>
             <div class="row row-cols-2 row-cols-lg-5 row-cols-md-4 row-cols-xs-1 g-2 g-lg-3">
                 <?php
-                    while($row = mysqli_fetch_array($data["mobilePhone"])){
+                    while($row = mysqli_fetch_array($data["phone_outstanding"])){
                         $id = $row["mobilePhone_id"];
                         $name_phone = $row["mobilePhone_name"];
                         $price = $row["price"];
@@ -74,7 +81,7 @@
                         $sale = $row["sale"];
                         $img = $row["img"];
                 ?>
-                <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>">
+                <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>" class="text-href">
                     <div class="col slider-product">
                         <div class="p-3 product">
                             <div class="product-item d-flex">
@@ -108,16 +115,77 @@
                 <?php } ?>
             </div>
         </div>
-        <?php
-            if($_SESSION["next"] != 0){
-        ?>
-            <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]-20) ?>"><button>trang truoc</button></a>
-        <?php } ?>
-        <?php
-            if($_SESSION["next"] < $_SESSION["count_mobilephone"]-5){
-        ?>
-            <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]+20) ?>"><button>trang sau</button></a>
-        <?php } ?>
+        <div class="slider-product-two" >
+        <div class="container">
+            <div class="slider-product-one-content-title">
+                <h2>DANH SÁCH SẢN PHẨM</h2>
+                <div class="list-related">
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">iPhone</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Samsung</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xiaomi</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">OPPO</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xem tất cả</a>
+                </div>
+            </div>
+            <div class="row row-cols-2 row-cols-lg-5 row-cols-md-4 row-cols-xs-1 g-2 g-lg-3">
+                <?php
+                    while($row = mysqli_fetch_array($data["mobilePhone"])){
+                        $id = $row["mobilePhone_id"];
+                        $name_phone = $row["mobilePhone_name"];
+                        $price = $row["price"];
+                        $price_sale = ($row["price"]/100)*(100-$row["sale"]);
+                        $sale = $row["sale"];
+                        $img = $row["img"];
+                ?>
+                <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>" class="text-href">
+                    <div class="col slider-product">
+                        <div class="p-3 product">
+                            <div class="product-item d-flex">
+                                <img src="<?php echo $img ?>">
+                            </div>
+                            <div class="product-name">
+                                <h3><?php echo $name_phone ?></h3>
+                            </div>
+                            <div class="product-price">
+                                <p class="product-price-show"><?php echo number_format($price, 0, '', ',') ?>₫</p>
+                                <?php
+                                    if($sale != 0){
+                                ?>
+                                    <p class="product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
+                                    <div class="product-percent">Giảm <?php echo $sale ?>%</div>
+                                <?php } ?>
+                            </div>
+
+                            <div class="product-rating">
+                                <ul class="d-flex" style="padding: 0;">
+                                    <li><i class="bi bi-star-fill"></i></li>
+                                    <li><i class="bi bi-star-fill"></i></li>
+                                    <li><i class="bi bi-star-fill"></i></li>
+                                    <li><i class="bi bi-star-fill"></i></li>
+                                    <li><i class="bi bi-star-fill"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <?php } ?>
+            </div>
+        </div>
+        <div class="icons__pre-next">
+            <?php
+                if($_SESSION["next"] != 0){
+            ?>
+                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]-10) ?>">
+                <button><i class="fa-solid fa-circle-left" style="font-size: 32px;"></i></button></a>
+            <?php } ?>
+            <?php
+                if($_SESSION["next"] < $_SESSION["count_mobilephone"]-10){
+            ?>
+                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]+10) ?>">
+                <button><i class="fa-solid fa-circle-right" style="font-size: 32px;"></i></button></a>
+            <?php } ?>                           
+        </div>
+
     </div>
 <script>
     const rightbtn = document.querySelector('.bi-chevron-right')

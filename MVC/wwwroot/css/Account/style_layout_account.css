@@ -266,3 +266,34 @@ a.nav-link.dropdown-toggle{
         display: none !important;
     }
 }
+/* ---------------body----------------------- */
+.container{
+    max-width: 1200px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    color: #4a4a4a;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.list-funtion{
+    width: 22%;
+    background-color: #f6fbfc;
+    border-radius: 5px;
+    margin-top: 60px;
+}
+.list-funtion-item{
+    list-style: none;
+}
+.info-account{
+    width: 77%;
+    height: 1000px;
+    background-color: #1a955c;
+    margin-top: 60px;
+}
+/* -----------------info-account------------ */
+.info-account{
+    
+}

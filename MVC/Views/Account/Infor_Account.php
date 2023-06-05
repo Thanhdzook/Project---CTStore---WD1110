@@ -10,15 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/style.css">
     <title>Index</title>
 </head>
 <body>
 	<div class="container">
         <div class="">
-            aaaaaaaaaaaaa
+            aaaaaaaaasdasdas
         </div>
-        
 	</div>
 </body>
 </html>
@@ -35,3 +33,4 @@
         <!-- <a href="/Project---CTStore---WD1110/Account/View_Fix_Infor_Account"><button>Sửa thông tin tài khoản</button></a>
         <a href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
         <a href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History"><button>Lịch sử mua hàng</button></a> -->
+        
