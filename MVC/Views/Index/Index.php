@@ -82,7 +82,7 @@
                         <div class="product-name">
                             <h3><?php echo $name_phone ?></h3>
                         </div>
-                        <div class="product-price d-flex">
+                        <div class="product-price">
                             <p class="product-price-show"><?php echo number_format($price, 0, '', ',') ?>₫</p>
                             <?php
                                 if($sale != 0){
@@ -105,18 +105,18 @@
                 </div>
                 
                 <?php } ?>
-                <?php
-                    if($_SESSION["next"] != 0){
-                ?>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]-5) ?>"><button>trang truoc</button></a>
-                <?php } ?>
-                <?php
-                    if($_SESSION["next"] < $_SESSION["count_mobilephone"]-5){
-                ?>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]+5) ?>"><button>trang sau</button></a>
-                <?php } ?>
             </div>
         </div>
+        <?php
+            if($_SESSION["next"] != 0){
+        ?>
+            <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]-20) ?>"><button>trang truoc</button></a>
+        <?php } ?>
+        <?php
+            if($_SESSION["next"] < $_SESSION["count_mobilephone"]-5){
+        ?>
+            <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]+20) ?>"><button>trang sau</button></a>
+        <?php } ?>
     </div>
 <script>
     const rightbtn = document.querySelector('.bi-chevron-right')

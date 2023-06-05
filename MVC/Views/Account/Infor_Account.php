@@ -1,8 +1,8 @@
 <?php
-    if(isset($data["message"])){
-        $message = $data["message"];
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
+    // if(isset($data["message"])){
+    //     $message = $data["message"];
+    //     echo "<script type='text/javascript'>alert('$message');</script>";
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,25 +10,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/style.css">
     <title>Index</title>
 </head>
 <body>
-	<main class="container mt-3">
-        <div>
-            <?php
-                while($row = mysqli_fetch_array($data["account_infor"])){
-                    echo $row["full_name"];
-                    echo "<br/>";
-                    echo $row["phone_number"];
-                    echo "<br/>";
-                    echo $row["email"];
-                    echo "<br/>";
-                }
-            ?>
+	<div class="container">
+        <div class="">
+
         </div>
-        <a href="/Project---CTStore---WD1110/Account/View_Fix_Infor_Account"><button>Sửa thông tin tài khoản</button></a>
-        <a href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
-        <a href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History"><button>Lịch sử mua hàng</button></a>
-	</main>
+        
+	</div>
 </body>
 </html>
+<?php
+                // while($row = mysqli_fetch_array($data["account_infor"])){
+                //     echo $row["full_name"];
+                //     echo "<br/>";
+                //     echo $row["phone_number"];
+                //     echo "<br/>";
+                //     echo $row["email"];
+                //     echo "<br/>";
+                // }
+            ?>
+        <!-- <a href="/Project---CTStore---WD1110/Account/View_Fix_Infor_Account"><button>Sửa thông tin tài khoản</button></a>
+        <a href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
+        <a href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History"><button>Lịch sử mua hàng</button></a> -->
