@@ -103,6 +103,9 @@ button.btn.btn-outline-success.search-btn:hover{
     padding:  0px 20px !important;
     transition: 0.5s;
 }
+.bi-person-circle::before{
+    list-style: none;
+}
 ul.dropdown-menu.show{
     background-color: var(--Bg-color);
 }
@@ -269,7 +272,7 @@ a.nav-link.dropdown-toggle{
 .slider{
 	padding: 20px 0;
     height: 380px;
-    margin-top: 30px;
+    margin-top: 70px;
 }
 .slider-content.row.d-flex{
     justify-content: space-between;
@@ -391,27 +394,51 @@ li{
     .slider-content-right-top img{
         width: 577px;
     }
+    .slider-content-right-top a:nth-child(2) img{
+        transform: translateX(90%);
+    }
+    .slider-content-right-top a:nth-child(3) img{
+        transform: translateX(190%);
+    }
+    .slider-content-right-top a:nth-child(4) img{
+        transform: translateX(290%);
+    }
+    .slider-content-right-top a:nth-child(5) img{
+        transform: translateX(390%);
+    }
+}
+@media only screen and (max-width: 420px){
+    .slider{
+        margin: 0;
+    }
+    .slider-content-right-top img{
+        width: 330px;
+        height: 270px;
+    }
 }
 /* product */
 .slider-product-one-content-title{
     margin-top: 50px;
 }
-.slider-product{
-    position: relative;
-}
+
 .product{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 400px;
     border-radius: 10px;
+    position:  relative !important;
 }
 .product-item img{
     width: 220px !important;
+    
 }
 .product-name h3{
     font-size: 14px;
     font-weight: 600;
     height: 65px;
     overflow: hidden;
+}
+.product-price{
+    display: flex;
 }
 .product-price .product-price-show{
     color: #d70018;
@@ -428,7 +455,7 @@ li{
     margin: 0 0 10px 10px;
     text-decoration: line-through;
 }
-/* .product-percent{
+.product-percent{
     position: absolute;
     color: #fff;
     text-align: center;
@@ -442,9 +469,10 @@ li{
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
     left: 0;
-    top: -104%;
-} */
+    top: 0;
+}
 .product-rating{
+    
     margin-top: 25px;
 }
 .product-rating ul li{
@@ -458,16 +486,32 @@ li{
     .product-item img{
         width: 140px !important;
     }
+    .product-name h3{
+        height: 40px;
+    }
+    .product-price{
+        display: unset;
+    }
+    .product-price .product-price-sale{
+        margin: 0;
+    }
+    .product-rating{
+        margin-top: 15px;
+    }
 }
 @media only screen and (max-width: 420px){
     .product-item img{
         width: 150px !important;
+    }
+    .product-rating{
+        margin-top: 8px;
     }
 }
 /* --------------------footer---------------------------------------------- */
 footer{
     background-color: var(--Bg-color);
     padding: 85px 0;
+    margin-top: 20px;
 }
 .single-box1{
     width: 400px;
@@ -545,4 +589,11 @@ footer{
     .single-box{
         margin-bottom: 50px;
     }
+}
+/* --------------account--------------------------------------------- */
+main.container{
+    margin-top: 1000px;
+    height: 500px;
+    width: 100%;
+    background-color: bisque;
 }

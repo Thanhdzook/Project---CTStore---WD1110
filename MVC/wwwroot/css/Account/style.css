@@ -1,4 +1,6 @@
 main.container{
-    margin-top: 10px;
-    height: 300px;
+    margin-top: 1000px;
+    height: 500px;
+    width: 100%;
+    background-color: bisque;
 }
