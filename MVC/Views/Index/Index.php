@@ -1,7 +1,9 @@
 <?php
     if(isset($data["message"])){
-        $message = $data["message"];
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        if($data["message"] != "null"){
+            $message = $data["message"];
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -82,7 +84,16 @@
                     </div>
                 </div>
                 <?php } ?>
-                
+                <?php
+                    if($_SESSION["next"] != 0){
+                ?>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]-5) ?>"><button>trang truoc</button></a>
+                <?php } ?>
+                <?php
+                    if($_SESSION["next"] < $_SESSION["count_mobilephone"]-5){
+                ?>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]+5) ?>"><button>trang sau</button></a>
+                <?php } ?>
             </div>
         </div>
     </div>

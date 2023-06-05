@@ -4,8 +4,8 @@
             $qr = "select count(*) from mobilephone";
             return mysqli_query($this->con , $qr);
         }
-        public function List_MobilePhone(){
-            $qr = "select * from mobilephone";
+        public function List_MobilePhone($next){
+            $qr = "select * from mobilephone LIMIT ".$next.",5";
             return mysqli_query($this->con , $qr);
         }
 
