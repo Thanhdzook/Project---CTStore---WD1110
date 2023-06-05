@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- <script type="text/javascript" src="/Project---CTStore---WD1110/MVC/wwwroot/js/index.js"></script> -->
 </head>
 <body>
@@ -66,21 +67,41 @@
                     while($row = mysqli_fetch_array($data["mobilePhone"])){
                         $name_phone = $row["mobilePhone_name"];
                         $price = $row["price"];
+                        $price_sale = ($row["price"]/100)*(100-$row["sale"]);
+                        $sale = $row["sale"];
                         $img = $row["img"];
                 ?>
                 
                 <div class="col slider-product">
                     <div class="p-3 product">
+                        <div class="product-item d-flex">
+                            <img src="<?php echo $img ?>">
+                        </div>
+                        <div class="product-name">
+                            <h3><?php echo $name_phone ?></h3>
+                        </div>
+                        <div class="product-price d-flex">
+                            <p class="product-price-show"><?php echo number_format($price, 0, '', ',') ?>₫</p>
+                            <?php
+                                if($sale != 0){
+                            ?>
+                                <p class="product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
+                                <div class="product-percent">Giảm <?php echo $sale ?>%</div>
+                            <?php } ?>
+                        </div>
 
-                            <div class="product-item d-flex">
-                                <img src="<?php echo $img ?>">
-                            </div>
-                            <div class="slider-product-one-content-item-text">
-                                <li><?php echo $name_phone ?></li>
-                                <li><?php echo number_format($price, 0, '', ',') ?>đ</li>
-                            </div>
+                        <div class="product-rating">
+                            <ul class="d-flex" style="padding: 0;">
+                                <li><i class="bi bi-star-fill"></i></li>
+                                <li><i class="bi bi-star-fill"></i></li>
+                                <li><i class="bi bi-star-fill"></i></li>
+                                <li><i class="bi bi-star-fill"></i></li>
+                                <li><i class="bi bi-star-fill"></i></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                
                 <?php } ?>
                 
             </div>
