@@ -31,17 +31,17 @@ class Show_MobilePhone extends Controller{
                     header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/null");
                     break;
                 case 2:
-                    $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "content" => "Index"]);
+                    $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale"), "content" => "Index"]);
                     break;
             }
         }
         else{
-            $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "content" => "Index"]);
+            $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale") , "content" => "Index"]);
         }
     }
     function ShowMobilePhone_message($message , $next){
         $_SESSION["next"] = $next;
-        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "content" => "Index" , "message"=> $message]);     
+        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale") , "content" => "Index" , "message"=> $message]);     
     }
 
     function SreachMobilePhone_By_Name($name){

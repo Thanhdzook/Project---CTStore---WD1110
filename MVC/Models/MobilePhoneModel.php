@@ -37,5 +37,13 @@
             $qr = "select * from mobilephone where mobilePhone_id = '$id'";
             return mysqli_query($this->con , $qr);
         }
+
+        public function Recent_Phone($data , $name , $check){
+            $qr = "SELECT ".$data."
+                    FROM ".$name."
+                    ORDER BY ".$check." DESC
+                    LIMIT 0,5";
+            return mysqli_query($this->con , $qr);
+        }
     }
 ?>
