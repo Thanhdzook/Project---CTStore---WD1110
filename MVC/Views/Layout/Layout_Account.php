@@ -1,3 +1,16 @@
+<?php
+      $check1 = "";
+      $check2 = "";
+      $check3 = $data["content2"];
+      switch($check3){
+        case "Purchase_History":
+          $check2 = "active1";
+          break;
+        case "Infor_Account":
+          $check1 = "active1";
+          break;
+      }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/style_layout_account.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/style-layout-account.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -53,14 +66,31 @@
       <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Oppo">Oppo</a>
     </div>
     <div class="container">
-        <div class="list-funtion">
-            <ul class="list-funtion-item">
-                <li><a href="#">Thông tin cá nhân</a></li>
-                <li><a href="#">Lịch sử mua hàng</a></li>
-                <li><a href="#">Thoát tài khoản</a></li>
-            </ul>
+        <div class="left-col">
+            <div class="block-menu">
+              <div id="div1" class="block-menu-item <?php echo $check1 ?>">
+                <a  href="/Project---CTStore---WD1110/Account/View_Account_Infor">
+                  <div class="block-menu__item-icon"><i class="fa-solid fa-circle-user"></i></div>
+                  <div class="block-menu__item-name">Tài khoản của bạn</div>
+                </a>
+              </div>
+              <div id="div2" class="block-menu-item <?php echo $check2 ?>">
+                <a href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History">
+                  <div class="block-menu__item-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                  </div>
+                  <div class="block-menu__item-name">Đơn hàng của bạn</div>
+                </a>
+              </div>
+              <div class="block-menu-item">
+                <a href="/Project---CTStore---WD1110/Login_Sigin/Log_out">
+                  <div class="block-menu__item-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                  <div class="block-menu__item-name">Thoát tài khoản</div>
+                </a>
+              </div>  
+            </div>
         </div>
-        <div class="info-account">
+        <div class="right-col">
         <?php
             if(isset($data["content2"])){
               require_once "./MVC/Views/".$data["content"]."/".$data["content2"].".php";
@@ -74,9 +104,9 @@
         </div>
     </div>
     <script>
-    document.getElementsByClassName("bi")[4].addEventListener("click", function(){
-      document.getElementsByClassName("links")[0].classList.toggle("showmyLinks");
-    });
-</script>
+      document.getElementsByClassName("bi")[4].addEventListener("click", function(){
+        document.getElementsByClassName("links")[0].classList.toggle("showmyLinks");
+      });
+    </script>
 </body>
 </html>

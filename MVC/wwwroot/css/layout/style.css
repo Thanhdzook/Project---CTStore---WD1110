@@ -215,6 +215,9 @@ a.nav-link.dropdown-toggle{
     .connect{
         display: none !important;
     }
+    .links.showmyLinks {
+        margin-top: 50px;
+    }
 }
 @media only screen and (max-width: 820px){
     .header{
@@ -266,7 +269,7 @@ a.nav-link.dropdown-toggle{
         display: none !important;
     }
 }
-/* home page */
+/*---------------------------- home page ----------------*/
 .slider{
 	padding: 20px 0;
     height: 380px;
@@ -414,7 +417,7 @@ li{
         height: 270px;
     }
 }
-/* product */
+/*-------------------- product -------------------*/
 .slider-product-one-content-title{
     margin-top: 50px;
     display: flex;
@@ -577,7 +580,7 @@ li{
         margin-bottom: 30px;
     }
 }
-/* --------------------footer---------------------------------------------- */
+/* --------------------footer-------------------------- */
 footer{
     background-color: var(--Bg-color);
     padding: 85px 0;
@@ -660,10 +663,4 @@ footer{
         margin-bottom: 50px;
     }
 }
-/* --------------account--------------------------------------------- */
-main.container{
-    margin-top: 1000px;
-    height: 500px;
-    width: 100%;
-    background-color: bisque;
-}
+/* --------------product detail--------------------------------------------- */
