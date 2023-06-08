@@ -9,8 +9,8 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function Sreach_MobilePhone_By_Value($name, $data ){
-            $qr = "select * from mobilephone where ".$name." = '$data' ";
+        public function Sreach_MobilePhone_By_Value($name, $data , $and){
+            $qr = "select * from mobilephone where ".$name." = '$data' ".$and."";
             return mysqli_query($this->con , $qr);
         }
 

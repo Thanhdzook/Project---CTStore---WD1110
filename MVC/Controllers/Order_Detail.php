@@ -45,7 +45,7 @@
                 while($row2 = mysqli_fetch_array($data2["order_detail"])){
                     $b++;
                     $data4[$a][$b][$c] = $row2["unit_price"];
-                    $data3 = ["mobilephone" => $this->mobilephone->Sreach_MobilePhone_By_Value("mobilePhone_id" , $row2["mobilePhone_id"])];
+                    $data3 = ["mobilephone" => $this->mobilephone->Sreach_MobilePhone_By_Value("mobilePhone_id" , $row2["mobilePhone_id"] , "")];
                     while($row3 = mysqli_fetch_array($data3["mobilephone"])){
                         $c++;
                         $data4[$a][$b][$c] = $row3["mobilePhone_name"];

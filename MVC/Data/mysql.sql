@@ -10,7 +10,8 @@
 --     phone_number varchar(10) not null,
 -- 	email varchar(100) not null,
 --     password varchar(100) not null,
---     role int(1) not null
+--     role int(1) not null,
+-- 	unique_id int(255) not null
 -- );
 
 -- create table MobilePhone(
@@ -25,7 +26,8 @@
 --     warrantyPeriod varchar(10) not null,
 --     price decimal(20,2) not null,
 --     amount int(10) not null,
---     img varchar(100) not null
+--     img varchar(100) not null,
+	-- color varchar(45) not null
 -- );
 
 -- create table Customer(
@@ -54,3 +56,10 @@
 --   CONSTRAINT fk_OrderDetails_Orders_mobileid FOREIGN KEY (mobilePhone_id) REFERENCES mobilephone (mobilePhone_id) ON UPDATE CASCADE,
 --   CONSTRAINT fk_OrderDetails_Orders_orderid FOREIGN KEY (order_id) REFERENCES orders (order_id) ON UPDATE CASCADE
 -- ) ;
+
+-- CREATE TABLE Chat(
+-- 	msg_id int,
+--     incomming_msg_id int(255),
+--     outcomming_msg_id int(255),
+--     msg varchar(1000)
+-- );
