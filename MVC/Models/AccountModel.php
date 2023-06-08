@@ -10,8 +10,8 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function Create_Account($full_name , $phone_number , $email , $password , $role){
-            $qr = "insert into account (full_name, phone_number, email, password , role) values ('$full_name','$phone_number','$email','$password' , ".$role." )";
+        public function Create_Account($full_name , $phone_number , $email , $password , $role , $random_id){
+            $qr = "insert into account (full_name, phone_number, email, password , role , unique_id) values ('$full_name','$phone_number','$email','$password' , ".$role." , ".$random_id." )";
             $result = false;
             if(mysqli_query($this->con , $qr)){
                 $result = true;
@@ -40,8 +40,8 @@
             return json_encode($result);
         }
 
-        public function Search_Account($email){
-            $qr = "select * from account where email = '$email'";
+        public function Search_Account( $name , $data){
+            $qr = "select * from account where ".$name." = '$data'";
             return mysqli_query($this->con , $qr);
         }
 

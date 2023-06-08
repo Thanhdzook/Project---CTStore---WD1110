@@ -4,9 +4,6 @@ class Show_MobilePhone extends Controller{
     public $mobilePhone;
     public $order;
     function __construct(){
-        // if(!isset($_SESSION["next"])){
-        //     $_SESSION["next"] = 0;
-        // }
         $this->mobilePhone = $this->model("MobilePhoneModel");
         $this->order = $this->model("OrderModel");
         $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_All_MobilePhone());

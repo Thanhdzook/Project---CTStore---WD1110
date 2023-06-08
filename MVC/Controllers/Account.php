@@ -11,7 +11,7 @@ class Account extends Controller{
     }
 
     function View_Account_Infor(){
-        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account($_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account"]);
+        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account"]);
     }
 
     function Add_Address(){
@@ -32,7 +32,7 @@ class Account extends Controller{
     }
 
     public function View_Fix_Infor_Account(){
-        $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account($_SESSION["email"]) ,"content" => "Account" , "content2" => "Fix_Infor_Account"]);
+        $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account( "email" ,$_SESSION["email"]) ,"content" => "Account" , "content2" => "Fix_Infor_Account"]);
     }
 
     public function View_Check_Password(){
@@ -96,10 +96,10 @@ class Account extends Controller{
                     break;
                 case 3:
                     $_SESSION['password'] = $_POST["password_new1"];
-                    $data1 = $this->accountModel->Search_Account($_SESSION["email"]);
+                    $data1 = $this->accountModel->Search_Account( "email" , $_SESSION["email"]);
                     $row = mysqli_fetch_array($data1);
                     $check = $this->accountModel->Update_Infor_Account($row['full_name'],$row['phone_number'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
-                    $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account($_SESSION["email"]) , "content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật mật khẩu thành công !"]);
+                    $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) , "content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật mật khẩu thành công !"]);
                     break;
             }
         }

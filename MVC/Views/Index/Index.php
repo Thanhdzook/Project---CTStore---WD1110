@@ -61,6 +61,7 @@
     </section>
     <div class="slider-product-one" >
         <div class="container">
+            <?php if(isset($data["phone_outstanding"])){ ?>
             <div class="slider-product-one-content-title">
                 <h2>NỔI BẬT</h2>
                 <div class="list-related">
@@ -112,8 +113,10 @@
                         </div>
                     </div>
                 </a>
-                <?php } ?>
+                <?php 
+                }?>
             </div>
+            <?php } ?>
         </div>
         <div class="slider-product-two" >
         <div class="container">
@@ -185,8 +188,8 @@
                 <button><i class="fa-solid fa-circle-right" style="font-size: 32px;"></i></button></a>
             <?php } ?>                           
         </div>
-
     </div>
+    <a href="/Project---CTStore---WD1110/Messages/View_chat/123">chat</a>
 <script>
     const rightbtn = document.querySelector('.bi-chevron-right')
     const leftbtn = document.querySelector('.bi-chevron-left')

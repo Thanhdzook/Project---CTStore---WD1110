@@ -19,6 +19,7 @@ class Login_Sigin extends Controller{
                 if($_POST["email"] == $row["email"] && $_POST["password"] == $row["password"]){
                     $role = $row["role"];
                     $id = $row["account_id"];
+                    $unique_id = $row["unique_id"];
                     $check = true;
                 }
             }
@@ -29,6 +30,7 @@ class Login_Sigin extends Controller{
                 $_SESSION['account_id'] = $id;
                 $_SESSION['password'] = $password;
                 $_SESSION['role'] = $role;
+                $_SESSION['unique_id'] = $unique_id;
                 switch($role){
                     case 1:
                         header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/null");
@@ -55,10 +57,11 @@ class Login_Sigin extends Controller{
             $phone_number = $_POST["Phone"];
             $email = $_POST["Email"];
             $password = $_POST["Password"];
+            $random_id = rand(time(), 1000000000);
             // $password = password_hash($password , PASSWORD_DEFAULT);
 
             //insert to database
-            $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password , $role);
+            $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password , $role , $random_id);
             if($check == true){
                 if(isset($_SESSION["role"])){
                     header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/Thêm thành công tài khoản admin !");
@@ -75,6 +78,7 @@ class Login_Sigin extends Controller{
         unset($_SESSION['password']);
         unset($_SESSION['role']);
         unset($_SESSION["Count_Cart"]);
+        unset($_SESSION["unique_id"]);
         header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
     }
 }
