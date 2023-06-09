@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Trang chủ</title>
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
@@ -30,8 +29,11 @@
         </form>
       </div>
       <div class="icons">
-
-        <a href="/Project---CTStore---WD1110/Payment/ViewCart/null" class="bi bi-basket3-fill"><span> <?php if(isset($_SESSION["Count_Cart"])) echo $_SESSION["Count_Cart"] ?></span></a>
+        <div class="icon-cart">
+          <a href="/Project---CTStore---WD1110/Payment/ViewCart/null" class="fa-solid fa-bag-shopping"></a></class=></a>
+          <p class="number-order"> <?php if(isset($_SESSION["Count_Cart"])) echo $_SESSION["Count_Cart"] ?></p>
+        </div>
+        
         <a href="#" class="bi bi-list" id="category"><span> Danh mục</span></a>
           <?php
             if(!isset($_SESSION["email"])){
@@ -150,7 +152,7 @@
         
     </div>
 <script>
-    document.getElementsByClassName("bi")[4].addEventListener("click", function(){
+    document.getElementsByClassName("bi")[3].addEventListener("click", function(){
       document.getElementsByClassName("links")[0].classList.toggle("showmyLinks");
     });
 </script>

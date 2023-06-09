@@ -4,8 +4,8 @@
             $qr = "select count(*) from orders where status = 4";
             return mysqli_query($this->con , $qr);
         }
-        public function List_Order($account_id , $status){
-            $qr = "select * from orders where account_id = ".$account_id." and status = ".$status."";
+        public function List_Order($account_id , $and){
+            $qr = "select * from orders where account_id = ".$account_id." $and";
             return mysqli_query($this->con , $qr);
         }
         public function Create_Order($account_id){
@@ -19,8 +19,8 @@
             return mysqli_query($this->con , $qr);
         }
         
-        public function Check_Order($account_id , $status){
-            $qr = "select count(*) from orders where account_id = '$account_id' and status = '$status'";
+        public function Check_Order($account_id , $and){
+            $qr = "select count(*) from orders where account_id = '$account_id' ".$and."";
             return mysqli_query($this->con , $qr);
         }
 
@@ -46,7 +46,7 @@
 
         public function Pay( $account_id , $data){
             $data2 = [
-                "Order" => $this->List_Order($account_id , 1)
+                "Order" => $this->List_Order($account_id , "and status = 1")
             ];
             while($row2 = mysqli_fetch_array($data2["Order"])){
                 $order_id2 = $row2["order_id"];
@@ -55,7 +55,7 @@
             $qr= "update orders set status = 2 ,  order_date = '$date' where account_id = ".$account_id." and order_id = ".$order_id2." ";
             mysqli_query($this->con , $qr);
             $this->Create_Order($account_id);
-            $row = mysqli_fetch_array($this->List_Order($account_id , 1));
+            $row = mysqli_fetch_array($this->List_Order($account_id , "and status = 1"));
             $order_id = $row['order_id'];
             $qr2 = "update orderdetails set order_id = ".$order_id." where (order_id = ".$order_id2.") and (".$data.")";
             // return $qr2;
@@ -71,6 +71,20 @@
                     FROM ".$name."
                     ORDER BY ".$check." DESC
                     LIMIT 0,5";
+            return mysqli_query($this->con , $qr);
+        }
+
+        // public function Purchase_History($data){
+        //     $qr = "select mobilephone.mobilePhone_name , mobilephone.price , mobilephone.img , mobilephone.sale ,orderdetails.quantity , mobilephone.mobilePhone_id , orderdetails.order_id
+        //     FROM orderdetails , mobilephone 
+        //     WHERE (".$data.") and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
+        //     return mysqli_query($this->con , $qr);
+        // }
+        public function Purchase_History($data){
+            $qr = "select orders.order_date , orders.status , mobilephone.mobilePhone_name , mobilephone.price , mobilephone.img , mobilephone.sale ,orderdetails.quantity , mobilephone.mobilePhone_id , orderdetails.order_id 
+            FROM orders , orderdetails , mobilephone 
+            WHERE (".$data.") 
+            and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id and orders.order_id = orderdetails.order_id";
             return mysqli_query($this->con , $qr);
         }
     }

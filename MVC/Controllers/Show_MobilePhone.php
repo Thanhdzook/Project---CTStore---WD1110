@@ -8,12 +8,12 @@ class Show_MobilePhone extends Controller{
         $this->order = $this->model("OrderModel");
         $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_All_MobilePhone());
         if(isset($_SESSION["account_id"])){
-            $row = mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'] , 1));
+            $row = mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'] , "and status = 1"));
             if($row == 0){
                 $_SESSION["Count_Cart"] = 0;
             }
             else{
-                $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , 1));
+                $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1"));
                 $_SESSION["Count_Cart"] = mysqli_fetch_column($this->order->Check_Order_Detail("order_id" , $row["order_id"] , $row["order_id"]));
             }
         }
@@ -44,8 +44,8 @@ class Show_MobilePhone extends Controller{
     function SreachMobilePhone_By_Name($name){
         if(isset($_POST["Sreach"])){
             $data = $_POST["NameMobilePhone"];
-            if(mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data))) != 0){
-                $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data)));
+            if(mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , "")) != 0){
+                $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , ""));
                 $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , trim($data) , "") , "content" => "Index"]);
             }
             else {

@@ -31,16 +31,76 @@
                         <div class="order-list-item">Đã hủy</div>
 
                     </div>
-                    <div class="order-list-table">
-                        <div class="table-head">
-                            <div class="table-head-item" style="width: 50%;">Sản phẩm</div>
-                            <div class="table-head-item" style="width: 30%;">Tình trạng</div>
-                            <div class="table-head-item" style="width: 20%;">Tổng tiền</div>
+                    <div class="box-order-list">
+                        <div class="box-order">
+                            <div>
+                                <div class="box-order-header">
+                                    <h2>CTSTORE</h2>
+                                    <div class="order-status">Trang thai</div>
+                                </div>
+                                <div class="box-order-content">
+                                    <div class="order-product-img">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="order-product-info1">
+                                        <p class="order-product-name"></p>
+                                        <p class="order-product-quanity"></p>
+                                    </div>
+                                    <div class="order-product-info2">
+                                        <p class="order-product-price"></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="table-content">
-                            <p>khong co don hang</p>
+                        <div class="box-order-end">
+                            <div class="box-order-total">
+                                <div class="order-total-title"></div>
+                                <div class="order-product-total"></div>
+                            </div>
+                            <div class="box-order-footer">
+                                <div class="order-time"></div>
+                                <div class="button-right"></div>
+                            </div>
                         </div>
                     </div>
+                    <?php
+                        $_SESSION["check_order_id"] = 0;
+                        if(isset($data["Purchase_History"])){
+                            while($row = mysqli_fetch_array($data["Purchase_History"])){
+                                $date = $row["order_date"];
+                                $status = $row["order_date"];
+                                $mobilePhone_name = $row["mobilePhone_name"];
+                                $price = ($row["price"]/100)*(100 - $row["sale"]);
+                                $img = $row["img"];
+                                $quantity = $row["quantity"];
+                                $mobilePhone_id = $row["mobilePhone_id"];
+                                $order_id = $row["order_id"];
+                    ?>
+                    <?php
+                        if($_SESSION["check_order_id"] != $order_id){
+                    ?>
+                        <br>
+                        <h2><?php echo $date ?></h2>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if($_SESSION["check_order_id"] == $order_id){
+                    ?>
+                    
+                    <?php
+                        }
+                    ?>
+                        
+
+                    <?php
+                        $_SESSION["check_order_id"] = $order_id;
+                    ?>
+                    <?php
+                            }
+                        }
+                    ?>
+                    
                 </div>
 
                 
@@ -51,19 +111,8 @@
 </html>
         <div>
             <?php
-            // if(isset($data["history"])){
-            //     foreach ($data["history"] as $e1) {
-            //         echo "<br/>";
-            //         foreach ($e1 as $e2) {
-            //             echo "<br/>";
-            //             foreach ($e2 as $e3) {
-            //                 echo "$e3\n";
-            //             }
-            //         }
-            //     }
-            // }
-            // else if(isset($data["message"])) {
-            //     echo $data["message"];
-            // }
+            if(isset($data["message"])) {
+                echo $data["message"];
+            }
             ?>
         </div>

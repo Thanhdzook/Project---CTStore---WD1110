@@ -26,10 +26,6 @@
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" id="password" placeholder="Enter your password">
                     </div>
-                    <div class="form-group">
-                        <label for="bio">Bio:</label>
-                        <textarea class="form-control" id="bio" rows="3" placeholder="Enter a short bio"></textarea>
-                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

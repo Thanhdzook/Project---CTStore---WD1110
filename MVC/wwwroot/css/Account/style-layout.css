@@ -15,7 +15,7 @@ body{
 	font-weight: 300 !important;
 	line-height: 1.7;
     padding-top: 50px;
-    background-color: #f8f8f8;
+    
 }
 .header{
     background-color: var(--Bg-color);
@@ -296,7 +296,8 @@ a.nav-link.dropdown-toggle{
 
     padding: 10px 20px;
 }
-.block-menu-item{
+.block-menu-item
+{
 }
 .active1 a{
     width: 230px;
@@ -350,6 +351,7 @@ a.nav-link.dropdown-toggle{
 /* ------------------purchase-history---------------- */
 .purchase-history-page{
     width: 100%;
+    
 }
 .purchase-history-mobile{
     margin: 0 auto;
@@ -393,6 +395,12 @@ a.nav-link.dropdown-toggle{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: rgb(246,251,252);
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
 }
 .order-list-item{
     font-size: 16px;
@@ -404,25 +412,39 @@ a.nav-link.dropdown-toggle{
     font-weight: 600;
     color: #fd2424;
 }
-
-.order-list-table{
-    margin-top: 20px;
+/* --------------box-order-list----------------------- */
+.box-order-list{
+    display: block;
+    width: 100%;
 }
-.table-head{
-    border: 0.5px solid #b8b8b8;
-    border-radius: 15px;
-    padding: 8px 0;
+.box-order{
+    margin: 12px 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+    border-radius: 0.125rem;
+    background-color: rgb(246,251,252);
+    width: 100%;
+    height: auto;
+    padding: 12px 24px;
+    border-bottom: 1px solid rgb(232,232,232);
+}
+.box-order-header{
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgb(232,232,232);
 }
-.table-head-item{
-    /* text-align: center; */
+.box-order-header h2{
+    max-width: 200px;
+    margin-left: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.table-content p{
-    /* text-align: center; */
-}
-.table-content{
-    padding: 8px 0;
-    display: flex !important;
-    align-items: center;
+.order-status{
+    line-height: 24px;
+    color: #ee4d2d;
+    text-align: right;
+    text-transform: uppercase;
+    white-space: nowrap;
 }

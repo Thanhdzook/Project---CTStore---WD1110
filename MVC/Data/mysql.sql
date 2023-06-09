@@ -57,9 +57,9 @@
 --   CONSTRAINT fk_OrderDetails_Orders_orderid FOREIGN KEY (order_id) REFERENCES orders (order_id) ON UPDATE CASCADE
 -- ) ;
 
--- CREATE TABLE Chat(
--- 	msg_id int,
---     incomming_msg_id int(255),
---     outcomming_msg_id int(255),
---     msg varchar(1000)
+-- CREATE TABLE messages(
+-- 	msg_id int auto_increment primary key,
+--     incomming_msg_id int(255) not null,
+--     outcomming_msg_id int(255) not null,
+--     msg varchar(1000) not null
 -- );

@@ -14,8 +14,8 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function Count_MobilePhone_By_Value($name,$data){
-            $qr = "select count(*) from mobilephone where ".$name." = '$data'";
+        public function Count_MobilePhone_By_Value($name,$data , $and){
+            $qr = "select count(*) from mobilephone where ".$name." = '$data' ".$and."";
             return mysqli_query($this->con , $qr);
         }
 

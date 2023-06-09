@@ -1,11 +1,3 @@
-<?php
-    if(isset($data["message"])){
-        if($data["message"] != "null"){
-            $message = $data["message"];
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/styleHP.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
@@ -21,44 +12,39 @@
     <!-- <script type="text/javascript" src="/Project---CTStore---WD1110/MVC/wwwroot/js/index.js"></script> -->
 </head>
 <body>
+    <?php
+        if(isset($data["message"])){
+            if($data["message"] != "null"){
+                $message = $data["message"]; 
+    ?>
+    <li class="alert"><?php echo $message?></li>
+    <?php
+            }
+        }   
+    ?>
     <section class="slider">
-        <div class="container">
-            <div class="slider-content row d-flex">
-                <div class="slider-content-left col-md-3">
-                    <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                </div>
-                <div class="slider-content-right col-md-9">
-                    <div class="slider-content-right-top-container">
-                        <div class="slider-content-right-top">
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner1.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
-                        </div>
-                        <div class="slider-content-right-top-btn">
-                            <i class="bi bi-chevron-left"></i>
-                            <i class="bi bi-chevron-right"></i>
-                        </div>
-                    </div>
-                    <div class="slider-content-right-bottom">
-                        <li class="active">Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                    </div>
-                </div>
+        <div class="slider-content-right-top-container">
+            <div class="slider-content-right-top">
+                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner1.png" alt=""></a>
+                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
+                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
+                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
+                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
+            </div>
+            <div class="slider-content-right-top-btn">
+                <i class="bi bi-chevron-left"></i>
+                <i class="bi bi-chevron-right"></i>
             </div>
         </div>
-
+        <div class="slider-content-right-bottom">
+            <li class="active">GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
+            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
+            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
+            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
+            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
+        </div>
     </section>
+    
     <div class="slider-product-one" >
         <div class="container">
             <?php if(isset($data["phone_outstanding"])){ ?>
@@ -192,9 +178,13 @@
     <a href="/Project---CTStore---WD1110/Messages/View_chat/123">chat</a>
 <script>
     const rightbtn = document.querySelector('.bi-chevron-right')
+    console.log(rightbtn)
     const leftbtn = document.querySelector('.bi-chevron-left')
-    const imgNumber = document.querySelectorAll('.slider-content-right-top img')
+    console.log(leftbtn)
+    const imgNumber = document.querySelectorAll('.slider-content-right-top a img')
+    console.log(imgNumber)
     const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom li')
+    console.log(imgNumberLi)
     let index = 0
 
     rightbtn.addEventListener("click",function(){
@@ -241,3 +231,40 @@
 
 </body>
 </html>
+<!-- <section class="slider">
+        <div class="container">
+            <div class="slider-content row d-flex">
+                <div class="slider-content-left col-md-3">
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class="slider-content-right col-md-9">
+                    <div class="slider-content-right-top-container">
+                        <div class="slider-content-right-top">
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner1.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
+                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
+                        </div>
+                        <div class="slider-content-right-top-btn">
+                            <i class="bi bi-chevron-left"></i>
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="slider-content-right-bottom">
+                        <li class="active">Tieu de 1</li>
+                        <li>Tieu de 1</li>
+                        <li>Tieu de 1</li>
+                        <li>Tieu de 1</li>
+                        <li>Tieu de 1</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
