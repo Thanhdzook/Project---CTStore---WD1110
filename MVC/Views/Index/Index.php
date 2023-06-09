@@ -164,13 +164,13 @@
             <?php
                 if($_SESSION["next"] != 0){
             ?>
-                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]-10) ?>">
+                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]-5) ?>">
                 <button><i class="fa-solid fa-circle-left" style="font-size: 32px;"></i></button></a>
             <?php } ?>
             <?php
-                if($_SESSION["next"] < $_SESSION["count_mobilephone"]-10){
+                if($_SESSION["next"] < $_SESSION["count_mobilephone"]-5){
             ?>
-                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]+10) ?>">
+                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"]+5) ?>">
                 <button><i class="fa-solid fa-circle-right" style="font-size: 32px;"></i></button></a>
             <?php } ?>                           
         </div>
