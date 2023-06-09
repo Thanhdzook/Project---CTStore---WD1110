@@ -30,7 +30,7 @@
         }
 
         public function List_Order_Detail($id){
-            $qr = "select mobilephone.mobilePhone_id , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
+            $qr = "select mobilephone.mobilePhone_id , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity, mobilephone.sale from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
             return mysqli_query($this->con , $qr);
         }
 
