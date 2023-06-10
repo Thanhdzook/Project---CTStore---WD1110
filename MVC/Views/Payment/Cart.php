@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/payment/cart.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/payment/cart1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -46,11 +46,6 @@
                     $quantity = $row["quantity"];
                     $unit_price = $row["price"];
                     $price_sale = $row["unit_price"];
-                    // $total = ($row["quantity"])*$price_sale;
-                    // $total = 0;
-                    // echo "<br>";
-                    // echo $row["quantity"]*$row["unit_price"];
-                    // echo "<br>";
             ?>
             <div class="item" data-price="<?php echo $price_sale ?>">
                 <div class="box-order-item">
@@ -66,10 +61,10 @@
                                     <p class="price-sale"><?php echo number_format($price_sale, 0, '', ',')?>₫</p>
                                     <p class="unit-price"><?php echo number_format($unit_price, 0, '', ',')?>₫</p>   
                                 </div>
-                                <div class="order-product-quanity">
-                                    <!-- <p class="quanity-title">Số lượng: </p>
-                                    <p class="quanity-content"><?php echo $quantity?></p> -->
-                                    <input type="number" class="quantityInput" name="<?php echo $mobilephone_id ?>" value="<?php echo $quantity?>" min="1">
+                                <div class="quantity-container">
+                                    <input type="button" class="quantity-btn-left quantity-btn decrease-btn" onclick="decreaseQuantity()" value="-"></input>
+                                    <input type="number" id="quantity-input" class="quantityInput" name="<?php echo $mobilephone_id ?>" value="<?php echo $quantity?>" min="1">
+                                    <input type="button" class="quantity-btn-right quantity-btn increase-btn" onclick="increaseQuantity()" value="+"></input>
                                 </div>
                             </div>
                             <div class="box-promo">
@@ -118,6 +113,37 @@
         ?>
         </div>
     </div>
+
+<!-- <script>
+
+    var decreaseButtons = document.getElementsByClassName('decrease-btn');
+    var increaseButtons = document.getElementsByClassName('increase-btn');
+
+    for (var i = 0; i < decreaseButtons.length; i++) {
+        decreaseButtons[i].addEventListener('click', decreaseQuantity);
+    }
+
+    for (var i = 0; i < increaseButtons.length; i++) {
+        increaseButtons[i].addEventListener('click', increaseQuantity);
+    }
+
+    function decreaseQuantity() {
+        var quantityInput = this.parentNode.querySelector('.quantityInput');
+        var quantity = parseInt(quantityInput.value);
+
+        if (quantity > 1) {
+            quantityInput.value = quantity - 1;
+        }
+    }
+
+    function increaseQuantity() {
+        var quantityInput = this.parentNode.querySelector('.quantityInput');
+        var quantity = parseInt(quantityInput.value);
+
+        quantityInput.value = quantity + 1;
+    }
+</script>    
+
 <script>
     const items = Array.from(document.getElementsByClassName('item'));
     const totalPriceElement = document.getElementById('totalPrice');
@@ -130,37 +156,92 @@
             const discountCheckbox = item.querySelector('.discountCheckbox');
             const totalPriceValue = item.querySelector('.price-sale');
             const pricePerUnit = parseInt(item.dataset.price);
-
             const quantity = parseInt(quantityInput.value);
             let totalItemPrice = quantity * pricePerUnit;
-            // const config_item = { style: 'currency', currency: 'VND', maximumFractionDigits: 9}
-            // const formated_item = new Intl.NumberFormat('vi-VN', config).format(totalItemPrice);
-            
-
             if (discountCheckbox.checked) {
-            totalPrice += totalItemPrice;
-
+                totalPrice += totalItemPrice;
             }
-
             const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9}
             const formated_item = new Intl.NumberFormat('vi-VN', config).format(totalItemPrice);
             totalPriceValue.textContent = formated_item;
         });
-        const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9}
-        const formated_total = new Intl.NumberFormat('vi-VN', config).format(totalPrice);
-        totalPriceElement.textContent = formated_total;
-        }
-
+            const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9}
+            const formated_total = new Intl.NumberFormat('vi-VN', config).format(totalPrice);
+            totalPriceElement.textContent = formated_total;
+    }
         items.forEach(item => {
-        const quantityInput = item.querySelector('.quantityInput');
-        const discountCheckbox = item.querySelector('.discountCheckbox');
+            const quantityInput = item.querySelector('.quantityInput');
+            const discountCheckbox = item.querySelector('.discountCheckbox');
 
-        quantityInput.addEventListener('input', updateTotalPrice);
-        discountCheckbox.addEventListener('change', updateTotalPrice);
-    });
+            quantityInput.addEventListener('input', updateTotalPrice);
+            discountCheckbox.addEventListener('change', updateTotalPrice);
+        });
 
+</script> -->
 
-</script>
+<script>
+        var decreaseButtons = document.getElementsByClassName('decrease-btn');
+        var increaseButtons = document.getElementsByClassName('increase-btn');
+        var items = Array.from(document.getElementsByClassName('item'));
+        var totalPriceElement = document.getElementById('totalPrice');
+      
+        for (var i = 0; i < decreaseButtons.length; i++) {
+          decreaseButtons[i].addEventListener('click', decreaseQuantity);
+        }
+      
+        for (var i = 0; i < increaseButtons.length; i++) {
+          increaseButtons[i].addEventListener('click', increaseQuantity);
+        }
+      
+        items.forEach(item => {
+          const quantityInput = item.querySelector('.quantityInput');
+          const discountCheckbox = item.querySelector('.discountCheckbox');
+      
+          quantityInput.addEventListener('input', updateTotalPrice);
+          discountCheckbox.addEventListener('change', updateTotalPrice);
+        });
+      
+        function decreaseQuantity() {
+          var quantityInput = this.parentNode.querySelector('.quantityInput');
+          var quantity = parseInt(quantityInput.value);
+      
+          if (quantity > 1) {
+            quantityInput.value = quantity - 1;
+          }
+          updateTotalPrice();
+        }
+      
+        function increaseQuantity() {
+          var quantityInput = this.parentNode.querySelector('.quantityInput');
+          var quantity = parseInt(quantityInput.value);
+      
+          quantityInput.value = quantity + 1;
+          updateTotalPrice();
+        }
+      
+        function updateTotalPrice() {
+          let totalPrice = 0;
+      
+          items.forEach(item => {
+            const quantityInput = item.querySelector('.quantityInput');
+            const discountCheckbox = item.querySelector('.discountCheckbox');
+            const totalPriceValue = item.querySelector('.price-sale');
+            const pricePerUnit = parseInt(item.dataset.price);
+            const quantity = parseInt(quantityInput.value);
+            let totalItemPrice = quantity * pricePerUnit;
+            if (discountCheckbox.checked) {
+              totalPrice += totalItemPrice;
+            }
+            const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 }
+            const formated_item = new Intl.NumberFormat('vi-VN', config).format(totalItemPrice);
+            totalPriceValue.textContent = formated_item;
+          });
+      
+          const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9 }
+          const formated_total = new Intl.NumberFormat('vi-VN', config).format(totalPrice);
+          totalPriceElement.textContent = formated_total;
+        }
+    </script>
 </body>
 </html>
         
