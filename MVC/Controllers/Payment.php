@@ -48,6 +48,7 @@
             }
             else{
                 $this->view("Layout"  ,["payment" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id']) , "content" => "Payment"]);
+                // $this->view("Payment"  ,["payment" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id'])]);
             }
         }
 
