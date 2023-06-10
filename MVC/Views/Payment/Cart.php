@@ -64,8 +64,9 @@
                                     <p class="unit-price"><?php echo number_format($unit_price, 0, '', ',')?>₫</p>   
                                 </div>
                                 <div class="order-product-quanity">
-                                    <p class="quanity-title">Số lượng: </p>
-                                    <p class="quanity-content"><?php echo $quantity?></p>
+                                    <!-- <p class="quanity-title">Số lượng: </p>
+                                    <p class="quanity-content"><?php echo $quantity?></p> -->
+                                    <input type="number" name="<?php echo $mobilephone_id ?>" value="<?php echo $quantity?>" min="1">
                                 </div>
                             </div>
                             <div class="box-promo">
@@ -88,7 +89,7 @@
                         </div>
                     </div>
                     <div class="btn-delete-item">
-                        <i class="fa-solid fa-trash"></i>
+                        <a href="/Project---CTStore---WD1110/Order_Detail/Delete_Order_Details/<?php echo $mobilephone_id ?>/<?php echo $data["order_id"] ?>"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             <?php

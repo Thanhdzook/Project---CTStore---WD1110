@@ -39,8 +39,8 @@
             return mysqli_query($this->con , $qr);
         }
         
-        public function Fix_Order_Detail($mobilePhone_id , $order_id , $maths , $data){
-            $qr = "update orderdetails set quantity = quantity ".$maths." ".$data." where mobilePhone_id = ".$mobilePhone_id." and order_id = ".$order_id.";";
+        public function Fix_Order_Detail($mobilePhone_id , $order_id , $maths , $data , $data2){
+            $qr = "update orderdetails set ".$data2." = ".$data2." ".$maths." ".$data." where mobilePhone_id = ".$mobilePhone_id." and order_id = ".$order_id.";";
             return mysqli_query($this->con , $qr);
         }
 
@@ -58,7 +58,6 @@
             $row = mysqli_fetch_array($this->List_Order($account_id , "and status = 1"));
             $order_id = $row['order_id'];
             $qr2 = "update orderdetails set order_id = ".$order_id." where (order_id = ".$order_id2.") and (".$data.")";
-            // return $qr2;
             $result = false;
             if(mysqli_query($this->con , $qr2)){
                 $result = true;
@@ -74,17 +73,16 @@
             return mysqli_query($this->con , $qr);
         }
 
-        // public function Purchase_History($data){
-        //     $qr = "select mobilephone.mobilePhone_name , mobilephone.price , mobilephone.img , mobilephone.sale ,orderdetails.quantity , mobilephone.mobilePhone_id , orderdetails.order_id
-        //     FROM orderdetails , mobilephone 
-        //     WHERE (".$data.") and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
-        //     return mysqli_query($this->con , $qr);
-        // }
         public function Purchase_History($data){
             $qr = "select orders.order_date , orders.status , mobilephone.mobilePhone_name , mobilephone.price , mobilephone.img , mobilephone.sale ,orderdetails.quantity , mobilephone.mobilePhone_id , orderdetails.order_id 
             FROM orders , orderdetails , mobilephone 
             WHERE (".$data.") 
             and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id and orders.order_id = orderdetails.order_id";
+            return mysqli_query($this->con , $qr);
+        }
+
+        public function Delete_Order_Details($mobilePhone_id , $order_id){
+            $qr = "delete FROM orderdetails WHERE order_id = ".$order_id." and mobilePhone_id = ".$mobilePhone_id."";
             return mysqli_query($this->con , $qr);
         }
     }
