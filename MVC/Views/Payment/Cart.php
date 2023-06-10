@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/layout/cart.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/payment/cart.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,15 +42,17 @@
                     $img = $row["img"];
                     $mobilephone_id = $row["mobilePhone_id"];
                     $name = $row["mobilePhone_name"];
-                    $quantity = $row["sale"];
+                    $quantity = $row["quantity"];
                     $unit_price = $row["unit_price"];
                     $price_sale = ($row["unit_price"]/100)*(100-$row["sale"]);
+                    $total = ($row["quantity"])*$price_sale;
                     // echo "<br>";
                     // echo $row["quantity"]*$row["unit_price"];
                     // echo "<br>";
                 ?>
                 <div class="box-order-item">
                     <div class="order-item-product">
+                        <input class="order-checkbox" type="checkbox" name="<?php echo $mobilephone_id;?>">
                         <div class="order-item-product-img">
                             <img src="<?php echo $img ?>" alt="">
                         </div>
@@ -80,7 +82,7 @@
                                         + Nhiều ưu đãi khi thanh toán qua VNPAY, ONEPAY</li>
                                 </ul>
                                 <div class="hot-sale">
-                                    <p>Chi tiết liên hê: 19001001</p>
+                                    <p>Chi tiết liên hệ: 19001001</p>
                                 </div>
                             </div> 
                         </div>
@@ -92,6 +94,18 @@
             <?php
                 }
             ?>
+            <div class="botton-order">
+                <div class="total-box-order">
+                    <p class="total-order-title">Tổng tiền tạm tính</p>
+                    <p class="total-order-price"><?php echo number_format($total, 0, '', ',')?>₫</p>
+                </div>
+                <div class="btn-submit-order">
+                    <button type="submit" name="Payment" class="btn-order-summit">Tiến hành đặt hàng</button>
+                    <a href="/Project---CTStore---WD1110" class="btn-order-go-back">
+                        Chọn thêm sản phẩm khác
+                    </a>
+                </div>
+            </div>
             </form>
         <?php
             }

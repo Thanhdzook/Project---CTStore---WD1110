@@ -111,7 +111,7 @@ p.number-order{
     position: absolute;
     color: var(--green-color);
     margin-top: -25px;
-    margin-left: 10px;
+    margin-left: 15px;
     font-size: 18px !important;
     cursor: pointer;
 }
