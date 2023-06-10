@@ -1,3 +1,4 @@
+<?php $total = 0; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,14 +46,16 @@
                     $quantity = $row["quantity"];
                     $unit_price = $row["price"];
                     $price_sale = $row["unit_price"];
-                    $total = ($row["quantity"])*$price_sale;
+                    // $total = ($row["quantity"])*$price_sale;
+                    // $total = 0;
                     // echo "<br>";
                     // echo $row["quantity"]*$row["unit_price"];
                     // echo "<br>";
             ?>
+            <div class="item" data-price="<?php echo $price_sale ?>">
                 <div class="box-order-item">
                     <div class="order-item-product">
-                        <input type="checkbox" name="<?php echo $mobilephone_id;?>" value="chọn">
+                        <input type="checkbox" class="discountCheckbox" name="<?php echo $mobilephone_id;?>" value="chọn">
                         <div class="order-item-product-img">
                             <img src="<?php echo $img ?>" alt="">
                         </div>
@@ -66,7 +69,7 @@
                                 <div class="order-product-quanity">
                                     <!-- <p class="quanity-title">Số lượng: </p>
                                     <p class="quanity-content"><?php echo $quantity?></p> -->
-                                    <input type="number" name="<?php echo $mobilephone_id ?>" value="<?php echo $quantity?>" min="1">
+                                    <input type="number" class="quantityInput" name="<?php echo $mobilephone_id ?>" value="<?php echo $quantity?>" min="1">
                                 </div>
                             </div>
                             <div class="box-promo">
@@ -92,14 +95,15 @@
                         <a href="/Project---CTStore---WD1110/Order_Detail/Delete_Order_Details/<?php echo $mobilephone_id ?>/<?php echo $data["order_id"] ?>"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
+            </div>
             <?php
                 }
             ?>
             <div class="botton-order">
-                <!-- <div class="total-box-order">
+                <div class="total-box-order">
                     <p class="total-order-title">Tổng tiền tạm tính</p>
-                    <p class="total-order-price"><?php echo number_format($total, 0, '', ',')?>₫</p>
-                </div> -->
+                    <p class="total-order-price" id="totalPrice"><?php echo number_format($total, 0, '', ',')?>₫</p>
+                </div>
                 <div class="btn-submit-order">
                     <!-- <button type="submit" name="Payment" class="btn-order-summit">Tiến hành đặt hàng</button> -->
                     <input type="submit" name="Payment" value="Tiến hành đặt hàng" class="btn-order-summit">
@@ -113,8 +117,50 @@
             }
         ?>
         </div>
-
     </div>
+<script>
+    const items = Array.from(document.getElementsByClassName('item'));
+    const totalPriceElement = document.getElementById('totalPrice');
+
+    function updateTotalPrice() {
+        let totalPrice = 0;
+
+        items.forEach(item => {
+            const quantityInput = item.querySelector('.quantityInput');
+            const discountCheckbox = item.querySelector('.discountCheckbox');
+            const totalPriceValue = item.querySelector('.price-sale');
+            const pricePerUnit = parseInt(item.dataset.price);
+
+            const quantity = parseInt(quantityInput.value);
+            let totalItemPrice = quantity * pricePerUnit;
+            // const config_item = { style: 'currency', currency: 'VND', maximumFractionDigits: 9}
+            // const formated_item = new Intl.NumberFormat('vi-VN', config).format(totalItemPrice);
+            
+
+            if (discountCheckbox.checked) {
+            totalPrice += totalItemPrice;
+
+            }
+
+            const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9}
+            const formated_item = new Intl.NumberFormat('vi-VN', config).format(totalItemPrice);
+            totalPriceValue.textContent = formated_item;
+        });
+        const config = { style: 'currency', currency: 'VND', maximumFractionDigits: 9}
+        const formated_total = new Intl.NumberFormat('vi-VN', config).format(totalPrice);
+        totalPriceElement.textContent = formated_total;
+        }
+
+        items.forEach(item => {
+        const quantityInput = item.querySelector('.quantityInput');
+        const discountCheckbox = item.querySelector('.discountCheckbox');
+
+        quantityInput.addEventListener('input', updateTotalPrice);
+        discountCheckbox.addEventListener('change', updateTotalPrice);
+    });
+
+
+</script>
 </body>
 </html>
         
