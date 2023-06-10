@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/purchase-history.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    
 </head>
 <body>
 	<div class="purchase-history-page">
@@ -31,38 +34,74 @@
                         <div class="order-list-item">Đã hủy</div>
 
                     </div>
+                    <?php
+                        $_SESSION["check_order_id"] = 0;
+                        if(isset($data["Purchase_History"])){
+                            while($row = mysqli_fetch_array($data["Purchase_History"])){
+                                $date = $row["order_date"];
+                                $status = $row["order_date"];
+                                $name = $row["mobilePhone_name"];
+                                $price = $row["price"];
+                                $price_sale = ($row["price"]/100)*(100 - $row["sale"]);
+                                $img = $row["img"];
+                                $quantity = $row["quantity"];
+                                $mobilePhone_id = $row["mobilePhone_id"];
+                                $order_id = $row["order_id"];
+                                $total = $price_sale*$quantity;
+                    ?>
                     <div class="box-order-list">
                         <div class="box-order">
                             <div>
                                 <div class="box-order-header">
                                     <h2>CTSTORE</h2>
-                                    <div class="order-status">Trang thai</div>
-                                </div>
-                                <div class="box-order-content">
-                                    <div class="order-product-img">
-                                        <img src="" alt="">
+                                    <div class="order-header-right">
+                                        <div class="order-time"><?php echo $date ?></div>
+                                        <div class="order-status">Trang thai</div>
                                     </div>
-                                    <div class="order-product-info1">
-                                        <p class="order-product-name"></p>
-                                        <p class="order-product-quanity"></p>
+                                    
+                                </div>
+                                <div class="box-order-content-wappper">
+                                    <div class="box-order-content">
+                                        <div class="order-product-img">
+                                            <img src="<?php echo $img?>" alt="">
+                                        </div>
+                                        <div class="order-product-info1">
+                                            <p class="order-product-name"><?php echo $name?></p>
+                                            <p class="order-product-quanity">x<?php echo $quantity?></p>
+                                        </div>
                                     </div>
                                     <div class="order-product-info2">
-                                        <p class="order-product-price"></p>
+                                        <p class="order-product-price"><?php echo number_format($price, 0, '', ',') ?>₫</p>
+                                        <p class="order-product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <div class="box-order-end">
                             <div class="box-order-total">
-                                <div class="order-total-title"></div>
-                                <div class="order-product-total"></div>
+                                <div class="order-total-title">Thành tiền: </div>
+                                <div class="order-product-total"><?php echo number_format($total, 0, '', ',') ?>₫</div>
                             </div>
                             <div class="box-order-footer">
-                                <div class="order-time"></div>
-                                <div class="button-right"></div>
+                                <div class="button-right">
+                                    <div class="button-right-item">
+                                        <button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button>
+                                    </div>
+                                    <div class="button-right-item">
+                                        <button class="button-right-item-btn">Liên hệ người bán</button>
+                                    </div>
+                                    <div class="button-right-item">
+                                        <button class="button-right-item-btn">Mua Lại</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <?php
+                            }
+                        }
+                    ?>
                     <?php
                         $_SESSION["check_order_id"] = 0;
                         if(isset($data["Purchase_History"])){

@@ -1,0 +1,36 @@
+/* -----------------user-info-page------------ */
+.user-info-page{
+    width: 100%;
+}
+.user-info-mobile{
+    margin: 0 auto;
+}
+.user-info-mobile .ct-container {
+    max-width: 600px;
+    min-height: 1000px;
+    margin: 0 auto;
+}
+.user-info-avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e11b1e;
+    margin: 10px auto 0;
+}
+.user-info-avatar-name{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: rgb(74,74,74);
+    font-size: 20px;
+}
+/* -----------form__group----------- */
+.form__group{
+    margin-top: 10px;
+}
+.field{
+    position: relative;
+}
+.fa-pen-to-square{
+    position: absolute;
+}
