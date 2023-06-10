@@ -25,13 +25,13 @@
                                 $price_main = $row["price"];
                                 $price_sale_main = ($row["price"]/100)*(100-$row["sale"]);
                                 $sale_main = $row["sale"];
-                                
+                                $_id = $row["mobilePhone_id"];
+                                $_amount = $row["amount"];
                         ?>
                         <img class="imgP" style="" src="<?php echo $img?>">
                         <img class="imgP" style="" src="<?php echo $img?>">
                         <img class="imgP" style="" src="<?php echo $img?>">
                         <img class="imgP" style="" src="<?php echo $img?>">
-
                         <?php } ?>
                     </div>
                 </div>
@@ -76,16 +76,26 @@
                 <div class="box-memory row">
                     <?php
                         while($row = mysqli_fetch_array($data["sreach_by_memory"])){
+                        $id = $row["mobilePhone_id"];
                         $memory = $row["memory"];
                         $price_sale = ($row["price"]/100)*(100-$row["sale"]);
                     ?>
-                    <a href="#" class="col-lg-3 col-md-6 col-xs-12">
+                    <?php
+                        if(isset($_SESSION["While_memory"])){
+                            if($_SESSION["While_memory"] != $memory){
+                    ?>
+                    <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>" class="col-lg-3 col-md-6 col-xs-12">
                         <div class="menory-item-content">
                             <div class="menory-item"><?php echo $memory ?></div>
                             <div class="menory-item-price"><?php echo number_format($price_sale, 0, '', ',') ?>₫</div>
                         </div>
                     </a>
                     <?php
+                            }
+                        }
+                    ?>
+                    <?php
+                        $_SESSION["While_memory"] = $memory;
                     }
                     ?>
                 </div>
@@ -100,11 +110,12 @@
                     <div class="box-color-content row">
                         <?php
                             while($row = mysqli_fetch_array($data["sreach_by_color"])){
+                                $id = $row["mobilePhone_id"];
                                 $color = $row["color"];
                                 $price_sale = ($row["price"]/100)*(100-$row["sale"]);
                                 $img = $row["img"];
                         ?>
-                        <a href="#" class="col-xs-12">
+                        <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>" class="col-xs-12">
                             <img class="imgP" style="" src="<?php echo $img?>">
                             <div class="color-item-content">
                                 <div class="color-item-content-name"><?php echo $color; ?></div>
@@ -134,11 +145,15 @@
                     </ul>
                 </div>
                 <div class="box-order-button">
-                    <button type="button" class="order-button"><strong>MUA NGAY</strong></button>
-                    <button type="button" class="add-to-cart-button">
-                        <div class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                        <p>Thêm vào giỏ</p>
-                    </button>
+                    <form method="POST" action="/Project---CTStore---WD1110/Order_Detail/Check_Pay_Now/<?php echo $_id ?>/<?php echo $price_sale_main ?>/yes">
+                        <button type="submit" class="add-to-cart-button" name="Order"><strong>MUA NGAY</strong></button>
+                    </form>
+                    <form method="POST" action="/Project---CTStore---WD1110/Order_Detail/Check_Pay_Now/<?php echo $_id ?>/<?php echo $price_sale_main ?>/no">
+                        <button type="submit" class="add-to-cart-button" name="Order">
+                            <div class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <p>Thêm vào giỏ</p>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

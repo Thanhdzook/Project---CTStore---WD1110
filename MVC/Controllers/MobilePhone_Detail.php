@@ -10,11 +10,11 @@ class MobilePhone_Detail extends Controller{
         $data = $this->mobilePhone->MobilePhone_Detail($id);
         while($row = mysqli_fetch_array($data)){
             $and = "and memory != " . "'" .$row["memory"] . "'";
-            $check = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value("mobilePhone_name" , $row["mobilePhone_name"] , $and));
+            $check = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value("mobilePhone_name" , $row["mobilePhone_name"] , ""));
             if($check != 0){
-                $sreach_by_memory = $this->mobilePhone->Sreach_MobilePhone_By_Value("mobilePhone_name" , $row["mobilePhone_name"] , $and);
-                $and = "and color != " . "'" .$row["color"] . "'";
-                $check = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value("mobilePhone_name" , $row["mobilePhone_name"] , $and));
+                $sreach_by_memory = $this->mobilePhone->Sreach_MobilePhone_By_Value("mobilePhone_name" , $row["mobilePhone_name"] , "");
+                $and = "and memory = " . "'" .$row["memory"] . "'";
+                $check = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value("mobilePhone_name" , $row["mobilePhone_name"] , ""));
                 if($check != 0){
                     $sreach_by_color = $this->mobilePhone->Sreach_MobilePhone_By_Value("mobilePhone_name" , $row["mobilePhone_name"] , $and);
                     $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->MobilePhone_Detail($id) , "content" => "MobilePhone_Detail", 

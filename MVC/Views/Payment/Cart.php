@@ -43,8 +43,8 @@
                     $mobilephone_id = $row["mobilePhone_id"];
                     $name = $row["mobilePhone_name"];
                     $quantity = $row["quantity"];
-                    $unit_price = $row["unit_price"];
-                    $price_sale = ($row["unit_price"]/100)*(100-$row["sale"]);
+                    $unit_price = $row["price"];
+                    $price_sale = $row["unit_price"];
                     $total = ($row["quantity"])*$price_sale;
                     // echo "<br>";
                     // echo $row["quantity"]*$row["unit_price"];
