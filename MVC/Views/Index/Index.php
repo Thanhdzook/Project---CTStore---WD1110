@@ -78,11 +78,11 @@
                                 <h3><?php echo $name_phone ?></h3>
                             </div>
                             <div class="product-price">
-                                <p class="product-price-show"><?php echo number_format($price, 0, '', ',') ?>₫</p>
+                                <p class="product-price-show"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
                                 <?php
                                     if($sale != 0){
                                 ?>
-                                    <p class="product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
+                                    <p class="product-price-sale"><?php echo number_format($price, 0, '', ',') ?>₫</p>
                                     <div class="product-percent">Giảm <?php echo $sale ?>%</div>
                                 <?php } ?>
                             </div>
@@ -136,11 +136,11 @@
                                 <h3><?php echo $name_phone ?></h3>
                             </div>
                             <div class="product-price">
-                                <p class="product-price-show"><?php echo number_format($price, 0, '', ',') ?>₫</p>
+                                <p class="product-price-show"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
                                 <?php
                                     if($sale != 0){
                                 ?>
-                                    <p class="product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
+                                    <p class="product-price-sale"><?php echo number_format($price, 0, '', ',') ?>₫</p>
                                     <div class="product-percent">Giảm <?php echo $sale ?>%</div>
                                 <?php } ?>
                             </div>
