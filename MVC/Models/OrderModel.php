@@ -35,7 +35,7 @@
         }
 
         public function List_Payment($id , $data){
-            $qr = "select mobilephone.mobilePhone_id , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity from mobilephone , orderdetails where orderdetails.order_id = ".$id." and (".$data.") and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
+            $qr = "select mobilephone.mobilePhone_id , mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity from mobilephone , orderdetails where orderdetails.order_id = ".$id." and (".$data.") and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
             return mysqli_query($this->con , $qr);
         }
         

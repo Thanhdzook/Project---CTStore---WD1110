@@ -11,10 +11,9 @@
 </head>
 <body>  
 <?php
-    if(isset($data["message"])){
-        $message = $data["message"];
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
+    // if(isset($data["message"])){
+    //     $message = $data["message"];
+    // }
 ?>
 	<div class="section">
 		<div class="container">
@@ -32,6 +31,11 @@
 
                                             <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Login">
                                                 <h4 class="mb-4 pb-3">Đăng nhập</h4>
+                                                <?php if (isset($data['message'])){
+                                                    $message = $data["message"];
+                                                ?>
+                                                    <p class="alert alert-danger"><?php echo $message?></p>
+                                                <?php } ?>
                                                 <div class="form-group">
                                                     <input type="email" class="form-style" placeholder="Email" name="email">
                                                     <i class="input-icon uil uil-at"></i>
