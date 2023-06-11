@@ -55,24 +55,57 @@
                 header("Location: /Project---CTStore---WD1110/Account/View_Add_Address");
             }
             else{
-                $this->view("Layout"  ,["orderdetails" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id']) , "content" => "Payment"]);
+                $this->view("Layout"  ,["orderdetails" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->Search_Account("account_id",$_SESSION['account_id']) , "content" => "Payment"]);
             }
         }
 
         function Pay(){
-            $data = "";
-            for($i = 0 ; $i<= $_SESSION["count"] ; $i++){
-                $data = $data . " mobilePhone_id != " . $_SESSION["mobilePhone_id"][$i] . " and";
+            if(isset($_POST["Payment"])){
+                $radio = $_POST["radio"];
+                $delivery = 0;
+                $data = "";
+                // for($i = 0 ; $i<= $_SESSION["count"] ; $i++){
+                //     // $data = $data . " mobilePhone_id != " . $_SESSION["mobilePhone_id"][$i] . " and";
+                //     echo $_SESSION["mobilePhone_id"][$i];
+                // }
+                if($radio == "check1"){
+                    for($i = 0 ; $i<= $_SESSION["count"] ; $i++){
+                        $data = $data . " mobilePhone_id != " . $_SESSION["mobilePhone_id"][$i] . " and";
+                    }
+                    $check = $this->order->Pay($_SESSION['account_id'] , trim($data , "and") ,$delivery);
+                    unset($_SESSION['count']);
+                    unset($_SESSION['mobilePhone_id']);
+                    if($check == true){
+                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành công !");
+                    }
+                    else{
+                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành không công !");
+                    }
+                }
+                else{
+                    $name = $_POST["name"];
+                    $phoneN = $_POST["phoneN"];
+                    $addres = $_POST["addres"];
+                    $random_id = rand(time(), 1000000000);
+                    $this->account->Create_Customer($_SESSION["account_id"] , $name , $phoneN , $addres , $random_id);
+                    // $unique_id = $this->account->List_Customer_By_Unique($random_id);
+                    $delivery = $random_id;
+                    for($i = 0 ; $i<= $_SESSION["count"] ; $i++){
+                        $data = $data . " mobilePhone_id != " . $_SESSION["mobilePhone_id"][$i] . " and";
+                    }
+                    $check = $this->order->Pay($_SESSION['account_id'] , trim($data , "and") ,$delivery);
+                    unset($_SESSION['count']);
+                    unset($_SESSION['mobilePhone_id']);
+                    if($check == true){
+                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành công !");
+                    }
+                    else{
+                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành không công !");
+                    } 
+                }
+                
             }
-            $check = $this->order->Pay($_SESSION['account_id'] , trim($data , "and"));
-            unset($_SESSION['count']);
-            unset($_SESSION['mobilePhone_id']);
-            if($check == true){
-                header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành công !");
-            }
-            else{
-                header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành không công !");
-            }
+            
         }
 
 

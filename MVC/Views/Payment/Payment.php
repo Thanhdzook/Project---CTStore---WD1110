@@ -1,4 +1,7 @@
-<?php $total = 0; ?>
+<?php 
+    $total = 0; 
+    $_SESSION["count"] = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,52 +23,55 @@
         <form method="post" action="/Project---CTStore---WD1110/Payment/Pay">
             <?php
                 while($row2 = mysqli_fetch_array($data["customer"])){
-                    $phoneN = $row2["customer_phonenumber"];
-                    $nameC = $row2["customer_name"];
-                    $addressC = $row2["customer_address"];
+                    $phoneN = $row2["phone_number"];
+                    $nameC = $row2["full_name"];
+                    // $addressC = $row2["customer_address"];
+            ?>
+            <?php
+                }
             ?>
             <div class="ct-payment-content">
                 <div class="block-customer">
                     <p class="block-customer-title">Thông tin khách hàng</p>
                     <div class="block-customer-info">
-                        <input value="<?php echo $nameC ?>" type="text" placeholder="Họ và tên (bắt buộc)" maxlength="50" autocomplete="off" class="customer-info-input">
-                        <input value="<?php echo $phoneN ?>" type="text" placeholder="Số điện thoại (bắt buộc)" maxlength="10" autocomplete="off" class="customer-info-input">
+                        <input name="name" value="<?php echo $nameC ?>" type="text" placeholder="Họ và tên (bắt buộc)" maxlength="50" autocomplete="off" class="customer-info-input">
+                        <input name="phoneN" value="<?php echo $phoneN ?>" type="text" placeholder="Số điện thoại (bắt buộc)" maxlength="10" autocomplete="off" class="customer-info-input">
                     </div>
                 </div>
                 <div class="block-payment">
                     <p class="block-payment-title">Chọn cách thức giao hàng</p>
                     <div class="box-radio">
                         <div class="radio-container">
-                            <input type="radio" name="radio" id="radio1" checked>
+                            <input type="radio" name="radio" id="radio1" value="check1">
                             <label for="radio1"><div class="radio-button"></div>Nhận tại cửa hàng</label>
                         </div>
                         <div class="radio-container">
-                            <input type="radio" name="radio" id="radio2">
+                            <input type="radio" name="radio" id="radio2" value="check2" checked>
                             <label for="radio2"><div class="radio-button"></div>Giao hàng tận nơi</label>
                         </div>
                     </div>
                 </div>
-                <div class="block-address">
-                    <select name="" id="">
-                    <option value="<?php echo $row2["customer_address"] ?>"><?php echo $row2["customer_address"] ; echo $row2["customer_name"] ; echo $row2["customer_phonenumber"] ?></option>
+                <!-- <div class="block-address">
                     </select> 
-                </div>
+                </div> -->
                 <div class="block-note">
-                    <input type="text" placeholder="Yêu cầu khác">
+                    <input name="addres" type="text" placeholder="Địa chỉ">
                 </div>
             </div>
             <?php
-                }
-            ?>
-            <?php
+            $i = 0;
                 while($row = mysqli_fetch_array($data["orderdetails"])){
+                    $_SESSION["count"] = $i;
                     $img = $row["img"];
                     $mobilephone_id = $row["mobilePhone_id"];
                     $name = $row["mobilePhone_name"];
                     $quantity = $row["quantity"];
                     $unit_price = $row["price"];
                     $price_sale = $row["unit_price"];
-                    $total = $total + ($price_sale*$quantity)
+                    $total = $total + ($price_sale*$quantity);
+                    $_SESSION["mobilePhone_id"][$i] = $mobilephone_id;
+                    $i++;
+                }
             ?>
             <div class="botton-order">
                 <div class="total-box-order">
@@ -80,9 +86,6 @@
                     </a>
                 </div>
             </div>
-            <?php
-                }
-            ?>
         </form>
     </div>
 </body>

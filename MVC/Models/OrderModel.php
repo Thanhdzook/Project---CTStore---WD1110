@@ -16,7 +16,7 @@
         }
         public function Create_Order($account_id){
             $date = date("Y-m-d");
-            $qr = "insert into orders (account_id, order_date, status) VALUES ('$account_id', '$date', '1')";
+            $qr = "insert into orders (account_id, order_date, status , unique_id) VALUES ('$account_id', '$date', '1' , '0')";
             return mysqli_query($this->con , $qr);
         }
 
@@ -50,16 +50,24 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function Pay( $account_id , $data){
+        public function Pay( $account_id , $data , $delivery){
             $data2 = [
                 "Order" => $this->List_Order($account_id , "and status = 1")
             ];
             while($row2 = mysqli_fetch_array($data2["Order"])){
                 $order_id2 = $row2["order_id"];
             }
-            $date = date('Y-m-d H:i:s');
-            $qr= "update orders set status = 2 ,  order_date = '$date' where account_id = ".$account_id." and order_id = ".$order_id2." ";
-            mysqli_query($this->con , $qr);
+            if($delivery != 0){
+                $date = date('Y-m-d H:i:s');
+                $qr= "update orders set status = 2 ,  order_date = '$date' , unique_id = ".$delivery." where account_id = ".$account_id." and order_id = ".$order_id2." ";
+                mysqli_query($this->con , $qr);
+            }
+            elseif($delivery == 0){
+                $date = date('Y-m-d H:i:s');
+                $qr= "update orders set status = 2 ,  order_date = '$date' where account_id = ".$account_id." and order_id = ".$order_id2." ";
+                mysqli_query($this->con , $qr);
+            }
+            
             $this->Create_Order($account_id);
             $row = mysqli_fetch_array($this->List_Order($account_id , "and status = 1"));
             $order_id = $row['order_id'];
