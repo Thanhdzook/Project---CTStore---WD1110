@@ -56,17 +56,6 @@ class Login_Sigin extends Controller{
                 }
             }
             else {
-                // if (empty($email)) {
-                //     $this->view("Login_sigin" , ["message" => "Tài khoản là bắt buộc"]);
-                //     exit();
-                // }
-                // else if(empty($password)){
-                //     $this->view("Login_sigin" , ["message" => "Mật khẩu là bắt buộc"]);
-                //     exit();
-                // }
-                // $this->view("Login_sigin" , ["message" => "Tài khoản hoặc mật khẩu sai"]);
-                // header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin");
-                //
                 $this->view("Login_sigin" , ["message" => "Tài khoản hoặc mật khẩu sai"]);
                 exit();
             }
@@ -83,6 +72,7 @@ class Login_Sigin extends Controller{
             // $password = password_hash($password , PASSWORD_DEFAULT);
             if(empty($full_name)){
                 $this->view("Login_sigin" , ["message" => "Không được để trống tên !"]);
+                
             }
             if(empty($phone_number)){
                 $this->view("Login_sigin" , ["message" => "Không được để trống số điện thoại !"]);
@@ -93,24 +83,27 @@ class Login_Sigin extends Controller{
             if(empty($password)){
                 $this->view("Login_sigin" , ["message" => "Không được để trống mật khẩu !"]);
             }
-            $arr_accounts = $this->accountModel->List_Account();
-            while($row = mysqli_fetch_array($arr_accounts)){
-                if($email == $row["email"]){
-                    $this->view("Login_sigin" , ["message" => "Email đã tồn tại !"]);
+            else{
+                $arr_accounts = $this->accountModel->List_Account();
+                while($row = mysqli_fetch_array($arr_accounts)){
+                    if($email == $row["email"]){
+                        $this->view("Login_sigin" , ["message" => "Email đã tồn tại !"]);
+                    }
+                    if($phone_number == $row["phone_number"]){
+                        $this->view("Login_sigin" , ["message" => "Số điện thoại đã tồn tại !"]);
+                    }
                 }
-                if($phone_number == $row["phone_number"]){
-                    $this->view("Login_sigin" , ["message" => "Số điện thoại đã tồn tại !"]);
+                // insert to database
+                $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password , $role , $random_id);
+                if($check == true){
+                    if(isset($_SESSION["role"])){
+                        header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/Thêm thành công tài khoản admin !");
+                    }
+                    // header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin/Đăng ký thành công!");
+                    $this->view("Login_sigin" , ["message" => "Đăng ký thành công !"]);
                 }
             }
-            // insert to database
-            $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password , $role , $random_id);
-            if($check == true){
-                if(isset($_SESSION["role"])){
-                    header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/Thêm thành công tài khoản admin !");
-                }
-                // header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin/Đăng ký thành công!");
-                $this->view("Login_sigin" , ["message" => "Đăng ký thành công !"]);
-            }
+            
         }
     }
 
