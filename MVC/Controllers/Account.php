@@ -50,10 +50,10 @@ class Account extends Controller{
         if($message == "password ok"){
             if(isset($_POST["submit"])){
                 if($this->Check_Password($_POST["password"]) == true){
-                    $check = $this->accountModel->Update_Infor_Account($_SESSION['full_name'],$_SESSION['phone_number'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
+                    $check = $this->accountModel->Update_Infor_Account($_SESSION['full_name'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
                     if($check == true){
                         unset($_SESSION['full_name']);
-                        unset($_SESSION['phone_number']);
+                        // unset($_SESSION['phone_number']);
                         header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản thành công !");
                     }
                     else{
@@ -68,8 +68,8 @@ class Account extends Controller{
         else{
             if(isset($_POST["submit"])){
                 $_SESSION['full_name'] = $_POST["full_name"];
-                $_SESSION['phone_number'] = $_POST["phone_number"];
-                $_SESSION['email'] = $_POST["email"];
+                // $_SESSION['phone_number'] = $_POST["phone_number"];
+                // $_SESSION['email'] = $_POST["email"];
                 header("Location: /Project---CTStore---WD1110/Account/View_Check_Password");
             }
         }
@@ -98,7 +98,7 @@ class Account extends Controller{
                     $_SESSION['password'] = $_POST["password_new1"];
                     $data1 = $this->accountModel->Search_Account( "email" , $_SESSION["email"]);
                     $row = mysqli_fetch_array($data1);
-                    $check = $this->accountModel->Update_Infor_Account($row['full_name'],$row['phone_number'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
+                    $check = $this->accountModel->Update_Infor_Account($row['full_name'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
                     $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) , "content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật mật khẩu thành công !"]);
                     break;
             }

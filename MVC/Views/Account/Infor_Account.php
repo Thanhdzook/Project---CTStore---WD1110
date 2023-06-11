@@ -11,38 +11,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-	<div class="user-info-page">
-        <div class="user-info-mobile">
-            <div class="ct-container">
-                <div class="user-info-avatar"></div>
-                <p class="user-info-avatar-name">bui cuong</p>
-                <div class="form__group">
-                    <div class="field" id="info">
-                        <input type="text" id="name" class="group__item" disabled="disabled">
-                        <div class="field-label"><label for="name">Họ và tên: Bùi Cường</label></div>
-                        <div class="icon-edit">
-                            <i id="editButton" class="fa-solid fa-pen-to-square"></i>
+    <form method="post" action="/Project---CTStore---WD1110/Account/Fix_Infor_Account/Check password/Check password">
+        <?php
+            while($row = mysqli_fetch_array($data["account_infor"])){
+                $full_name = $row["full_name"];
+                echo "<br/>";
+                $phone_number = $row["phone_number"];
+                echo "<br/>";
+                $email = $row["email"];
+                "<br/>";
+            }
+        ?>
+        <div class="user-info-page">
+            <div class="user-info-mobile">
+                <div class="ct-container">
+                    <div class="user-info-avatar"></div>
+                    <p class="user-info-avatar-name"><?php echo $full_name ?></p>
+                    <div class="form__group">
+                        <div class="field" id="info">
+                            <!-- <input type="text" id="name" class="group__item" disabled="disabled" value="<?php echo $full_name ?>"> -->
+                            <input type="text" id="name" class="group__item"  value="<?php echo $full_name ?>">
+                            <!-- <div class="field-label"><label for="name"></label></div> -->
+                            <!-- <div class="icon-edit">
+                                <i id="editButton" class="fa-solid fa-pen-to-square"></i>
+                            </div> -->
                         </div>
                     </div>
-                </div>
-                <div id="editForm" style="display: none;">
-                    <input type="text" id="nameInput" class="group__item1">
-                    <div class="editForm-p">
-                        <p class="title-top-input">Họ và tên</p>
+                    <!-- <div id="editForm" style="display: none;">
+                        <input type="text" id="nameInput" class="group__item1">
+                        <div class="editForm-p">
+                            <p class="title-top-input">Họ và tên</p>
+                        </div>
+                        <div class="editForm-btn-x">
+                            <button id="cancelButton" style="display: none;" class="fa-solid fa-xmark"></button>
+                        </div>
+                    </div> -->
+                    <div class="form__group">
+                        <input type="text" id="phoneN" class="group__item" disabled="disabled" placeholder="Số điện thoại : <?php echo $phone_number ?>">
                     </div>
-                    <div class="editForm-btn-x">
-                        <button id="cancelButton" style="display: none;" class="fa-solid fa-xmark"></button>
-                    </div>
+                    <button class="botton-change-info" type="submit" name="submit">Cập nhật thông tin</button>
+                    <a class="botton-change-pass" href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
                 </div>
-                <div class="form__group">
-                    <input type="text" id="phoneN" class="group__item" disabled="disabled" placeholder="Số điện thoại: 0123123123">
-                </div>
-                <button class="botton-change-info">Cập nhật thông tin</button>
-                <a class="botton-change-pass" href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
             </div>
         </div>
-	</div>
-    <script>
+    </form>
+    <!-- <script>
         // Lấy các phần tử DOM
         const infoContainer = document.getElementById('info');
         const editButton = document.getElementById('editButton');
@@ -79,7 +92,7 @@
         infoContainer.style.display = 'block';
         editForm.style.display = 'none';
         cancelButton.style.display = 'none';
-    </script>
+    </script> -->
 </body>
 </html>
 <?php

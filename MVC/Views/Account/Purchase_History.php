@@ -48,111 +48,97 @@
                                 $mobilePhone_id = $row["mobilePhone_id"];
                                 $order_id = $row["order_id"];
                                 $total = $price_sale*$quantity;
+                                // $_SESSION["check_order_id"] = $order_id;
                     ?>
                     <div class="box-order-list">
-                        <div class="box-order">
-                            <div>
-                                <div class="box-order-header">
-                                    <h2>CTSTORE</h2>
-                                    <div class="order-header-right">
-                                        <div class="order-time"><?php echo $date ?></div>
-                                        <div class="order-status">Trang thai</div>
-                                    </div>
-                                    
+                        <?php
+                            if($_SESSION["check_order_id"] != $order_id && $_SESSION["check_order_id"] != 0){
+                        ?>
+                            </div> 
+                            <div class="box-order-end">
+                                <div class="box-order-total">
+                                    <div class="order-total-title">Thành tiền: </div>
+                                    <div class="order-product-total"><?php echo number_format($total, 0, '', ',') ?>₫</div>
                                 </div>
-                                <div class="box-order-content-wappper">
-                                    <div class="box-order-content">
-                                        <div class="order-product-img">
-                                            <img src="<?php echo $img?>" alt="">
+                                <div class="box-order-footer">
+                                    <div class="button-right">
+                                        <div class="button-right-item">
+                                            <button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button>
                                         </div>
-                                        <div class="order-product-info1">
-                                            <p class="order-product-name"><?php echo $name?></p>
-                                            <p class="order-product-quanity">x<?php echo $quantity?></p>
+                                        <div class="button-right-item">
+                                            <button class="button-right-item-btn">Liên hệ người bán</button>
                                         </div>
-                                    </div>
-                                    <div class="order-product-info2">
-                                        <p class="order-product-price"><?php echo number_format($price, 0, '', ',') ?>₫</p>
-                                        <p class="order-product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
+                                        <div class="button-right-item">
+                                            <button class="button-right-item-btn">Mua Lại</button>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
+                        <!-- </div>  -->
+                        <?php
+                            }
+                        ?>
+                        <!-- <div class="box-order">  -->
+                            <!-- <div> -->
+                            <?php
+                                if($_SESSION["check_order_id"] != $order_id){
+                            ?>
+                        <div class="box-order"> 
+                            <div class="box-order-header">
+                                <h2>CTSTORE</h2>
+                                <div class="order-header-right">
+                                    <div class="order-time"><?php echo $date ?></div>
+                                    <div class="order-status">Trang thai</div>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                            <div class="box-order-content-wappper">
+                                <div class="box-order-content">
+                                    <div class="order-product-img">
+                                        <img src="<?php echo $img?>" alt="">
+                                    </div>
+                                    <div class="order-product-info1">
+                                        <p class="order-product-name"><?php echo $name?></p>
+                                        <p class="order-product-quanity">x<?php echo $quantity?></p>
+                                    </div>
+                                </div>
+                                <div class="order-product-info2">
+                                    <p class="order-product-price"><?php echo number_format($price, 0, '', ',') ?>₫</p>
+                                    <p class="order-product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        <!-- </div>  -->
+                    <?php
+                        $_SESSION["check_order_id"] = $order_id;
+                            }
+                        }
+                    ?>
+                    <div class="box-order-end">
+                        <div class="box-order-total">
+                            <div class="order-total-title">Thành tiền: </div>
+                            <div class="order-product-total"><?php echo number_format($total, 0, '', ',') ?>₫</div>
                         </div>
-                        <div class="box-order-end">
-                            <div class="box-order-total">
-                                <div class="order-total-title">Thành tiền: </div>
-                                <div class="order-product-total"><?php echo number_format($total, 0, '', ',') ?>₫</div>
-                            </div>
-                            <div class="box-order-footer">
-                                <div class="button-right">
-                                    <div class="button-right-item">
-                                        <button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button>
-                                    </div>
-                                    <div class="button-right-item">
-                                        <button class="button-right-item-btn">Liên hệ người bán</button>
-                                    </div>
-                                    <div class="button-right-item">
-                                        <button class="button-right-item-btn">Mua Lại</button>
-                                    </div>
+                        <div class="box-order-footer">
+                            <div class="button-right">
+                                <div class="button-right-item">
+                                    <button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button>
+                                </div>
+                                <div class="button-right-item">
+                                    <button class="button-right-item-btn">Liên hệ người bán</button>
+                                </div>
+                                <div class="button-right-item">
+                                    <button class="button-right-item-btn">Mua Lại</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php
-                            }
-                        }
-                    ?>
-                    <?php
-                        $_SESSION["check_order_id"] = 0;
-                        if(isset($data["Purchase_History"])){
-                            while($row = mysqli_fetch_array($data["Purchase_History"])){
-                                $date = $row["order_date"];
-                                $status = $row["order_date"];
-                                $mobilePhone_name = $row["mobilePhone_name"];
-                                $price = ($row["price"]/100)*(100 - $row["sale"]);
-                                $img = $row["img"];
-                                $quantity = $row["quantity"];
-                                $mobilePhone_id = $row["mobilePhone_id"];
-                                $order_id = $row["order_id"];
-                    ?>
-                    <?php
-                        if($_SESSION["check_order_id"] != $order_id){
-                    ?>
-                        <br>
-                        <h2><?php echo $date ?></h2>
-                        <h2><?php echo $mobilePhone_name ?></h2>
-                    <?php
-                        }
-                    ?>
-                    <?php
-                        if($_SESSION["check_order_id"] == $order_id){
-                    ?>
-                    
-                    <?php
-                        }
-                    ?>
-                        
-
-                    <?php
-                        $_SESSION["check_order_id"] = $order_id;
-                    ?>
-                    <?php
-                            }
-                        }
-                    ?>
-                    
                 </div>
-
-                
             </div>
         </div>
 	</div>
 </body>
 </html>
-        <div>
-            <?php
-            if(isset($data["message"])) {
-                echo $data["message"];
-            }
-            ?>
-        </div>
+        

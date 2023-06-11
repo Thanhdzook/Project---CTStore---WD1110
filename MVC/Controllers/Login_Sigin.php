@@ -59,8 +59,28 @@ class Login_Sigin extends Controller{
             $password = $_POST["Password"];
             $random_id = rand(time(), 1000000000);
             // $password = password_hash($password , PASSWORD_DEFAULT);
-
-            //insert to database
+            if(empty($full_name)){
+                $this->view("Login_sigin" , ["message" => "Không được để trống tên !"]);
+            }
+            if(empty($phone_number)){
+                $this->view("Login_sigin" , ["message" => "Không được để trống số điện thoại !"]);
+            }
+            if(empty($email)){
+                $this->view("Login_sigin" , ["message" => "Không được để trống email !"]);
+            }
+            if(empty($password)){
+                $this->view("Login_sigin" , ["message" => "Không được để trống mật khẩu !"]);
+            }
+            $arr_accounts = $this->accountModel->List_Account();
+            while($row = mysqli_fetch_array($arr_accounts)){
+                if($email == $row["email"]){
+                    $this->view("Login_sigin" , ["message" => "Email đã tồn tại !"]);
+                }
+                if($phone_number == $row["phone_number"]){
+                    $this->view("Login_sigin" , ["message" => "Số điện thoại đã tồn tại !"]);
+                }
+            }
+            // insert to database
             $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password , $role , $random_id);
             if($check == true){
                 if(isset($_SESSION["role"])){
