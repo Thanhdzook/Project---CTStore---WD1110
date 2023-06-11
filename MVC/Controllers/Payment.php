@@ -40,7 +40,8 @@
                     $mobilephone_id = $row2["mobilePhone_id"];
                     if(isset($_POST[$mobilephone_id])){
                         $id = $row2["mobilePhone_id"];
-                        $this->order->Fix_Order_Detail($row2["mobilePhone_id"] , $order_id , " , quantity = " , $_POST[$id] , "quantity" );
+                        $_id = $_POST[$id."abc"];
+                        $this->order->Fix_Order_Detail($row2["mobilePhone_id"] , $order_id , " , quantity = " , $_id , "quantity" );
                         $data3 = $data3 . " mobilephone.mobilePhone_id = " . $row2["mobilePhone_id"] . " or";
                         $check1 ++;
                     }

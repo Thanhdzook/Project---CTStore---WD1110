@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/MBDetail/mb-detail.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/MBDetail/mb-detail1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,6 +27,7 @@
                                 $sale_main = $row["sale"];
                                 $_id = $row["mobilePhone_id"];
                                 $_amount = $row["amount"];
+                                $_memory = $row["memory"];
                         ?>
                         <img class="imgP" style="" src="<?php echo $img?>">
                         <img class="imgP" style="" src="<?php echo $img?>">
@@ -76,15 +77,21 @@
                 <div class="box-memory row">
                     <?php
                         while($row = mysqli_fetch_array($data["sreach_by_memory"])){
-                        $id = $row["mobilePhone_id"];
+                        $id_memory = $row["mobilePhone_id"];
                         $memory = $row["memory"];
                         $price_sale = ($row["price"]/100)*(100-$row["sale"]);
+                        $class = "";
                     ?>
                     <?php
                         if(isset($_SESSION["While_memory"])){
                             if($_SESSION["While_memory"] != $memory){
                     ?>
-                    <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>" class="col-lg-3 col-md-6 col-xs-12">
+                    <?php 
+                        if($memory == $_memory){
+                            $class = "active-memory";
+                        }
+                    ?>
+                    <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id_memory ?>" class="col-lg-3 col-md-6 col-xs-12 <?php echo $class ?>">
                         <div class="menory-item-content">
                             <div class="menory-item"><?php echo $memory ?></div>
                             <div class="menory-item-price"><?php echo number_format($price_sale, 0, '', ',') ?>₫</div>
@@ -110,14 +117,21 @@
                     <div class="box-color-content row">
                         <?php
                             while($row = mysqli_fetch_array($data["sreach_by_color"])){
-                                $id = $row["mobilePhone_id"];
+                                $id_color = $row["mobilePhone_id"];
                                 $color = $row["color"];
                                 $price_sale = ($row["price"]/100)*(100-$row["sale"]);
                                 $img = $row["img"];
+                                $class = "";
+                                $memory = $row["memory"];
                         ?>
-                        <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id ?>" class="col-xs-12">
+                        <?php 
+                            if($id_color == $_id){
+                                $class = "active-color";
+                            }
+                        ?>
+                        <a href="/Project---CTStore---WD1110/MobilePhone_Detail/ShowMobilePhoneDetail/<?php echo $id_color ?>" class="col-xs-12 <?php echo $class ?>">
                             <img class="imgP" style="" src="<?php echo $img?>">
-                            <div class="color-item-content">
+                            <div class="color-item-content" style="border-color:red">
                                 <div class="color-item-content-name"><?php echo $color; ?></div>
                                 <div><?php echo number_format($price_sale, 0, '', ',') ?>₫</div>
                             </div>

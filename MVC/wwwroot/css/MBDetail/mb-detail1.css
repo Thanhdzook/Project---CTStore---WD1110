@@ -118,8 +118,11 @@
     width: 100%;
     margin: 0 !important;
 }
-.active-color{
-    
+a.col-xs-12.active-color{
+    border-color: #d70018;
+}
+a.col-lg-3.col-md-6.col-xs-12.active-memory{
+    border-color: #d70018 !important;
 }
 .box-color-content a{
     align-items: center;
