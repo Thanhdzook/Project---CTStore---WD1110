@@ -38,15 +38,15 @@
                 if(isset($data["orderdetails"])){
             ?>
             <form method="post" action="/Project---CTStore---WD1110/Payment/ViewPay">
-            <?php
-                while($row = mysqli_fetch_array($data["orderdetails"])){
-                    $img = $row["img"];
-                    $mobilephone_id = $row["mobilePhone_id"];
-                    $name = $row["mobilePhone_name"];
-                    $quantity = $row["quantity"];
-                    $unit_price = $row["price"];
-                    $price_sale = $row["unit_price"];
-            ?>
+                <?php
+                    while($row = mysqli_fetch_array($data["orderdetails"])){
+                        $img = $row["img"];
+                        $mobilephone_id = $row["mobilePhone_id"];
+                        $name = $row["mobilePhone_name"];
+                        $quantity = $row["quantity"];
+                        $unit_price = $row["price"];
+                        $price_sale = $row["unit_price"];
+                ?>
             <div class="item" data-price="<?php echo $price_sale ?>">
                 <div class="box-order-item">
                     <div class="order-item-product">

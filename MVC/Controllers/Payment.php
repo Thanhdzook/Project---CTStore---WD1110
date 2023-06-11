@@ -55,7 +55,7 @@
                 header("Location: /Project---CTStore---WD1110/Account/View_Add_Address");
             }
             else{
-                $this->view("Layout"  ,["payment" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id']) , "content" => "Payment"]);
+                $this->view("Layout"  ,["orderdetails" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->List_Customer($_SESSION['account_id']) , "content" => "Payment"]);
             }
         }
 

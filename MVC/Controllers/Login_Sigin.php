@@ -13,6 +13,14 @@ class Login_Sigin extends Controller{
     function Check_Login(){
         $check = false;
         if(isset($_POST["Login"])){
+            if (empty($_POST["email"])) {
+                $this->view("Login_sigin" , ["message" => "Tài khoản là bắt buộc"]);
+            }
+            if (empty($_POST["password"])) {
+                $this->view("Login_sigin" , ["message" => "Mật khẩu là bắt buộc"]);
+                exit();
+            }
+
             // check in database
             $arr_accounts = $this->accountModel->List_Account();
             while($row = mysqli_fetch_array($arr_accounts)){
@@ -25,6 +33,10 @@ class Login_Sigin extends Controller{
             }
             if($check == true){
                 $email = $_POST["email"];
+                if (empty($email)) {
+                    $this->view("Login_sigin" , ["message" => "Tài khoản là bắt buộc"]);
+                    exit();
+                }
                 $password = $_POST["password"];
                 $_SESSION['email'] = $email;
                 $_SESSION['account_id'] = $id;
@@ -39,14 +51,24 @@ class Login_Sigin extends Controller{
                         header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
                         break;
                     case 3:
-                        $this->view("Login_sigin" , ["message" => "Tài khoản này đã bị khóa !"]);
+                        $this->view("Login_sigin" , ["message" => "Tài khoản này đã bị khóa"]);
                         break;
                 }
             }
             else {
-                $this->view("Login_sigin" , ["message" => "Tài khoản hoặc mật khẩu sai !"]);
+                // if (empty($email)) {
+                //     $this->view("Login_sigin" , ["message" => "Tài khoản là bắt buộc"]);
+                //     exit();
+                // }
+                // else if(empty($password)){
+                //     $this->view("Login_sigin" , ["message" => "Mật khẩu là bắt buộc"]);
+                //     exit();
+                // }
+                // $this->view("Login_sigin" , ["message" => "Tài khoản hoặc mật khẩu sai"]);
                 // header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin");
-                // exit();
+                //
+                $this->view("Login_sigin" , ["message" => "Tài khoản hoặc mật khẩu sai"]);
+                exit();
             }
         }
     }
