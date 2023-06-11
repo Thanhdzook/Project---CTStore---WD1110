@@ -156,11 +156,6 @@ footer{
     text-align: center;
     width: 30px;
 }
-
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
 .box-promo{
     border: 1px solid #fef7f7;
     border-radius: 10px;
