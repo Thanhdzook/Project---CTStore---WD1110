@@ -9,7 +9,7 @@
             $this->account = $this->model("AccountModel");
         }
 
-        public function View_Index_Admin($message){
+        function View_Index_Admin($message){
             $count_admin = mysqli_fetch_column($this->account->Count_Account(1));
             $count_account = mysqli_fetch_column($this->account->Count_Account(2));
             $count_mobilephone = mysqli_fetch_column($this->mobilephone->Count_All_MobilePhone());
@@ -22,8 +22,14 @@
             "Recent Account" => $this->account->Recent_Account("full_name , email , phone_number , account_id" , "account where account_id = 2" , "account_id")]);
         }
 
-        public function View_Add_Account_Admin(){
-            $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Add_Account_Admin"]);
+        function View_List_Account(){
+            $List_Account = $this->account->List_Account();
+            $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "List_Account" , "account" => $List_Account]);
         }
+
+        function View_Payment($data){
+            $List_Payment = $this->order->Order_Account();
+            $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "List_Payment" , "order" => $List_Payment]);
+        } 
     }
 ?>

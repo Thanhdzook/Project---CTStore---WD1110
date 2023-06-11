@@ -58,35 +58,47 @@ h3{
 }
 .side-menu .brand-name{
     height: 10vh;
+    position: relative;
+}
+.brand-name-title a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-decoration: none;
+    color: var(--LightGold-color) !important;
+    font-weight: 600;
+}
+.list-item{
+    padding: 40px 40px;
+    width: 100%;
+}
+.active{
+    padding: 5px 10px;
+    height: 50px;
+    border: 1px solid #e11b1e;
+    border-radius: 10px;
+    background-color: #4a4c56 !important;
+}
+.item-text{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.item-text a{
+    text-decoration: none;
+    font-size: 26px;
+    color: var(--LightGold-color) !important;
+    font-weight: 500;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
-.side-menu li{
-    width: 210px;
-	height: 40px;
-    margin-left: 50px;
-    margin-top: 10px;
-	background: rgba(238, 224, 208);
-	border: 1px solid rgba(238, 224, 208);
-	transition: 0.5s ease;
-	cursor: pointer;
-	font-weight: 500;
-	border-radius: 50px 50px 50px 50px;
-    font-size: 24px;
-    padding: px 40px;
-    color: white;
-    display: flex;
-    text-align: center;
+.item-icon{
+    margin-right: 10px;
 }
-.side-menu li:hover{
-    background: white;
-    color: black;
-}
+
 .container{
     position: absolute;
     right: 0;
-    width: 80vw;
+    width: 76%;
     height: 100vh;
     background: #f1f1f1;
 }
@@ -94,7 +106,7 @@ h3{
     position: fixed;
     top: 0;
     right: 0;
-    width: 80vw;
+    width: 76%;
     height: 10vh;
     background: white;
     display: flex;
@@ -117,16 +129,21 @@ h3{
     background: #f1f1f1;
     padding: 10px;
     width: 50%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .container .header .nav .search button{
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 44px;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid green;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-.container .header .nav .search button img{
+/* .container .header .nav .search button img{
     width: 30px;
     height: 30px;
 }
@@ -151,7 +168,7 @@ h3{
     left: 0;
     width: 100%;
     height: 100%;
-}
+} */
 .container .content{
     position: relative;
     margin-top: 10vh;
@@ -181,7 +198,7 @@ h3{
     align-items: flex-start;
     flex-wrap: wrap;
 }
-.container .content .content-2 .recent-payment{
+.container .content .content-2 .customer-info{
     min-height: 50vh;
     flex: 5;
     background: white;
@@ -190,7 +207,7 @@ h3{
     display: flex;
     flex-direction: column;
 }
-.container .content .content-2 .new-student{
+.container .content .content-2 .recent-payment{
     min-height: 50vh;
     flex: 2;
     background: white;
@@ -199,7 +216,7 @@ h3{
     display: flex;
     flex-direction: column;
 }
-.container .content .content-2 .new-student table td:nth-child(1) img{
+.container .content .content-2 .recent-payment table td:nth-child(1) img{
     height: 40px;
     width: 40px;
 }

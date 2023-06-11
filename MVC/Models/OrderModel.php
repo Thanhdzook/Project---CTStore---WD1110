@@ -4,8 +4,14 @@
             $qr = "select count(*) from orders where status = 4";
             return mysqli_query($this->con , $qr);
         }
+
+        public function List_All_Order($and){
+            $qr = "select * from orders ".$and."";
+            return mysqli_query($this->con , $qr);
+        }
+
         public function List_Order($account_id , $and){
-            $qr = "select * from orders where account_id = ".$account_id." $and";
+            $qr = "select * from orders where account_id = ".$account_id." ".$and."";
             return mysqli_query($this->con , $qr);
         }
         public function Create_Order($account_id){
@@ -83,6 +89,12 @@
 
         public function Delete_Order_Details($mobilePhone_id , $order_id){
             $qr = "delete FROM orderdetails WHERE order_id = ".$order_id." and mobilePhone_id = ".$mobilePhone_id."";
+            return mysqli_query($this->con , $qr);
+        }
+
+        public function Order_Account(){
+            $qr = "select orders.order_id , orders.order_date , orders.status , account.full_name from account , orders 
+            where orders.account_id = account.account_id";
             return mysqli_query($this->con , $qr);
         }
     }
