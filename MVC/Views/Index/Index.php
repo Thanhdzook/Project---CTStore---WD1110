@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/hone_page1.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
@@ -23,29 +23,48 @@
             }
         }   
     ?>
-    <section class="slider">
-        <div class="slider-content-right-top-container">
-            <div class="slider-content-right-top">
-                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner1.png" alt=""></a>
-                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
-                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
-                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
-                <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
+    <div class="block-top-home">
+        <div class="banner-left"></div>
+        <div class="slider">
+            <div class="slider-content-right-top-container">
+                <div class="slider-content-right-top">
+                    <a href=""><img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/hs-s23-512-09016.png" alt=""></a>
+                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
+                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
+                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
+                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
+                </div>
+                <div class="slider-content-right-top-btn">
+                        <i class="bi bi-chevron-left"></i>
+                        <i class="bi bi-chevron-right"></i>
+                </div>
             </div>
-            <div class="slider-content-right-top-btn">
-                <i class="bi bi-chevron-left"></i>
-                <i class="bi bi-chevron-right"></i>
+            <div class="slider-content-right-bottom">
+                <div class="right-bottom-item active-slide">
+                    GALAXY S23 SERIES <br> Deal hot bùng nổ
+                </div>
+                <div class="right-bottom-item">
+                    IPHONE 14 PRO MAX <br> Giá siêu ưu đãi
+                </div>
+                <div class="right-bottom-item">
+                    REDMI NOTE 12 SERIES <br> Deal hời giá tốt
+                </div>
+                <div class="right-bottom-item">
+                    IPHONE 13 PRO MAX <br> Deal nóng bỏng tay
+                </div>
+                <div class="right-bottom-item">
+                    OPPO RENO 8 5G <br> Giá tốt chốt ngay
+                </div>
+            </div>
+            <div class="slider-content-right-bottom-circle">
+                <div class="bottom-circle-item active-slide1"></div>
+                <div class="bottom-circle-item"></div>
+                <div class="bottom-circle-item"></div>
+                <div class="bottom-circle-item"></div>
+                <div class="bottom-circle-item"></div>
             </div>
         </div>
-        <div class="slider-content-right-bottom">
-            <li class="active">GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
-            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
-            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
-            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
-            <li>GALAXY S23 SERIES<br>Deal hot bùng nổ</li>
-        </div>
-    </section>
-    
+    </div>
     <div class="slider-product-one" >
         <div class="container">
             <?php if(isset($data["phone_outstanding"])){ ?>
@@ -55,11 +74,10 @@
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">iPhone</a>
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Samsung</a>
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xiaomi</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">OPPO</a>
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xem tất cả</a>
                 </div>
             </div>
-            <div class="row row-cols-2 row-cols-lg-5 row-cols-md-4 row-cols-xs-1 g-2 g-lg-3">
+            <div class="row row-cols-2 row-cols-lg-5 row-cols-sm-3 row-cols-md-4 row-cols-xs-12 g-2 g-lg-3">
                 <?php
                     while($row = mysqli_fetch_array($data["phone_outstanding"])){
                         $id = $row["mobilePhone_id"];
@@ -113,7 +131,6 @@
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">iPhone</a>
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Samsung</a>
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xiaomi</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">OPPO</a>
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xem tất cả</a>
                 </div>
             </div>
@@ -147,7 +164,7 @@
                             </div>
 
                             <div class="product-rating">
-                                <ul class="d-flex" style="padding: 0;">
+                                <ul class="d-flex" style="padding: 0; list-style: none;">
                                     <li><i class="bi bi-star-fill"></i></li>
                                     <li><i class="bi bi-star-fill"></i></li>
                                     <li><i class="bi bi-star-fill"></i></li>
@@ -177,95 +194,80 @@
         </div>
     </div>
     <a href="/Project---CTStore---WD1110/Messages/View_chat/123">chat</a>
-<script>
-    const rightbtn = document.querySelector('.bi-chevron-right')
-    console.log(rightbtn)
-    const leftbtn = document.querySelector('.bi-chevron-left')
-    console.log(leftbtn)
-    const imgNumber = document.querySelectorAll('.slider-content-right-top a img')
-    console.log(imgNumber)
-    const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom li')
-    console.log(imgNumberLi)
-    let index = 0
+    <script>
+        const rightbtn = document.querySelector('.bi-chevron-right')
 
-    rightbtn.addEventListener("click",function(){
-        index = index + 1
-        if (index>imgNumber.length-1) {
-            index = 0
+        const leftbtn = document.querySelector('.bi-chevron-left')
+
+        const imgNumber = document.querySelectorAll('.slider-content-right-top a img')
+
+        const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom .right-bottom-item')
+        const imgNumberLi1 = document.querySelectorAll('.slider-content-right-bottom-circle .bottom-circle-item')
+        // console.log(imgNumberLi1)
+        // console.log(imgNumberLi)
+        let index = 0
+
+        rightbtn.addEventListener("click",function(){
+            index = index + 1
+            if (index>imgNumber.length-1) {
+                index = 0
+            }
+            
+            removeActive ()
+            removeActive1 ()
+            document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+            imgNumberLi[index].classList.add("active-slide")
+            imgNumberLi1[index].classList.add("active-slide1")
+            // console.log(imgNumberLi1)
+        });
+        leftbtn.addEventListener("click",function(){
+            index = index - 1
+            if (index<=0) {
+                index = imgNumber.length-1
+                console.log(imgNumber.length)
+            }
+            removeActive ()
+            removeActive1 ()
+            document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+            imgNumberLi[index].classList.add("active-slide")
+            imgNumberLi1[index].classList.add("active-slide1")
+        });
+        imgNumberLi.forEach(function(image,index){
+            image.addEventListener("click",function(){
+                removeActive ()
+                document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+                image.classList.add("active-slide")
+            
+            })
+        })
+        imgNumberLi1.forEach(function(image,index){
+            console.log(imgNumberLi1)
+            image.addEventListener("click",function(){
+                removeActive1 ()
+                document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+                image.classList.add("active-slide1")
+            })
+        })
+        function removeActive (){
+            let imgactive = document.querySelector('.active-slide');
+            imgactive.classList.remove("active-slide")
         }
-        removeActive ()
-        document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
-        imgNumberLi[index].classList.add("active")
-    });
-    leftbtn.addEventListener("click",function(){
-        index = index - 1
-        if (index<=0) {
-            index = imgNumber.length-1
+        function removeActive1 (){
+            let imgactive1 = document.querySelector('.active-slide1');
+            imgactive1.classList.remove("active-slide1")
         }
-        removeActive ()
-        document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
-        imgNumberLi[index].classList.add("active")
-    });
-    imgNumberLi.forEach(function(image,index){
-        image.addEventListener("click",function(){
+        function imgAuto(){
+            index = index +1
+            if (index>imgNumber.length-1) {
+                index = 0
+            }
+            removeActive1 ()
             removeActive ()
             document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
-            image.classList.add("active")
-        })
-    })
-    function removeActive (){
-        let imgactive = document.querySelector('.active');
-        imgactive.classList.remove("active")
-    }
-    function imgAuto(){
-        index = index +1
-        if (index>imgNumber.length-1) {
-            index = 0
+            imgNumberLi[index].classList.add("active-slide")
+            imgNumberLi1[index].classList.add("active-slide1")
         }
-        removeActive ()
-        document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
-        imgNumberLi[index].classList.add("active")
-    }
-    setInterval(imgAuto,6000)
-</script>
-
-
+        setInterval(imgAuto,6000)
+    </script>
 </body>
 </html>
-<!-- <section class="slider">
-        <div class="container">
-            <div class="slider-content row d-flex">
-                <div class="slider-content-left col-md-3">
-                    <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                </div>
-                <div class="slider-content-right col-md-9">
-                    <div class="slider-content-right-top-container">
-                        <div class="slider-content-right-top">
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner1.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
-                            <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
-                        </div>
-                        <div class="slider-content-right-top-btn">
-                            <i class="bi bi-chevron-left"></i>
-                            <i class="bi bi-chevron-right"></i>
-                        </div>
-                    </div>
-                    <div class="slider-content-right-bottom">
-                        <li class="active">Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                        <li>Tieu de 1</li>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->

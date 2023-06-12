@@ -7,7 +7,7 @@
 }
 .user-info-mobile .ct-container {
     max-width: 600px;
-    min-height: 1000px;
+    min-height: auto;
     margin: 0 auto;
 }
 .user-info-avatar{
@@ -151,6 +151,14 @@ input#nameInput{
     top: 10px;
     left: 510px;
 }
+@media only screen and (max-width: 820px){
 
+}
+@media only screen and (max-width: 420px){
+    .ct-container{
+        margin-right: 10px !important;
+    }
+
+}
   
   

@@ -43,6 +43,7 @@ footer{
     color: #fff;
     padding: 10px;
     text-decoration: none;
+
 }
 .cart-content-go-back:hover{
     color: #fff;
@@ -66,6 +67,9 @@ footer{
     }
 }
 /* --------------------------------------------- */
+.cart-list-order{
+    margin-top: 100px;
+}
 .box-order-item{
     padding: 10px 0;
     margin-bottom: 10px;
@@ -99,6 +103,10 @@ footer{
     font-size: 16px;
     font-weight: 700;
     padding-right: 15px;
+}
+.box-order-product-price{
+    display: flex;
+    justify-content: space-between;
 }
 .order-product-price{
     display: flex;
@@ -270,4 +278,40 @@ footer{
 .btn-order-go-back:hover{
     color: #fff;
     background-color: #f1475a;
+}
+@media only screen and (max-width: 820px){
+    .order-item-product input{
+        width: 50px;
+    }
+    .order-item-product input::before{
+        font-size: 50px;
+    }
+    .order-item-product{
+        display: flex;
+        flex-direction: column;
+    }
+    .order-item-product-info{
+        padding-left: 10px;
+    }
+    .box-order-product-price{
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .box-promo{
+        width: 370px;
+    }
+    .btn-delete-item{
+        cursor: pointer;
+        position: absolute;
+        left: 360px;  
+    }
+    .fa-trash::before{
+        color: #656565;
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 420px){
+    .cart-container{
+        margin-top: 90px !important;
+    }
 }

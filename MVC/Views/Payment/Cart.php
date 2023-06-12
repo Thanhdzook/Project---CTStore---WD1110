@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/payment/cart1.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/payment/cart4.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,13 +50,13 @@
             <div class="item" data-price="<?php echo $price_sale ?>">
                 <div class="box-order-item">
                     <div class="order-item-product">
-                        <input type="checkbox" class="discountCheckbox" name="<?php echo $mobilephone_id;?>" value="chọn">
+                        <input type="checkbox" class="discountCheckbox" name="<?php echo $mobilephone_id;?>" value="chọn" class="order-checkbox">
                         <div class="order-item-product-img">
                             <img src="<?php echo $img ?>" alt="">
                         </div>
                         <div class="order-item-product-info">
                             <div class="order-product-name"><?php echo $name?></div>
-                            <div class="d-flex justify-content-between">
+                            <div class="box-order-product-price">
                                 <div class="order-product-price">
                                     <p class="price-sale"><?php echo number_format($price_sale, 0, '', '.')?>₫</p>
                                     <p class="unit-price"><?php echo number_format($unit_price, 0, '', '.')?>₫</p>   

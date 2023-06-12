@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/style-layout-account.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/style-layout.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -40,8 +40,12 @@
       </div>
       <div class="icons">
         <div class="icon-cart">
-          <a href="/Project---CTStore---WD1110/Payment/ViewCart/null" class="fa-solid fa-bag-shopping"></a></class=></a>
-          <p class="number-order"> <?php if(isset($_SESSION["Count_Cart"])) echo $_SESSION["Count_Cart"] ?></p>
+          <a href="/Project---CTStore---WD1110/Payment/ViewCart/null">
+            <div class="icon-cart"><i class="fa-solid fa-bag-shopping"></i></div>
+            <div class="box-number-order">
+              <p class="number-order"><?php if(isset($_SESSION["Count_Cart"])) echo $_SESSION["Count_Cart"] ?></p>
+            </div>
+          </a>
         </div>
         <a href="#" class="bi bi-list" id="category"><span> Danh mục</span></a>
           <?php

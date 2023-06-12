@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<header class="header navbar-fixed-top">
+<header class="header">
       <div class="logo d-flex">
           <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone" class="logoC">CTSTORE</a>
           <ul class="d-flex">

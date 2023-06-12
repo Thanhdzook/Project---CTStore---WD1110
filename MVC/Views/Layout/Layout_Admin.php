@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="row">
-        <div class="side-menu col-3">
+        <div class="side-menu col-3 ">
             <div class="brand-name">
                 <h1 class="brand-name-title"><a href="/Project---CTStore---WD1110/Admin/View_Index_Admin/null">CTStore</a></h1>
             </div>
@@ -39,7 +39,7 @@
                 </a></li>
             </ul>
         </div>
-        <div class="container col-9">
+        <div class="container col-9 ">
             <div class="header">
                 <div class="nav">
                     <div class="search">
