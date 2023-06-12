@@ -34,7 +34,6 @@
             $data = [
                 "id" => $this->order->List_Order_Detail($order_id)
             ];
-            
             if(isset($_POST["Payment"])){
                 while($row2 = mysqli_fetch_array($data["id"])){
                     $mobilephone_id = $row2["mobilePhone_id"];
@@ -50,13 +49,13 @@
             if($check1 == 0){
                 header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Chưa chọn sản phẩm nào !");
             }
-            $check = mysqli_fetch_column($this->account->Check_Customer($_SESSION['account_id']));
-            if($check == 0){
-                header("Location: /Project---CTStore---WD1110/Account/View_Add_Address");
-            }
-            else{
+            // $check = mysqli_fetch_column($this->account->Check_Customer($_SESSION['account_id']));
+            // if($check == 0){
+            //     header("Location: /Project---CTStore---WD1110/Account/View_Add_Address");
+            // }
+            // else{
                 $this->view("Layout"  ,["orderdetails" => $this->order->List_Payment($order_id , trim($data3,"or")) , "customer" => $this->account->Search_Account("account_id",$_SESSION['account_id']) , "content" => "Payment"]);
-            }
+            // }
         }
 
         function Pay(){
