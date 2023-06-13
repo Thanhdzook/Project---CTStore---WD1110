@@ -29,13 +29,37 @@
                             $id = $row["order_id"];
                             $name = $row["full_name"];
                             $date = $row["order_date"];
-                            $status = $row["status"];
+                            $status ="";
+                            switch($row["status"]){
+                                case 3:
+                                    $status = "đã xác nhận đang giao hàng";
+                                    break;
+                                case 4:
+                                    $status = "đã nhận được hàng";
+                                    break;
+                                case 5:
+                                    $status = "đã hủy";
+                                    break;
+                            }
                     ?>
                         <tr>
                             <td><?php echo $id?></td>
                             <td><?php echo $name ?></td>
                             <td><?php echo $date ?></td>
+                            <?php
+                                if($row["status"] == 2){
+                            ?>
+                            <td><button>xác nhận</button></td>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($row["status"] != 2){
+                            ?>
                             <td><?php echo $status ?></td>
+                            <?php
+                                }
+                            ?>
                             <td><button><i class="fa-solid fa-eye"></i></button></td>
                         </tr>
                     <?php

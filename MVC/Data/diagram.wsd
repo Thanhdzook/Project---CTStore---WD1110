@@ -1,0 +1,18 @@
+@startuml
+
+    actor User_of_Admin as Foo1
+    control Check_Login as Foo2
+    database Database as Foo3
+    collections View as Foo4
+
+    Foo1 -> Foo2 : Login : Check
+    ' if(Foo1 : wrong account and password){
+    '     Foo2 -> Foo1 : erro
+    ' }
+    alt leave blank, wrong format
+        Foo2 -> Foo1 : leave blank, wrong format
+    else 
+        Foo2 -> Foo3 : 
+        
+
+@endbpm

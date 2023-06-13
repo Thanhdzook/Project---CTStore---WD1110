@@ -37,8 +37,21 @@
                             <td><?php echo $email ?></td>
                             <td><?php echo $phoneN ?></td>
                             <td><?php echo $phoneN ?></td>
-                            <td><button>Khóa</button></td>
-                            <td><button><i class="fa-solid fa-eye"></i></button></td>
+                            <?php
+                                if($row["role"] != 3){
+                            ?>
+                            <td><a href="/Project---CTStore---WD1110/Admin/Lock_Account/<?php echo $id ?>"><button>Khóa</button></a></td>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($row["role"] == 3){
+                            ?>
+                            <td>đã khóa</td>
+                            <?php
+                                }
+                            ?>
+                            <td><a href="/Project---CTStore---WD1110/Admin/View_Account_Order/<?php echo $id ?>"><button><i class="fa-solid fa-eye"></i></button></a></td>
                         </tr>
                     <?php
                         }

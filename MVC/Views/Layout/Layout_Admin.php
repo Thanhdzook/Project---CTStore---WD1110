@@ -62,7 +62,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-mobile-screen-button"></i>
-                    <a href="#">Sản phẩm</a>
+                    <a href="/Project---CTStore---WD1110/Admin/View_MobilePhone/0">Sản phẩm</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-truck"></i>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <a href="#">Đăng xuất</a>
+                    <a href="/Project---CTStore---WD1110/Login_Sigin/Log_out">Đăng xuất</a>
                 </div>
             </div>
             
