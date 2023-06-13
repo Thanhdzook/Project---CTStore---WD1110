@@ -74,11 +74,11 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-headset"></i>
-                    <a href="#">Hỗ trợ</a>
+                    <a href="/Project---CTStore---WD1110/Messages/View_chat_box">Hỗ trợ</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <a href="#">Đăng xuất</a>
+                    <a href="/Project---CTStore---WD1110/Login_Sigin/Log_out">Đăng xuất</a>
                 </div>
             </div>
             

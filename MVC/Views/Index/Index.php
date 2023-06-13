@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page1.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
@@ -26,18 +26,32 @@
     <div class="block-top-home">
         <div class="banner-left"></div>
         <div class="slider">
-            <div class="slider-content-right-top-container">
-                <div class="slider-content-right-top">
-                    <a href=""><img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/hs-s23-512-09016.png" alt=""></a>
-                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner2.png" alt=""></a>
-                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner3.png" alt=""></a>
-                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner4.png" alt=""></a>
-                    <a href=""><img src="/Project---CTStore---WD1110/MVC/wwwroot/img/banner5.png" alt=""></a>
+            <div id="carouselExample" class="carousel slide slider-content-right-top-container">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/hs-s23-512-09016.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/mo-ban-huawei-band-8.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/sli-note-12-th66666.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/mo-ban-huawei-band-8.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/ip14-prm-th6.png" class="d-block w-100" alt="...">
+                    </div>
                 </div>
-                <div class="slider-content-right-top-btn">
-                        <i class="bi bi-chevron-left"></i>
-                        <i class="bi bi-chevron-right"></i>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
             <div class="slider-content-right-bottom">
                 <div class="right-bottom-item active-slide">
@@ -195,12 +209,12 @@
     </div>
     <a href="/Project---CTStore---WD1110/Messages/View_chat/123">chat</a>
     <script>
-        const rightbtn = document.querySelector('.bi-chevron-right')
-
-        const leftbtn = document.querySelector('.bi-chevron-left')
-
-        const imgNumber = document.querySelectorAll('.slider-content-right-top a img')
-
+        const rightbtn = document.querySelector('.carousel-control-next-icon')
+        console.log(rightbtn)             
+        const leftbtn = document.querySelector('.carousel-control-prev-icon')
+        console.log(leftbtn)    
+        const imgNumber = document.querySelectorAll('.carousel-item img')
+        console.log(imgNumber)
         const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom .right-bottom-item')
         const imgNumberLi1 = document.querySelectorAll('.slider-content-right-bottom-circle .bottom-circle-item')
         // console.log(imgNumberLi1)
@@ -212,30 +226,30 @@
             if (index>imgNumber.length-1) {
                 index = 0
             }
+            console.log(index)
             
             removeActive ()
             removeActive1 ()
-            document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
             imgNumberLi[index].classList.add("active-slide")
             imgNumberLi1[index].classList.add("active-slide1")
             // console.log(imgNumberLi1)
         });
         leftbtn.addEventListener("click",function(){
             index = index - 1
-            if (index<=0) {
+            if (index<0) {
                 index = imgNumber.length-1
-                console.log(imgNumber.length)
             }
+            console.log(index)
             removeActive ()
             removeActive1 ()
-            document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+
             imgNumberLi[index].classList.add("active-slide")
             imgNumberLi1[index].classList.add("active-slide1")
         });
         imgNumberLi.forEach(function(image,index){
             image.addEventListener("click",function(){
                 removeActive ()
-                document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+
                 image.classList.add("active-slide")
             
             })
@@ -244,7 +258,7 @@
             console.log(imgNumberLi1)
             image.addEventListener("click",function(){
                 removeActive1 ()
-                document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
+
                 image.classList.add("active-slide1")
             })
         })
@@ -256,18 +270,18 @@
             let imgactive1 = document.querySelector('.active-slide1');
             imgactive1.classList.remove("active-slide1")
         }
-        function imgAuto(){
-            index = index +1
-            if (index>imgNumber.length-1) {
-                index = 0
-            }
-            removeActive1 ()
-            removeActive ()
-            document.querySelector(".slider-content-right-top").style.right = index * 100+'%'
-            imgNumberLi[index].classList.add("active-slide")
-            imgNumberLi1[index].classList.add("active-slide1")
-        }
-        setInterval(imgAuto,6000)
+        // function imgAuto(){
+        //     index = index +1
+        //     if (index>imgNumber.length-1) {
+        //         index = 0
+        //     }
+        //     removeActive1 ()
+        //     removeActive ()
+
+        //     imgNumberLi[index].classList.add("active-slide")
+        //     imgNumberLi1[index].classList.add("active-slide1")
+        // }
+        // setInterval(imgAuto,6000)
     </script>
 </body>
 </html>
