@@ -43,7 +43,7 @@
             if(!isset($_SESSION["email"])){
           ?>
             <div class="nav-item">
-              <a class="nav-link" style="margin-top: 2px;" href="/Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin"><span>Đăng nhập</span></a>
+              <a class="nav-link" style="margin-top: 2px; padding-right: 0;" href="/Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin"><span>Đăng nhập</span></a>
             </div>
           <?php 
           }
