@@ -6,7 +6,12 @@
             return mysqli_query($this->con , $qr);
         }
         public function List_Account(){
-            $qr = "select * from account";
+            $qr = "select * from account ";
+            return mysqli_query($this->con , $qr);
+        }
+
+        public function List_Account_Admin(){
+            $qr = "select * from account where role != 1";
             return mysqli_query($this->con , $qr);
         }
 
@@ -60,11 +65,27 @@
             return json_encode($result);
         }
 
+        public function Lock_Account( $id ){
+            $qr = "update account set role = 3 where account_id = ".$id." ;";
+            $result = false;
+            if(mysqli_query($this->con , $qr)){
+                $result = true;
+            }
+
+            return json_encode($result);
+        }
+
         public function Recent_Account($data , $name , $check){
             $qr = "SELECT ".$data."
                     FROM ".$name."
                     ORDER BY ".$check." DESC
                     LIMIT 0,5";
+            return mysqli_query($this->con , $qr);
+        }
+        public function Account_Order($data , $name , $check){
+            $qr = "SELECT ".$data."
+                    FROM ".$name."
+                    ORDER BY ".$check." DESC";
             return mysqli_query($this->con , $qr);
         }
     }

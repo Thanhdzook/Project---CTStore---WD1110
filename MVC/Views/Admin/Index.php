@@ -23,28 +23,28 @@
                     <i class="fa-solid fa-user fa-2x text-lightblue"></i>
                     <div class="card__inner">
                         <p class="text-primary-p">Người dùng</p></p>
-                        <span class="font-bold text-title">578</span>
+                        <span class="font-bold text-title"><?php echo $data["account"] ?></span>
                     </div>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-truck fa-2x text-red"></i>
                     <div class="card__inner">
                         <p class="text-primary-p">Đơn  hàng</p>
-                        <span class="font-bold text-title">2332</span>
+                        <span class="font-bold text-title"><?php echo $data["order"] ?></span>
                     </div>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-mobile-screen-button fa-2x text-green"></i>
                     <div class="card__inner">
                         <p class="text-primary-p">Sản phảm</p>
-                        <span class="font-bold text-title">1000</span>
+                        <span class="font-bold text-title"><?php echo $data["mobilephone"] ?></span>
                     </div>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-headset  fa-2x text-blue"></i>
                     <div class="card__inner">
                         <p class="text-primary-p">Hỗ trợ</p>
-                        <span class="font-bold text-title">2000</span>
+                        <span class="font-bold text-title"><?php echo $data["count_admin"] ?></span>
                     </div>
                 </div>
             </div>
@@ -61,21 +61,17 @@
                                 <th>Email</th>
                                 <th>Số điện thoại</th>
                             </thead>
+                            <?php
+                                while($row = mysqli_fetch_array($data["Recent Account"])){
+                            ?>
                             <tbody>
-                                <td>bui cuong</td>
-                                <td>bui@gmail.com</td>
-                                <td>0123123123</td>
+                                <td><?php echo $row["full_name"] ?></td>
+                                <td><?php echo $row["email"] ?></td>
+                                <td><?php echo $row["phone_number"] ?></td>
                             </tbody>
-                            <tbody>
-                                <td>bui cuong</td>
-                                <td>bui@gmail.com</td>
-                                <td>0123123123</td>
-                            </tbody>
-                            <tbody>
-                                <td>bui cuong</td>
-                                <td>bui@gmail.com</td>
-                                <td>0123123123</td>
-                            </tbody>
+                            <?php
+                                }
+                            ?>
                         </table>
                     </div>
                 </div>
@@ -91,21 +87,31 @@
                                     <th>Khách hàng</th>
                                     <th>Trạng thái</th>
                                 </thead>
+                                <?php
+                                while($row = mysqli_fetch_array($data["Recent Payment"])){
+                                    switch($row["status"]){
+                                        case 2:
+                                            $status = "chờ xác nhận";
+                                            break;
+                                        case 3:
+                                            $status = "đã xác nhận đang giao hàng";
+                                            break;
+                                        case 4:
+                                            $status = "đã nhận được hàng";
+                                            break;
+                                        case 5:
+                                            $status = "đã hủy";
+                                            break;
+                                    }
+                                ?>
                                 <tbody>
-                                    <td>1</td>
-                                    <td>cuong</td>
-                                    <td>Chờ xác nhận</td>
+                                    <td><?php echo $row["order_id"] ?></td>
+                                    <td><?php echo $row["full_name"] ?></td>
+                                    <td><?php echo $status ?></td>
                                 </tbody>
-                                <tbody>
-                                    <td>1</td>
-                                    <td>cuong</td>
-                                    <td>Chờ xác nhận</td>
-                                </tbody>
-                                <tbody>
-                                    <td>1</td>
-                                    <td>cuong</td>
-                                    <td>Chờ xác nhận</td>
-                                </tbody>
+                                <?php
+                                    }
+                                ?>
                             </table>
                     </div>
 

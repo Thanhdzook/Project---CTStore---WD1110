@@ -1,7 +1,7 @@
 <?php 
     class OrderModel extends DB{
         public function Count_All_Order(){
-            $qr = "select count(*) from orders where status = 4";
+            $qr = "select count(*) from orders where status != 1";
             return mysqli_query($this->con , $qr);
         }
 
@@ -102,7 +102,7 @@
 
         public function Order_Account(){
             $qr = "select orders.order_id , orders.order_date , orders.status , account.full_name from account , orders 
-            where orders.account_id = account.account_id";
+            where orders.account_id = account.account_id and orders.status != 1";
             return mysqli_query($this->con , $qr);
         }
     }
