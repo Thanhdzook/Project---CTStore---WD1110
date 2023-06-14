@@ -43,7 +43,7 @@
         }
 
         function View_Account_Order($id){
-            $this->view2("Layount" , "Layount_Admin" , ["Account_Order" => $this->account->Recent_Account("account.full_name , account.email , account.phone_number , account.account_id ,
+            $this->view2("Layout" , "Layout_Admin" , ["Account_Order" => $this->account->Recent_Account("account.full_name , account.email , account.phone_number , account.account_id ,
             orders.order_id, orders.order_date , orders.status , mobilephone.mobilePhone_name , mobilephone.memory , mobilephone.color , orderdetails.unit_price , orderdetails.quantity
             " , "account , orders , mobilephone , orderdetails where account.account_id = orders.account_id and orderdetails.order_id = orders.order_id and
              orderdetails.mobilePhone_id = mobilephone.mobilePhone_id and orders.status != 1" , "orders.order_id") , "content" => "Admin" , "content2" => "Account_Order"]);
