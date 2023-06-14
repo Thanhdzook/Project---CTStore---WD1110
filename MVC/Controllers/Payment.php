@@ -11,7 +11,7 @@
             if($_SESSION['account_id'] == null){
                 header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin");
             }
-            if(mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'] , "and status = 1")) != 0){
+            if(mysqli_fetch_column($this->order->Check_Order( "account_id" , $_SESSION['account_id'] , "and status = 1")) != 0){
                 $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1" ));
                 $order_id = $row["order_id"];
                 if(mysqli_fetch_column($this->order->Check_Order_Detail("order_id",$order_id , $order_id )) != 0){
@@ -75,10 +75,10 @@
                     unset($_SESSION['count']);
                     unset($_SESSION['mobilePhone_id']);
                     if($check == true){
-                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành công !");
+                        header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Đặt hàng thành công !/0");
                     }
                     else{
-                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành không công !");
+                        header("Location: /Project---CTStore---WD1110/ShowMobilePhone_message/ViewCart/Đặt hàng thành không công !/0");
                     }
                 }
                 else{
@@ -96,11 +96,11 @@
                     unset($_SESSION['count']);
                     unset($_SESSION['mobilePhone_id']);
                     if($check == true){
-                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành công !");
+                        header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Đặt hàng thành công !/0");
                     }
                     else{
-                        header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Đặt hàng thành không công !");
-                    } 
+                        header("Location: /Project---CTStore---WD1110/ShowMobilePhone_message/ViewCart/Đặt hàng thành không công !/0");
+                    }
                 }
                 
             }

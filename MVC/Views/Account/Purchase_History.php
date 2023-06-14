@@ -1,8 +1,11 @@
+<?php $total = 0; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png"/>
+    <title>CTstore Lịch sử mua hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/purchase-history.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -17,11 +20,11 @@
                 <div class="block-info">
                     <div class="block-info-item">
                         <i class="item-icon fa-solid fa-truck-fast"></i>
-                        <p class="item-content">0 đơn hàng</p>
+                        <p class="item-content"><?php echo $data["Order"] ?> đơn hàng</p>
                     </div>
                     <div class="block-info-item ">
                         <i class="item-icon fa-solid fa-wallet"></i>
-                        <p class="item-content">Đã mua 0</p></p>
+                        <p class="item-content">Đã mua <?php echo $data["Bought"] ?></p></p>
                     </div>
                 </div>
                 <div class="order-list-container">
@@ -47,7 +50,6 @@
                                 $quantity = $row["quantity"];
                                 $mobilePhone_id = $row["mobilePhone_id"];
                                 $order_id = $row["order_id"];
-                                $total = $price_sale*$quantity;
                                 // $_SESSION["check_order_id"] = $order_id;
                     ?>
                     <div class="box-order-list">
@@ -82,6 +84,7 @@
                             <!-- <div> -->
                             <?php
                                 if($_SESSION["check_order_id"] != $order_id){
+                                    $total = 0;
                             ?>
                         <div class="box-order"> 
                             <div class="box-order-header">
@@ -105,16 +108,16 @@
                                     </div>
                                 </div>
                                 <div class="order-product-info2">
-                                    <p class="order-product-price"><?php echo number_format($price, 0, '', ',') ?>₫</p>
-                                    <p class="order-product-price-sale"><?php echo number_format($price_sale, 0, '', ',') ?>₫</p>
+                                    <p class="order-product-price"><?php echo number_format($price*$quantity, 0, '', ',') ?>₫</p>
+                                    <p class="order-product-price-sale"><?php echo number_format($price_sale*$quantity, 0, '', ',') ?>₫</p>
                                 </div>
                             </div>
+                            <?php $total = $total + $price_sale*$quantity; ?>
                             <!-- </div> -->
                         <!-- </div>  -->
                     <?php
                         $_SESSION["check_order_id"] = $order_id;
                             }
-                        }
                     ?>
                     <div class="box-order-end">
                         <div class="box-order-total">
@@ -135,6 +138,9 @@
                             </div>
                         </div>
                     </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png"/>
+    <title>CTstore Danh sách người dùng</title>
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Admin/list-acc.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,7 +49,8 @@
                             <?php
                                 if($row["role"] == 3){
                             ?>
-                            <td>đã khóa</td>
+                            <td><a href="/Project---CTStore---WD1110/Admin/UnLock_Account/<?php echo $id ?>"><button>Đã khóa / Mở khóa</button></a></td>
+                            <!-- <td>đã khóa</td> -->
                             <?php
                                 }
                             ?>

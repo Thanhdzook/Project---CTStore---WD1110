@@ -63,9 +63,9 @@ footer{
 
 }
 /* --------------------------------------------- */
-.cart-list-order{
+/* .cart-list-order{
     
-}
+} */
 .box-order-item{
     padding: 10px 0;
     margin-bottom: 10px;
@@ -308,4 +308,14 @@ footer{
 }
 @media only screen and (max-width: 420px){
 
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }

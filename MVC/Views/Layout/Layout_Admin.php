@@ -18,11 +18,13 @@
                 <a class="active_link" href="#">Admin</a>
             </div>
             <div class="navbar__right">
-                <div class="search">
-                        <input type="text" placeholder="Search...">
-                        <button class="btn btn-outline-success search-btn" type="Sreach" name="Sreach"><i class="bi bi-search"></i></button>
-                </div>
-                <a href="#">
+                <form method="POST" action="/Project---CTStore---WD1110/Admin/Search">
+                    <div class="search">
+                        <input name="Search" type="text" placeholder="Search...">
+                        <button class="btn btn-outline-success search-btn" type="submit" name="Submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+                <a href="">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
             </div>
@@ -66,11 +68,11 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-truck"></i>
-                    <a href="#">Đơn hàng</a>
+                    <a href="/Project---CTStore---WD1110/Admin/View_Payment/;">Đơn hàng</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-user"></i>
-                    <a href="#">Người dùng</a>
+                    <a href="/Project---CTStore---WD1110/Admin/View_List_Account">Người dùng</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-headset"></i>

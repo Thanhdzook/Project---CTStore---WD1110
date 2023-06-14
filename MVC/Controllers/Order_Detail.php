@@ -10,7 +10,7 @@
         function Create_Order_Detail($mobilephone_id , $unit_price){
             if(isset($_POST["Order"])){
                 // $quantity = $_POST["quantity"];
-                if(mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'] , "and status = 1")) != 0){
+                if(mysqli_fetch_column($this->order->Check_Order( "account_id", $_SESSION['account_id'] , "and status = 1")) != 0){
                     $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1"));
                     $order_id = $row["order_id"];
                     if(mysqli_fetch_column($this->order->Check_Order_Detail( "mobilePhone_id", $mobilephone_id , $order_id)) != 0){
@@ -50,18 +50,20 @@
                 }
             }
         }
-        function View_Purchase_History(){ // order , order_details , mobile_phone
+        function View_Purchase_History($check){ // order , order_details , mobile_phone
             $string = "";
-            if(mysqli_fetch_column($this->order->Check_Order($_SESSION["account_id"] , "and status != 1")) != 0){
+            $Order = mysqli_fetch_array($this->order->Check_Order("account_id" , $_SESSION["account_id"] , " and status = 3"))[0];
+            $Bought = mysqli_fetch_array($this->order->Check_Order("account_id" , $_SESSION["account_id"] , " and status = 4"))[0];
+            if(mysqli_fetch_column($this->order->Check_Order( "account_id" , $_SESSION["account_id"] , "and status != 1")) != 0){
                 $data = $this->order ->List_Order($_SESSION["account_id"] , "and status != 1");
                 while($row = mysqli_fetch_array($data)){
                     $string = $string . "orderdetails.order_id = " . $row["order_id"] . " or ";
                 }
                 $data2 = $this->order->Purchase_History(rtrim($string , " or "));
-                $this->view2("Layout","Layout_Account" , ["content" => "Account" , "content2" => "Purchase_History" , "Purchase_History" => $this->order->Purchase_History(rtrim($string , " or "))]);
+                $this->view2("Layout","Layout_Account" , ["content" => "Account" , "content2" => "Purchase_History" , "Purchase_History" => $data2 , "Order" => $Order , "Bought" => $Bought]);
             }
             else{
-                $this->view2("Layout","Layout_Account" , ["message" => "Lịch sử mua hàng trống" , "content" => "Account" , "content2" => "Purchase_History"]);
+                $this->view2("Layout","Layout_Account" , ["message" => "Lịch sử mua hàng trống" , "content" => "Account" , "content2" => "Purchase_History" , "Order" => $Order , "Bought" => $Bought]);
             }
         }
         function Fix_Order_Details($mobilePhone_id , $order_id , $maths , $data , $data2){

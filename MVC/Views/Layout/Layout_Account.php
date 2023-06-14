@@ -80,7 +80,7 @@
                 </a>
               </div>
               <div id="div2" class="block-menu-item <?php echo $check2 ?>">
-                <a href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History">
+                <a href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/;">
                   <div class="block-menu__item-icon">
                     <i class="fa-solid fa-truck-fast"></i>
                   </div>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png"/>
+    <title>CTstore Admin</title>
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Admin/main1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

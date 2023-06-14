@@ -25,8 +25,8 @@
             return mysqli_query($this->con , $qr);
         }
         
-        public function Check_Order($account_id , $and){
-            $qr = "select count(*) from orders where account_id = '$account_id' ".$and."";
+        public function Check_Order( $name , $account_id , $and){
+            $qr = "select count(*) from orders where ".$name." = '$account_id' ".$and."";
             return mysqli_query($this->con , $qr);
         }
 
@@ -36,7 +36,7 @@
         }
 
         public function List_Order_Detail($id){
-            $qr = "select mobilephone.mobilePhone_id , mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity, mobilephone.sale from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
+            $qr = "select mobilephone.mobilePhone_id , mobilephone.amount , mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity, mobilephone.sale from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
             return mysqli_query($this->con , $qr);
         }
 
@@ -47,6 +47,11 @@
         
         public function Fix_Order_Detail($mobilePhone_id , $order_id , $maths , $data , $data2){
             $qr = "update orderdetails set ".$data2." = ".$data2." ".$maths." ".$data." where mobilePhone_id = ".$mobilePhone_id." and order_id = ".$order_id.";";
+            return mysqli_query($this->con , $qr);
+        }
+
+        public function Fix_Order($id , $status){
+            $qr = "update orders set status = ".$status." where order_id = ".$id."";
             return mysqli_query($this->con , $qr);
         }
 
@@ -100,9 +105,9 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function Order_Account(){
+        public function Order_Account($data){
             $qr = "select orders.order_id , orders.order_date , orders.status , account.full_name from account , orders 
-            where orders.account_id = account.account_id and orders.status != 1";
+            where orders.account_id = account.account_id and orders.status != 1 ".$data."";
             return mysqli_query($this->con , $qr);
         }
     }
