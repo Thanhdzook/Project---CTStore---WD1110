@@ -56,7 +56,7 @@
                     </select> 
                 </div> -->
                 <div class="block-note">
-                    <input name="addres" type="text" placeholder="Địa chỉ">
+                    <input name="addres" type="text" placeholder="Địa chỉ" value="18 Tam Trinh">
                 </div>
             </div>
             <?php

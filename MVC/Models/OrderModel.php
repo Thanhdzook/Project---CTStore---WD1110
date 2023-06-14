@@ -62,6 +62,16 @@
             while($row2 = mysqli_fetch_array($data2["Order"])){
                 $order_id2 = $row2["order_id"];
             }
+                $orM = $this->List_Order_Detail($order_id2);
+            while($rowM = mysqli_fetch_array($orM)){
+                $quantity = $rowM["quantity"];
+                for($i = 0 ; $i<= $_SESSION["count"] ; $i++){
+                    if($_SESSION["mobilePhone_id"][$i] == $rowM["mobilePhone_id"]){
+                        $updateM = "update mobilephone set amount = amount - ".$quantity." where mobilePhone_id = ".$_SESSION["mobilePhone_id"][$i]."";
+                        mysqli_query($this->con , $updateM);
+                    }
+                }
+            }
             if($delivery != 0){
                 $date = date('Y-m-d H:i:s');
                 $qr= "update orders set status = 2 ,  order_date = '$date' , unique_id = ".$delivery." where account_id = ".$account_id." and order_id = ".$order_id2." ";

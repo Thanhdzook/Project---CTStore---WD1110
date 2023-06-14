@@ -1,4 +1,32 @@
 <?php $total = 0; ?>
+<?php
+    $t = "";
+    $t1 = "";
+    $t2 = "";
+    $t3 = "";
+    $t4 = "";
+    $t5 = "";
+    switch($data["t"]){
+        case 0:
+            $t = "active";
+            break;
+        case 1:
+            $t1 = "active";
+            break;
+        case 2:
+            $t2 = "active";
+            break;
+        case 3:
+            $t3 = "active";
+            break;
+        case 4:
+            $t4 = "active";
+            break;
+        case 5:
+            $t5 = "active";
+            break;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +38,10 @@
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Account/purchase-history.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        a{text-decoration: none}
+    </style> 
 </head>
 <body>
 	<div class="purchase-history-page">
@@ -29,12 +60,12 @@
                 </div>
                 <div class="order-list-container">
                     <div class="order-list-option">
-                        <div class="order-list-item active">Tất cả</div>
-                        <div class="order-list-item">Chờ xác nhận</div>
-                        <div class="order-list-item">Đã xác nhận</div>
-                        <div class="order-list-item">Đang vận chuyển</div>
-                        <div class="order-list-item">Đã nhận hàng</div>
-                        <div class="order-list-item">Đã hủy</div>
+                        <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/0"><div class="order-list-item <?php echo $t ?>">Tất cả</div></a>
+                        <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/1"><div class="order-list-item <?php echo $t1 ?>">Chờ xác nhận</div></a>
+                        <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/2"><div class="order-list-item <?php echo $t2 ?>">Đã xác nhận</div></a>
+                        <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/3"><div class="order-list-item <?php echo $t3 ?>">Đang vận chuyển</div></a>
+                        <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/4"><div class="order-list-item <?php echo $t4 ?>">Đã nhận hàng</div></a>
+                        <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/5"><div class="order-list-item <?php echo $t5 ?>">Đã hủy</div></a>
 
                     </div>
                     <?php
@@ -42,7 +73,7 @@
                         if(isset($data["Purchase_History"])){
                             while($row = mysqli_fetch_array($data["Purchase_History"])){
                                 $date = $row["order_date"];
-                                $status = $row["order_date"];
+                                // $status = $row["status"];
                                 $name = $row["mobilePhone_name"];
                                 $price = $row["price"];
                                 $price_sale = ($row["price"]/100)*(100 - $row["sale"]);
@@ -51,6 +82,22 @@
                                 $mobilePhone_id = $row["mobilePhone_id"];
                                 $order_id = $row["order_id"];
                                 // $_SESSION["check_order_id"] = $order_id;
+                                switch($row["status"]){
+                                    case 2:
+                                        $status = "đang chờ xác nhận";
+                                        break;
+                                    case 3:
+                                        $check_status = "đã nhận được hàng";
+                                        $status = "đang giao";
+                                        break;
+                                    case 4:
+                                        $status = "đã nhận";
+                                        break;
+                                    case 5:
+                                        $status = "đã hủy";
+                                        break;
+                                }
+
                     ?>
                     <div class="box-order-list">
                         <?php
@@ -65,14 +112,14 @@
                                 <div class="box-order-footer">
                                     <div class="button-right">
                                         <div class="button-right-item">
-                                            <button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button>
+                                            <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone"><button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button><a>
                                         </div>
                                         <div class="button-right-item">
                                             <button class="button-right-item-btn">Liên hệ người bán</button>
                                         </div>
-                                        <div class="button-right-item">
+                                        <!-- <div class="button-right-item">
                                             <button class="button-right-item-btn">Mua Lại</button>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +138,7 @@
                                 <h2>CTSTORE</h2>
                                 <div class="order-header-right">
                                     <div class="order-time"><?php echo $date ?></div>
-                                    <div class="order-status">Trang thai</div>
+                                    <div class="order-status"><?php echo $status ?></div>
                                 </div>
                             </div>
                             <?php
@@ -132,9 +179,9 @@
                                 <div class="button-right-item">
                                     <button class="button-right-item-btn">Liên hệ người bán</button>
                                 </div>
-                                <div class="button-right-item">
+                                <!-- <div class="button-right-item">
                                     <button class="button-right-item-btn">Mua Lại</button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
