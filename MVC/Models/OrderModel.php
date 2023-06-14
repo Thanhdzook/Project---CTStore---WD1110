@@ -25,8 +25,8 @@
             return mysqli_query($this->con , $qr);
         }
         
-        public function Check_Order($account_id , $and){
-            $qr = "select count(*) from orders where account_id = '$account_id' ".$and."";
+        public function Check_Order( $name , $account_id , $and){
+            $qr = "select count(*) from orders where ".$name." = '$account_id' ".$and."";
             return mysqli_query($this->con , $qr);
         }
 
@@ -36,7 +36,7 @@
         }
 
         public function List_Order_Detail($id){
-            $qr = "select mobilephone.mobilePhone_id , mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity, mobilephone.sale from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
+            $qr = "select mobilephone.mobilePhone_id , mobilephone.amount , mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity, mobilephone.sale from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
             return mysqli_query($this->con , $qr);
         }
 
@@ -50,12 +50,27 @@
             return mysqli_query($this->con , $qr);
         }
 
+        public function Fix_Order($id , $status){
+            $qr = "update orders set status = ".$status." where order_id = ".$id."";
+            return mysqli_query($this->con , $qr);
+        }
+
         public function Pay( $account_id , $data , $delivery){
             $data2 = [
                 "Order" => $this->List_Order($account_id , "and status = 1")
             ];
             while($row2 = mysqli_fetch_array($data2["Order"])){
                 $order_id2 = $row2["order_id"];
+            }
+                $orM = $this->List_Order_Detail($order_id2);
+            while($rowM = mysqli_fetch_array($orM)){
+                $quantity = $rowM["quantity"];
+                for($i = 0 ; $i<= $_SESSION["count"] ; $i++){
+                    if($_SESSION["mobilePhone_id"][$i] == $rowM["mobilePhone_id"]){
+                        $updateM = "update mobilephone set amount = amount - ".$quantity." where mobilePhone_id = ".$_SESSION["mobilePhone_id"][$i]."";
+                        mysqli_query($this->con , $updateM);
+                    }
+                }
             }
             if($delivery != 0){
                 $date = date('Y-m-d H:i:s');
@@ -100,9 +115,9 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function Order_Account(){
+        public function Order_Account($data){
             $qr = "select orders.order_id , orders.order_date , orders.status , account.full_name from account , orders 
-            where orders.account_id = account.account_id and orders.status != 1";
+            where orders.account_id = account.account_id and orders.status != 1 ".$data."";
             return mysqli_query($this->con , $qr);
         }
     }

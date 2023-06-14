@@ -55,6 +55,11 @@
             return mysqli_query($this->con , $qr);
         }
 
+        public function Count_Account_By_Value( $name , $data){
+            $qr = "select count(*) from account where ".$name." = '$data'";
+            return mysqli_query($this->con , $qr);
+        }
+
         public function Update_Infor_Account($full_name , $email , $id , $password){
             $qr = "update account set full_name = '$full_name' ,  email = '$email' , password = '$password' where account_id = ".$id." ;";
             $result = false;
@@ -67,6 +72,15 @@
 
         public function Lock_Account( $id ){
             $qr = "update account set role = 3 where account_id = ".$id." ;";
+            $result = false;
+            if(mysqli_query($this->con , $qr)){
+                $result = true;
+            }
+
+            return json_encode($result);
+        }
+        public function UnLock_Account( $id ){
+            $qr = "update account set role = 2 where account_id = ".$id." ;";
             $result = false;
             if(mysqli_query($this->con , $qr)){
                 $result = true;

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png"/>
+    <title>CTstore Danh sách đơn hàng</title>
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Admin/list-order.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,7 +51,7 @@
                             <?php
                                 if($row["status"] == 2){
                             ?>
-                            <td><button>xác nhận</button></td>
+                            <td><a href="/Project---CTStore---WD1110/Admin/Order_Confirmation/<?php echo $id ?>"><button>xác nhận</button></a></td>
                             <?php
                                 }
                             ?>

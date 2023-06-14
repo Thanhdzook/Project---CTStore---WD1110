@@ -8,7 +8,7 @@ class Show_MobilePhone extends Controller{
         $this->order = $this->model("OrderModel");
         $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_All_MobilePhone());
         if(isset($_SESSION["account_id"])){
-            $row = mysqli_fetch_column($this->order->Check_Order($_SESSION['account_id'] , "and status = 1"));
+            $row = mysqli_fetch_column($this->order->Check_Order( "account_id", $_SESSION['account_id'] , "and status = 1"));
             if($row == 0){
                 $_SESSION["Count_Cart"] = 0;
             }
