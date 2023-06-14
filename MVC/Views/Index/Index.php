@@ -32,7 +32,7 @@
                     <div class="carousel-item active">
                         <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/hs-s23-512-09016.png" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item ">
                         <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/mo-ban-huawei-band-8.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
@@ -210,12 +210,10 @@
     </div>
     <a href="/Project---CTStore---WD1110/Messages/View_chat/123">chat</a>
     <script>
-        const rightbtn = document.querySelector('.carousel-control-next-icon')
-        console.log(rightbtn)             
+        const rightbtn = document.querySelector('.carousel-control-next-icon')        
         const leftbtn = document.querySelector('.carousel-control-prev-icon')
-        console.log(leftbtn)    
         const imgNumber = document.querySelectorAll('.carousel-item img')
-        console.log(imgNumber)
+        // console.log(imgNumber)
         const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom .right-bottom-item')
         const imgNumberLi1 = document.querySelectorAll('.slider-content-right-bottom-circle .bottom-circle-item')
         // console.log(imgNumberLi1)
@@ -227,8 +225,6 @@
             if (index>imgNumber.length-1) {
                 index = 0
             }
-            console.log(index)
-            
             removeActive ()
             removeActive1 ()
             imgNumberLi[index].classList.add("active-slide")
@@ -240,26 +236,67 @@
             if (index<0) {
                 index = imgNumber.length-1
             }
-            console.log(index)
             removeActive ()
             removeActive1 ()
-
             imgNumberLi[index].classList.add("active-slide")
             imgNumberLi1[index].classList.add("active-slide1")
         });
+        // Get the active slide element
+        var rightBottomItems = document.querySelectorAll('.right-bottom-item');
+        var rightBottomItems1 = document.querySelectorAll('.bottom-circle-item');
+        var carouselItems = document.querySelectorAll('.carousel-item');
+
+        // Loop through each right-bottom-item element
+        for (var i = 0; i < rightBottomItems.length; i++) {
+        // Add a click event listener to each right-bottom-item element
+        rightBottomItems[i].addEventListener('click', function() {
+            console.log(rightBottomItems[i])
+            // Remove the "active" class from all carousel items
+            for (var j = 0; j < carouselItems.length; j++) {
+            carouselItems[j].classList.remove('active');
+            }
+            
+            // Get the index of the clicked right-bottom-item element
+            var clickedIndex = Array.prototype.indexOf.call(this.parentNode.children, this);
+            console.log(clickedIndex)
+            
+            // Add the "active" class to the corresponding carousel item
+            if (carouselItems[clickedIndex]) {
+                console.log(carouselItems[clickedIndex])
+            carouselItems[clickedIndex].classList.add('active');
+            }
+        });
+        }
+        for (var i = 0; i < rightBottomItems1.length; i++) {
+        // Add a click event listener to each right-bottom-item element
+        rightBottomItems1[i].addEventListener('click', function() {
+            console.log(rightBottomItems1[i])
+            // Remove the "active" class from all carousel items
+            for (var j = 0; j < carouselItems.length; j++) {
+            carouselItems[j].classList.remove('active');
+            }
+            
+            // Get the index of the clicked right-bottom-item element
+            var clickedIndex = Array.prototype.indexOf.call(this.parentNode.children, this);
+            console.log(clickedIndex)
+            
+            // Add the "active" class to the corresponding carousel item
+            if (carouselItems[clickedIndex]) {
+                console.log(carouselItems[clickedIndex])
+            carouselItems[clickedIndex].classList.add('active');
+            }
+        });
+        }
+
         imgNumberLi.forEach(function(image,index){
             image.addEventListener("click",function(){
                 removeActive ()
-
                 image.classList.add("active-slide")
-            
             })
         })
         imgNumberLi1.forEach(function(image,index){
-            console.log(imgNumberLi1)
             image.addEventListener("click",function(){
                 removeActive1 ()
-
                 image.classList.add("active-slide1")
             })
         })
@@ -271,18 +308,6 @@
             let imgactive1 = document.querySelector('.active-slide1');
             imgactive1.classList.remove("active-slide1")
         }
-        // function imgAuto(){
-        //     index = index +1
-        //     if (index>imgNumber.length-1) {
-        //         index = 0
-        //     }
-        //     removeActive1 ()
-        //     removeActive ()
-
-        //     imgNumberLi[index].classList.add("active-slide")
-        //     imgNumberLi1[index].classList.add("active-slide1")
-        // }
-        // setInterval(imgAuto,6000)
     </script>
 </body>
 </html>
