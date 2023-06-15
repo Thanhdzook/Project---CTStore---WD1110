@@ -16,7 +16,27 @@ body{
     width: 100%;
     display: flex;
     margin-top: 20px;
+    position: relative;
 }
+/* notification-top */
+.notification-top{
+    left: 40%;
+    top: 15%;
+    position: absolute;
+    z-index: 9999;
+    padding: 20px 60px;
+    width: 300px;
+    height: 80px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.9), 0 2px 6px 2px rgba(60,64,67,.15);
+}
+.notification-message{
+    font-size: 16px;
+    font-weight: 400;
+}
+/* --------------------------------------------- */
 .banner-left{
     width: 205px;
     height: 600px;
@@ -41,7 +61,8 @@ body{
 }
 .carousel-item > img{
     width: 100% !important;
-    height: 100% !important;
+    height: 480px;
+    /* height: 10% !important; */
     object-fit: cover;  
 }
 
@@ -71,11 +92,12 @@ body{
     padding-top: 30px;
 }
 .active-slide{
-    border-top: 4px solid #ffeba7;
-    transition: all 0.3 ease-in-out !important; 
+    border-bottom: 4px solid #d70018;
+    transition: all 1 ease-in-out !important; 
     font-weight: 500 !important;
     color: #343a40;
     font-weight: 800;
+    /* transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) !important; */
 }
 /* ---------------- */
 .slider-content-right-bottom-circle{
@@ -104,7 +126,6 @@ body{
     width: 50px;
     opacity: 1;
 }
-
 @media only screen and (max-width: 820px){
     .banner-left{
         display: none;
@@ -123,19 +144,59 @@ body{
         font-size: 12px;
         line-height: 18px;
     }
+    .notification-top{
+        left: 35%;
+        top: 25%;
+        padding: 15px 40px;
+        width: 250px;
+        height: 60px;
+    }
+    .notification-message{
+        font-size: 14px;
+        font-weight: 400;
+    }
 }
-@media only screen and (max-width: 590px){
+@media only screen and (max-width: 650px){
+    .slider{
+        height: 350px;
+    }
     .slider-content-right-bottom{
         display: none;
     }
     .slider-content-right-bottom-circle{
         display: block;
+        padding: 20px 0 30px 0;
     }
 }
-@media only screen and (max-width: 420px){
+@media only screen and (max-width: 510px){
     .slider{
-        height: 280px;
+        height: 260px;
         width: 100%;
+    }
+    .slider-content-right-bottom-circle{
+        display: block;
+        padding-top: 10px;
+    }
+    .notification-top{
+        left: 30%;
+        top: 25%;
+        padding: 15px 20px;
+        width: 200px;
+        height: 60px;
+    }
+    .notification-message{
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+@media only screen and (max-width: 410px){
+    .slider{
+        height: 220px;
+        width: 100%;
+    }
+    .slider-content-right-bottom-circle{
+        display: block;
+        padding-top: 10px;
     }
 }
 /*-------------------- product -------------------*/

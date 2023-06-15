@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png" type="image/x-icon">
     <title>CTstore Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
@@ -14,16 +14,6 @@
     <!-- <script type="text/javascript" src="/Project---CTStore---WD1110/MVC/wwwroot/js/index.js"></script> -->
 </head>
 <body>
-    <?php
-        if(isset($data["message"])){
-            if($data["message"] != "null"){
-                $message = $data["message"]; 
-    ?>
-    <li class="alert"><?php echo $message?></li>
-    <?php
-            }
-        }   
-    ?>
     <div class="block-top-home">
         <div class="banner-left"></div>
         <div class="slider">
@@ -80,6 +70,18 @@
             </div>
         </div>
     </div>
+    <?php
+        if(isset($data["message"])){
+            if($data["message"] != "null"){
+                $message = $data["message"]; 
+    ?>
+    <div class="notification-top" role="">
+        <p class="notification-message"><?php echo $message?></p>
+    </div>
+    <?php
+            }
+        }   
+    ?>
     <div class="slider-product-one" >
         <div class="container">
             <?php if(isset($data["phone_outstanding"])){ ?>
@@ -308,6 +310,12 @@
             let imgactive1 = document.querySelector('.active-slide1');
             imgactive1.classList.remove("active-slide1")
         }
+        // -------------------------
+        const notificationElement = document.querySelector('.notification-top');
+        function hideNotification() {
+            notificationElement.style.display = 'none';
+        }
+        setTimeout(hideNotification, 4000);
     </script>
 </body>
 </html>
