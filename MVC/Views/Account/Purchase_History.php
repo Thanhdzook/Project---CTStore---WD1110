@@ -66,14 +66,13 @@
                         <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/3"><div class="order-list-item <?php echo $t3 ?>">Đang vận chuyển</div></a>
                         <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/4"><div class="order-list-item <?php echo $t4 ?>">Đã nhận hàng</div></a>
                         <a  href="/Project---CTStore---WD1110/Order_Detail/View_Purchase_History/5"><div class="order-list-item <?php echo $t5 ?>">Đã hủy</div></a>
-
                     </div>
                     <?php
                         $_SESSION["check_order_id"] = 0;
                         if(isset($data["Purchase_History"])){
                             while($row = mysqli_fetch_array($data["Purchase_History"])){
                                 $date = $row["order_date"];
-                                // $status = $row["status"];
+                                $statusabc = $row["status"];
                                 $name = $row["mobilePhone_name"];
                                 $price = $row["price"];
                                 $price_sale = ($row["price"]/100)*(100 - $row["sale"]);
@@ -81,23 +80,30 @@
                                 $quantity = $row["quantity"];
                                 $mobilePhone_id = $row["mobilePhone_id"];
                                 $order_id = $row["order_id"];
+                                $checklink = "";
                                 // $_SESSION["check_order_id"] = $order_id;
                                 switch($row["status"]){
                                     case 2:
+                                        $checklink = "/Order_Detail/Fix_Order/".$order_id."/5";
+                                        $checkstatus = "Hủy";
                                         $status = "đang chờ xác nhận";
                                         break;
                                     case 3:
-                                        $check_status = "đã nhận được hàng";
+                                        $checklink = "/Order_Detail/Fix_Order/".$order_id."/4";
+                                        $checkstatus = "Quay lại trang chủ";
                                         $status = "đang giao";
                                         break;
                                     case 4:
+                                        $checklink = "/Show_MobilePhone/ShowMobilePhone/";
+                                        $checkstatus = "Đánh Giá";
                                         $status = "đã nhận";
                                         break;
                                     case 5:
+                                        $checklink = "/Show_MobilePhone/ShowMobilePhone/";
+                                        $checkstatus = "Mua Lại";
                                         $status = "đã hủy";
                                         break;
                                 }
-
                     ?>
                     <div class="box-order-list">
                         <?php
@@ -112,7 +118,7 @@
                                 <div class="box-order-footer">
                                     <div class="button-right">
                                         <div class="button-right-item">
-                                            <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone"><button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button><a>
+                                            <a href="/Project---CTStore---WD1110<?php echo $checklink ?>"><button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;"><?php echo $checkstatus ?></button><a>
                                         </div>
                                         <div class="button-right-item">
                                             <button class="button-right-item-btn">Liên hệ người bán</button>
@@ -174,8 +180,11 @@
                         <div class="box-order-footer">
                             <div class="button-right">
                                 <div class="button-right-item">
-                                    <button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button>
+                                    <a href="/Project---CTStore---WD1110<?php echo $checklink ?>"><button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;"><?php echo $checkstatus ?></button><a>
                                 </div>
+                                <!-- <div class="button-right-item">
+                                    <button class="button-right-item-btn" style="background-color: #ee4d2d; border-color: #cd3011; color: #fff;">Đánh giá</button>
+                                </div> -->
                                 <div class="button-right-item">
                                     <button class="button-right-item-btn">Liên hệ người bán</button>
                                 </div>

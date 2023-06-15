@@ -89,9 +89,9 @@
                 <h2>NỔI BẬT</h2>
                 <div class="list-related">
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">iPhone</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Samsung</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xiaomi</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xem tất cả</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Samsung" class="list-related-button">Samsung</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Xiaomi" class="list-related-button">Xiaomi</a>
+                    <a href="/Project---CTStore---WD1110" class="list-related-button">Xem tất cả</a>
                 </div>
             </div>
             <div class="row row-cols-2 row-cols-lg-5 row-cols-sm-3 row-cols-md-4 row-cols-xs-12 g-2 g-lg-3">
@@ -146,9 +146,9 @@
                 <h2>DANH SÁCH SẢN PHẨM</h2>
                 <div class="list-related">
                     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">iPhone</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Samsung</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xiaomi</a>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Iphone" class="list-related-button">Xem tất cả</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Samsung" class="list-related-button">Samsung</a>
+                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Xiaomi" class="list-related-button">Xiaomi</a>
+                    <a href="/Project---CTStore---WD1110" class="list-related-button">Xem tất cả</a>
                 </div>
             </div>
             <div class="row row-cols-2 row-cols-lg-5 row-cols-md-4 row-cols-xs-1 g-2 g-lg-3">
