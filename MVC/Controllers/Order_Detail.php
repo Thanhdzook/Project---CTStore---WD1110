@@ -105,5 +105,10 @@
             echo $this->order->Delete_Order_Details($mobilePhone_id , $order_id);
             header("Location: /Project---CTStore---WD1110/Payment/ViewCart/null");
         }
+
+        function Fix_Order($id , $data){
+            $this->order->Fix_Order($id , $data);
+            $this -> View_Purchase_History(0);
+        }
     }
 ?>
