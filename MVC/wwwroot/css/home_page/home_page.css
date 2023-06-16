@@ -16,7 +16,27 @@ body{
     width: 100%;
     display: flex;
     margin-top: 20px;
+    position: relative;
 }
+/* notification-top */
+.notification-top{
+    left: 40%;
+    top: 15%;
+    position: absolute;
+    z-index: 9999;
+    padding: 20px 60px;
+    width: 300px;
+    height: 80px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.9), 0 2px 6px 2px rgba(60,64,67,.15);
+}
+.notification-message{
+    font-size: 16px;
+    font-weight: 400;
+}
+/* --------------------------------------------- */
 .banner-left{
     width: 205px;
     height: 600px;
@@ -124,6 +144,17 @@ body{
         font-size: 12px;
         line-height: 18px;
     }
+    .notification-top{
+        left: 35%;
+        top: 25%;
+        padding: 15px 40px;
+        width: 250px;
+        height: 60px;
+    }
+    .notification-message{
+        font-size: 14px;
+        font-weight: 400;
+    }
 }
 @media only screen and (max-width: 650px){
     .slider{
@@ -146,6 +177,17 @@ body{
         display: block;
         padding-top: 10px;
     }
+    .notification-top{
+        left: 30%;
+        top: 25%;
+        padding: 15px 20px;
+        width: 200px;
+        height: 60px;
+    }
+    .notification-message{
+        font-size: 14px;
+        font-weight: 400;
+    }
 }
 @media only screen and (max-width: 410px){
     .slider{
@@ -159,6 +201,7 @@ body{
 }
 /*-------------------- product -------------------*/
 .container{
+    position: relative;
     flex-direction: column;
 }
 .slider-product-one-content-title{
@@ -275,6 +318,150 @@ body{
 .fa-circle-left{
     font-size: 32px !important;
 }
+/* --------------------------------------- */
+.button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+#scrollToTopBtn{
+    background-color: rgba(215,0,24,.7);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+    transition: transform 0.3s ease;
+}
+#scrollToTopBtn i{
+    font-size: 20px;
+    color: #fff;
+}
+  
+#scrollToTopBtn:hover{
+    transform: scale(1.2);
+}
+.chat-link {
+    margin-left: 10px;
+}
+.chat-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.chat-button:hover {
+    background-color: #0056b3;
+}
+/* -----------------------chat-box------------------------- */
+.chat-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.chat-link {
+    margin-left: 10px;
+}
+
+.chat-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    display: none;
+    z-index: 9999;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-content {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.chat-footer {
+    margin-top: 10px;
+}
+
+.message-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.send-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}
+
+/* -----------------------chat-box------------------------- */
+/* --------------------------------------- */
+/* #chatToTopBtn{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(215,0,24,.7);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+    transition: transform 0.3s ease;
+}
+#chatToTopBtn i{
+    font-size: 20px;
+    color: #fff;
+}
+  
+#chatToTopBtn:hover{
+    transform: scale(1.2);
+} */
 @media only screen and (max-width: 1250px){
     .product-item img{
         width: 140px !important;

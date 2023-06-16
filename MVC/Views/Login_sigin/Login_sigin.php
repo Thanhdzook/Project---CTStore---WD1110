@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/style.css">
+  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/style-login.css">
 </head>
 <body>  
 <?php
@@ -45,7 +45,7 @@
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <input class="btn mt-4" type="submit" name="Login" value="Đăng nhập">
-                                                <p class="mb-0 mt-4 text-center"><a href="" class="link">Quên mật khẩu ?</a></p>
+                                                <p class="mb-0 mt-4 text-center"><a href="/Project---CTStore---WD1110/MVC/Views/Login_sigin/Forgot_password.php" class="link">Quên mật khẩu ?</a></p>
                                             </form> 
 				      					</div>
 			      					</div>
@@ -61,15 +61,19 @@
                                                     <i class="input-icon uil uil-user"></i>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="tel" class="form-style" placeholder="Số điện thoại" name="Phone">
+                                                    <input type="tel" class="form-style" placeholder="Số điện thoại (bắt buộc)" name="Phone">
                                                     <i class="input-icon uil uil-phone"></i>
                                                 </div>	
                                                 <div class="form-group mt-2">
-                                                    <input type="email" class="form-style" placeholder="Email" name="Email">
+                                                    <input type="email" class="form-style" placeholder="Email (bắt buộc)" name="Email">
                                                     <i class="input-icon uil uil-at"></i>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="password" class="form-style" placeholder="Password" name="Password">
+                                                    <input type="password" class="form-style" placeholder="Mật khẩu" name="Password">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" class="form-style" placeholder="Xác nhận mật khẩu" name="Password">
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <input class="btn mt-4" type="submit" name="Register" value="Đăng ký">

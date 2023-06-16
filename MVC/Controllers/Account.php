@@ -13,6 +13,7 @@ class Account extends Controller{
     function View_Account_Infor(){
         $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account"]);
     }
+    
 
     function Add_Address(){
         if(isset($_POST["submit"])){
@@ -32,15 +33,15 @@ class Account extends Controller{
     }
 
     public function View_Fix_Infor_Account(){
-        $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account( "email" ,$_SESSION["email"]) ,"content" => "Account" , "content2" => "Fix_Infor_Account"]);
+        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" ,$_SESSION["email"]) ,"content" => "Account" , "content2" => "Fix_Infor_Account"]);
     }
 
     public function View_Check_Password(){
-        $this->view("Layout" , ["content" => "Account" , "content2" => "Check_Password"]);
+        $this->view2("Layout" , "Layout_Account" , ["content" => "Account" , "content2" => "Check_Password"]);
     }
 
     public function View_Fix_Password(){
-        $this->view("Layout" , ["content" => "Account" , "content2" => "Fix_Password"]);
+        $this->view2("Layout", "Layout_Account" , ["content" => "Account" , "content2" => "Fix_Password"]);
     }
 
     public function Check_Password($password){

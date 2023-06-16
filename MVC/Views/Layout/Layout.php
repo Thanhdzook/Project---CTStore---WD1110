@@ -18,8 +18,8 @@
               <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone" class="logoC">CTSTORE</a>
               <ul class="d-flex">
                 <li class="connect">Kết nối</li>
-                <li><a href="#" class=""><i class="bi bi-facebook"></i></a></li>
-                <li><a href="#" class=""><i class="bi bi-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100093042024390" class=""><i class="bi bi-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/ctstore_18/?igshid=NTc4MTIwNjQ2YQ%3D%3D" class=""><i class="bi bi-instagram"></i></a></li>
               </ul>
           </div>
           <div class="search">
@@ -94,6 +94,7 @@
               require_once "./MVC/Views/".$data["content"]."/".$data["content"].".php";
             }
           ?>
+
     <footer>
       <div class="container">
         <div class="row">
