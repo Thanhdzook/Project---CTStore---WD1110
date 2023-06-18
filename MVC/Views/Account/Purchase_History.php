@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <!-- </div>  -->
+                        </div> 
                         <?php
                             }
                         ?>
@@ -172,6 +172,7 @@
                         $_SESSION["check_order_id"] = $order_id;
                             }
                     ?>
+                    </div> 
                     <div class="box-order-end">
                         <div class="box-order-total">
                             <div class="order-total-title">Thành tiền: </div>
