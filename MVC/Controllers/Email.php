@@ -12,10 +12,17 @@
     // require './PHPMailer/src/SMTP.php';
 
     Class Email extends Controller{
-        function Send_Email($message , $email){
+        function Send_Email($email){
+            $_SESSION["random"] = rand(1000 , 9999);
+            $message = "mã xác nhận của bạn là " . $_SESSION["random"];
             $name = htmlentities("CTstore");
+<<<<<<< HEAD
+            $email = htmlentities($email);
+            $subject = htmlentities("MA XAC NHAN CUA BAN");
+=======
             $email = htmlentities("bui230766@gmail.com");
             $subject = htmlentities("");
+>>>>>>> 5b1bf6563fe0315489a186aa6702a6702c82cdb2
             $message = htmlentities($message);
 
             $mail = new PHPMailer(true);
@@ -29,7 +36,7 @@
             $mail->isHTML(true);
             $mail->setFrom($email, $name);
             $mail->addAddress($email);
-            // $mail->Subject = ("$email ($subject)");
+            $mail->Subject = ($subject);
             $mail->Body = $message;
             $mail->send();
         }
