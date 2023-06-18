@@ -5,7 +5,6 @@
     // require './PHPMailer/src/Exception.php';
     // require './PHPMailer/src/PHPMailer.php';
     // require './PHPMailer/src/SMTP.php';
-    
     require '/xampp/htdocs/Project---CTStore---WD1110/MVC/wwwroot/PHPMailer/src/Exception.php';
     require '/xampp/htdocs/Project---CTStore---WD1110/MVC/wwwroot/PHPMailer/src/PHPMailer.php';
     require '/xampp/htdocs/Project---CTStore---WD1110/MVC/wwwroot/PHPMailer/src/SMTP.php';
@@ -17,8 +16,13 @@
             $_SESSION["random"] = rand(1000 , 9999);
             $message = "mã xác nhận của bạn là " . $_SESSION["random"];
             $name = htmlentities("CTstore");
+<<<<<<< HEAD
             $email = htmlentities($email);
             $subject = htmlentities("MA XAC NHAN CUA BAN");
+=======
+            $email = htmlentities("bui230766@gmail.com");
+            $subject = htmlentities("");
+>>>>>>> 5b1bf6563fe0315489a186aa6702a6702c82cdb2
             $message = htmlentities($message);
 
             $mail = new PHPMailer(true);
