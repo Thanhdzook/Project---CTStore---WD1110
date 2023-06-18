@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <form method="post" action="/Project---CTStore---WD1110/Account/Fix_Infor_Account/Check password/Check password">
+    <form method="post" action="/Project---CTStore---WD1110/Account/Fix_Infor_Account/Check password">
         <?php
             while($row = mysqli_fetch_array($data["account_infor"])){
                 $full_name = $row["full_name"];
@@ -31,19 +31,19 @@
                     <p class="user-info-avatar-name"><?php echo $full_name ?></p>
                     <div class="form__group">
                         <div class="field" id="info">
-                            <input type="text" id="name" class="group__item"  value="<?php echo $full_name ?>">
+                            <input name="full_name" type="text" id="name" class="group__item"  value="<?php echo $full_name ?>">
                         </div>
                     </div>
                     <div class="form__group">
                         <input type="text" id="phoneN" class="group__item" disabled="disabled" placeholder="Số điện thoại : <?php echo $phone_number ?>">
                     </div>
                     <button class="botton-change-info" type="submit" name="submit">Cập nhật thông tin</button>
-                    <a class="botton-change-pass" href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
+                    <!-- <a class="botton-change-pass" href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a> -->
                 </div>
             </div>
         </div>
     </form>
-    
+    <a class="botton-change-pass" href="/Project---CTStore---WD1110/Account/View_Fix_Password"><button>Đổi mật khẩu</button></a>
 </body>
 </html>
         

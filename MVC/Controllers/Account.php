@@ -15,22 +15,22 @@ class Account extends Controller{
     }
     
 
-    function Add_Address(){
-        if(isset($_POST["submit"])){
-            $full_name = $_POST["customer_name"];
-            $phone_number = $_POST["customer_phonenumber"];
-            $address = $_POST["customer_address"];
+    // function Add_Address(){
+    //     if(isset($_POST["submit"])){
+    //         $full_name = $_POST["customer_name"];
+    //         $phone_number = $_POST["customer_phonenumber"];
+    //         $address = $_POST["customer_address"];
 
-            $check = $this->accountModel->Create_Customer($_SESSION["account_id"] , $full_name , $phone_number , $address);
+    //         $check = $this->accountModel->Create_Customer($_SESSION["account_id"] , $full_name , $phone_number , $address);
 
-            if($check == true){
-                header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Thêm địa chỉ người nhận thành công");
-            }
-            else{
-                header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Thêm địa chỉ người nhận không thành công");
-            }
-        }
-    }
+    //         if($check == true){
+    //             header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Thêm địa chỉ người nhận thành công");
+    //         }
+    //         else{
+    //             header("Location: /Project---CTStore---WD1110/Payment/ViewCart/Thêm địa chỉ người nhận không thành công");
+    //         }
+    //     }
+    // }
 
     public function View_Fix_Infor_Account(){
         $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" ,$_SESSION["email"]) ,"content" => "Account" , "content2" => "Fix_Infor_Account"]);
@@ -45,7 +45,7 @@ class Account extends Controller{
     }
 
     public function Check_Password($password){
-            return ($password == $_SESSION['password']) ? true : false;
+        return ($password == $_SESSION['password']) ? true : false;
     }
     public function Fix_Infor_Account($message){
         if($message == "password ok"){
@@ -55,22 +55,22 @@ class Account extends Controller{
                     if($check == true){
                         unset($_SESSION['full_name']);
                         // unset($_SESSION['phone_number']);
-                        header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản thành công !");
+                        // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản thành công !");
+                        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản thành công !"]);
                     }
                     else{
-                        header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản không thành công !");
+                        // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản không thành công !");
+                        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản không thành công !"]);
                     }
                 }
                 else{
-                    $this->view("Layout" , ["content" => "Account" , "content2" => "Check_Password" , "message" => "Sai mật khẩu !"]);
+                    $this->view2("Layout" , "Layout_Account", ["content" => "Account" , "content2" => "Check_Password" , "message" => "Sai mật khẩu !"]);
                 }
             }
         }
         else{
             if(isset($_POST["submit"])){
                 $_SESSION['full_name'] = $_POST["full_name"];
-                // $_SESSION['phone_number'] = $_POST["phone_number"];
-                // $_SESSION['email'] = $_POST["email"];
                 header("Location: /Project---CTStore---WD1110/Account/View_Check_Password");
             }
         }
@@ -84,27 +84,26 @@ class Account extends Controller{
             ($_POST["password_new1"] == $_POST['password_old']) ? $check = 0 : $check = $check1 + $check2;
             switch ($check){
                 case 0:
-                    $this->view("Layout" , ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Mật khẩu mới không được trùng với mật khẩu cũ"]);
+                    $this->view2("Layout" , "Layout_Account" , ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Mật khẩu mới không được trùng với mật khẩu cũ"]);
                     break;
                 case 5:
-                    $this->view("Layout" , ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Sai mật khẩu cũ"]);
+                    $this->view2("Layout" , "Layout_Account", ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Sai mật khẩu cũ"]);
                     break;
                 case 9:
-                    $this->view("Layout" , ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Sai mật khẩu cũ"]);
+                    $this->view2("Layout" , "Layout_Account", ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Sai mật khẩu cũ"]);
                     break;
                 case 7:
-                    $this->view("Layout" , ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Mật khẩu mới không trùng nhau !"]);
+                    $this->view2("Layout" , "Layout_Account", ["content" => "Account" , "content2" => "Fix_Password" , "message" => "Mật khẩu mới không trùng nhau !"]);
                     break;
                 case 3:
                     $_SESSION['password'] = $_POST["password_new1"];
                     $data1 = $this->accountModel->Search_Account( "email" , $_SESSION["email"]);
                     $row = mysqli_fetch_array($data1);
                     $check = $this->accountModel->Update_Infor_Account($row['full_name'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
-                    $this->view("Layout" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) , "content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật mật khẩu thành công !"]);
+                    $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) , "content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật mật khẩu thành công !"]);
                     break;
             }
         }
     }
-
 }
 ?>

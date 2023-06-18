@@ -1,3 +1,9 @@
+<?php
+    $check_email = $_SESSION["check_email"];
+    // unset($_SESSION["check_email"]);
+    unset($_SESSION["random"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,10 +20,9 @@
 
 <body>
     <?php
-    if(isset($data["message"])){
-        $message = $data["message"];
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
+        if(isset($data["message"])){
+        echo $data["message"];
+        }
     ?>
     <div class="changeP-page">
         <div class="changeP-page-mobile">
@@ -28,13 +33,13 @@
                     </div>
                 </div>
                 <div class="changeP-content">
-                    <form method="post" action="/Project---CTStore---WD1110/Account/Fix_Password">
-                        <div class="changeP-content-form">
+                    <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Forgot_Password/<?php echo $check_email ?>">
+                        <!-- <div class="changeP-content-form">
                             <p class="changeP-content-title">Nhập mật khẩu hiện tại</p>
                             <label value="Nhập mật khẩu hiện tại" class="active-inputCP">
                                 <input class="group__item" type="password" name="password_old" placeholder="Mật khẩu hiện tại">
                             </label>
-                        </div>
+                        </div> -->
                         <div class="changeP-content-form">
                             <p class="changeP-content-title">Tạo mật khẩu mới</p>
                             <div class="form-changeP">

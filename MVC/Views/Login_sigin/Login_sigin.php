@@ -45,7 +45,7 @@
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <input class="btn mt-4" type="submit" name="Login" value="Đăng nhập">
-                                                <p class="mb-0 mt-4 text-center"><a href="/Project---CTStore---WD1110/MVC/Views/Login_sigin/Forgot_password.php" class="link">Quên mật khẩu ?</a></p>
+                                                <p class="mb-0 mt-4 text-center"><a href="/Project---CTStore---WD1110/Login_Sigin/View_Forgot_Password" class="link">Quên mật khẩu ?</a></p>
                                             </form> 
 				      					</div>
 			      					</div>
@@ -54,7 +54,7 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 
-                                            <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Sigin">
+                                            <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Sigin/0">
                                                 <h4 class="mb-3 pb-3">Đăng ký</h4>
                                                 <div class="form-group">
                                                     <input type="text" class="form-style" placeholder="Họ và Tên" name="FullName">
@@ -72,10 +72,10 @@
                                                     <input type="password" class="form-style" placeholder="Mật khẩu" name="Password">
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
-                                                <div class="form-group mt-2">
+                                                <!-- <div class="form-group mt-2">
                                                     <input type="password" class="form-style" placeholder="Xác nhận mật khẩu" name="Password">
                                                     <i class="input-icon uil uil-lock-alt"></i>
-                                                </div>
+                                                </div> -->
                                                 <input class="btn mt-4" type="submit" name="Register" value="Đăng ký">
                                             </form> 
 				      					</div>

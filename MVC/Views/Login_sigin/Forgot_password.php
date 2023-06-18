@@ -99,6 +99,11 @@
     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Oppo">Oppo</a>
   </div>
   <!-- -------------------Content----------------------------- -->
+  <?php
+    if(isset($data["message"])){
+      echo $data["message"];
+    }
+  ?>
   <div class="fpass-container">
     <div class="fpass-header">
       <div class="fpass-header-icon">
@@ -108,10 +113,12 @@
     </div>
     <div class="fpass-content">
       <p class="fpass-content-text">Vui lòng nhập email để tìm kiếm tài khoản của bạn.</p>
+      <form action="/Project---CTStore---WD1110/Login_Sigin/Forgot_Password" method="post">
       <div class="fpass-content-input">
-        <input  type="email" class="content-item-input">
-        <button class="content-item-btn">Xác nhận</button>
+          <input name="email" type="email" class="content-item-input">
+          <button name="submit" type="submit" class="content-item-btn">Xác nhận</button>
       </div>
+      </form>
     </div>
   </div>
 
@@ -130,29 +137,29 @@
     var countdownValue = parseInt(countdownElement.innerText);
     var countdown;
 
-    function startCountdown() {
-      countdown = setInterval(function() {
-        countdownValue -= 1;
+    // function startCountdown() {
+    //   countdown = setInterval(function() {
+    //     countdownValue -= 1;
 
-        if (countdownValue <= 0) {
-          clearInterval(countdown);
-          var resendLink = document.createElement("a");
-          resendLink.href = "http://localhost/Project---CTStore---WD1110/MVC/Views/Login_sigin/Forgot_password.php";
-          resendLink.innerText = "Gửi lại";
-          resendLink.style.color = "red";
-          resendLink.style.textDecoration = "none";
-          resendLink.addEventListener("click", startCountdown); // Gắn sự kiện click để bắt đầu đếm ngược lại
+    //     if (countdownValue <= 0) {
+    //       clearInterval(countdown);
+    //       var resendLink = document.createElement("a");
+    //       resendLink.href = "http://localhost/Project---CTStore---WD1110/MVC/Views/Login_sigin/Forgot_password.php";
+    //       resendLink.innerText = "Gửi lại";
+    //       resendLink.style.color = "red";
+    //       resendLink.style.textDecoration = "none";
+    //       resendLink.addEventListener("click", startCountdown); // Gắn sự kiện click để bắt đầu đếm ngược lại
 
-          var countdownParent = document.querySelector("#otp-countdown");
-          countdownParent.innerHTML = 'Mã OTP đã hết hạn. ';
-          countdownParent.appendChild(resendLink);
-        } else {
-          countdownElement.innerText = countdownValue;
-        }
-      }, 1000);
-    }
+    //       var countdownParent = document.querySelector("#otp-countdown");
+    //       countdownParent.innerHTML = 'Mã OTP đã hết hạn. ';
+    //       countdownParent.appendChild(resendLink);
+    //     } else {
+    //       countdownElement.innerText = countdownValue;
+    //     }
+    //   }, 1000);
+    // }
 
-    startCountdown(); // Khởi đầu đếm ngược ban đầu
+    // startCountdown(); // Khởi đầu đếm ngược ban đầu
   </script>
 </body>
 

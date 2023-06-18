@@ -99,60 +99,66 @@
     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Oppo">Oppo</a>
   </div>
   <!-- -------------------Content----------------------------- -->
+  <?php
+    if(isset($data["message"])){
+      echo $data["message"];
+    }
+  ?>
   <div class="fpass-container">
     <div class="fpass-header">
-      <div class="fpass-header-icon">
+      <!-- <div class="fpass-header-icon">
         <i class="fa-solid fa-arrow-left"></i>
-      </div>
-      <p class="fpass-header-title">Quên mật khẩu</p>
+      </div> -->
+      <!-- <p class="fpass-header-title">Quên mật khẩu</p> -->
     </div>
     <div class="fpass-content">
-      <p class="fpass-content-text">Gửi mã xác nhận để lấy lại mật khẩu</p>
+      <p class="fpass-content-text">Mã xác nhận đã được gửi qua email</p>
       <div class="fpass-content-methods">
         <div class="box-methods">
           <div class="box-methods-icon">
             <i class="fa-solid fa-envelope"></i>
           </div>
           <div class="box-methods-content">
-            <p class="methods-content-name">Qua email</p>
-            <p class="methods-content-email">bu******6@gmail.com</p>
+            <p class="methods-content-name">Email</p>
+            <p class="methods-content-email"><?php echo $data["email"] ?></p>
           </div>
 
         </div>
-        <button class="methods-content-btn">Tiếp tục</button>
+        <!-- <button class="methods-content-btn">Tiếp tục</button> -->
       </div>
     </div>
   </div>
+  <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Send_Email/<?php echo $data["check"] ?>">
   <div class="otp-container">
     <div class="otp-header">
-      <div class="otp-header-icon">
+      <!-- <div class="otp-header-icon">
         <i class="fa-solid fa-arrow-left"></i>
-      </div>
-      <p class="otp-header-title">Quên mật khẩu</p>
+      </div> -->
+      <!-- <p class="otp-header-title">Quên mật khẩu</p> -->
     </div>
     <div class="otp-content">
-      <p class="otp-content-text">Nhập mã OTP được gửi qua email bu******6@gmail.com</p>
+      <p class="otp-content-text">Nhập mã OTP được gửi qua email <?php echo $data["email"] ?></p>
       <div class="box-otp-content">
         <div class="box-otp-list">
           <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
+            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel1" class="otp-item-input">
           </div>
           <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
+            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel2" class="otp-item-input">
           </div>
           <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
+            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel3" class="otp-item-input">
           </div>
           <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
+            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel4" class="otp-item-input">
           </div>
         </div>
       </div>
       <p id="otp-countdown" class="otp-countdown">Mã OTP hết hạn sau <span>5</span> giây</p>
-      <button class="methods-content-btn">Xác nhận</button>
-
+      <button type="submit" name="submit" class="methods-content-btn">Xác nhận</button>
     </div>
   </div>
+  </form>
   <script>
     function validateInput(input) {
       var value = input.value;
@@ -174,11 +180,15 @@
         if (countdownValue <= 0) {
           clearInterval(countdown);
           var resendLink = document.createElement("a");
-          resendLink.href = "http://localhost/Project---CTStore---WD1110/MVC/Views/Login_sigin/Forgot_password.php";
+          resendLink.href = "#";
           resendLink.innerText = "Gửi lại";
           resendLink.style.color = "red";
           resendLink.style.textDecoration = "none";
-          resendLink.addEventListener("click", startCountdown); // Gắn sự kiện click để bắt đầu đếm ngược lại
+          resendLink.addEventListener('click', function() {
+            location.reload();
+            resendLink.addEventListener("click", startCountdown);
+          });
+          // resendLink.addEventListener("click", startCountdown); // Gắn sự kiện click để bắt đầu đếm ngược lại
 
           var countdownParent = document.querySelector("#otp-countdown");
           countdownParent.innerHTML = 'Mã OTP đã hết hạn. ';
