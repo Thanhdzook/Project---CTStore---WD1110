@@ -107,23 +107,13 @@
       <p class="fpass-header-title">Quên mật khẩu</p>
     </div>
     <div class="fpass-content">
-      <p class="fpass-content-text">Gửi mã xác nhận để lấy lại mật khẩu</p>
-      <div class="fpass-content-methods">
-        <div class="box-methods">
-          <div class="box-methods-icon">
-            <i class="fa-solid fa-envelope"></i>
-          </div>
-          <div class="box-methods-content">
-            <p class="methods-content-name">Qua email</p>
-            <p class="methods-content-email">bu******6@gmail.com</p>
-          </div>
-
-        </div>
-        <button class="methods-content-btn">Tiếp tục</button>
+      <p class="fpass-content-text">Nhập email đăng kí tài khoản</p>
+      <div class="fpass-content-input">
+        <input  type="email" class="content-item-input">
       </div>
     </div>
   </div>
-  <div class="otp-container">
+  <!-- <div class="otp-container">
     <div class="otp-header">
       <div class="otp-header-icon">
         <i class="fa-solid fa-arrow-left"></i>
@@ -152,7 +142,7 @@
       <button class="methods-content-btn">Xác nhận</button>
 
     </div>
-  </div>
+  </div> -->
   <script>
     function validateInput(input) {
       var value = input.value;

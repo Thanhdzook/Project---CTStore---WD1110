@@ -5,7 +5,6 @@
     // require './PHPMailer/src/Exception.php';
     // require './PHPMailer/src/PHPMailer.php';
     // require './PHPMailer/src/SMTP.php';
-    
     require '/xampp/htdocs/Project---CTStore---WD1110/MVC/wwwroot/PHPMailer/src/Exception.php';
     require '/xampp/htdocs/Project---CTStore---WD1110/MVC/wwwroot/PHPMailer/src/PHPMailer.php';
     require '/xampp/htdocs/Project---CTStore---WD1110/MVC/wwwroot/PHPMailer/src/SMTP.php';
@@ -15,7 +14,7 @@
     Class Email extends Controller{
         function Send_Email($message , $email){
             $name = htmlentities("CTstore");
-            $email = htmlentities("nhohonlohphp@gmail.com");
+            $email = htmlentities("bui230766@gmail.com");
             $subject = htmlentities("");
             $message = htmlentities($message);
 

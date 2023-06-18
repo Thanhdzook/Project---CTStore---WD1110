@@ -244,7 +244,7 @@
                 <?php } ?>
             </div>
         </div>
-        <a href="/Project---CTStore---WD1110/Login_Sigin/View_Forgot_Password">gui gmail</a>
+        <a href="/Project---CTStore---WD1110/Email/Send_Email/alo/bui230766@gmail.com">gui gmail</a>
         <script>
             const rightbtn = document.querySelector('.carousel-control-next-icon')
             const leftbtn = document.querySelector('.carousel-control-prev-icon')
