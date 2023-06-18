@@ -116,5 +116,9 @@ class Login_Sigin extends Controller{
         unset($_SESSION["unique_id"]);
         header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone");
     }
+
+    function View_Forgot_Password(){
+        $this->view2("Login_sigin" , "Check_Email_Sigin");
+    }
 }
 ?>
