@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/forgot-password.css">
+  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/forgot-password1.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
   <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -107,42 +107,15 @@
       <p class="fpass-header-title">Quên mật khẩu</p>
     </div>
     <div class="fpass-content">
-      <p class="fpass-content-text">Nhập email đăng kí tài khoản</p>
+      <p class="fpass-content-text">Vui lòng nhập email để tìm kiếm tài khoản của bạn.</p>
       <div class="fpass-content-input">
         <input  type="email" class="content-item-input">
+        <button class="content-item-btn">Xác nhận</button>
       </div>
     </div>
   </div>
-  <!-- <div class="otp-container">
-    <div class="otp-header">
-      <div class="otp-header-icon">
-        <i class="fa-solid fa-arrow-left"></i>
-      </div>
-      <p class="otp-header-title">Quên mật khẩu</p>
-    </div>
-    <div class="otp-content">
-      <p class="otp-content-text">Nhập mã OTP được gửi qua email bu******6@gmail.com</p>
-      <div class="box-otp-content">
-        <div class="box-otp-list">
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
-          </div>
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
-          </div>
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
-          </div>
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" class="otp-item-input">
-          </div>
-        </div>
-      </div>
-      <p id="otp-countdown" class="otp-countdown">Mã OTP hết hạn sau <span>5</span> giây</p>
-      <button class="methods-content-btn">Xác nhận</button>
 
-    </div>
-  </div> -->
+  
   <script>
     function validateInput(input) {
       var value = input.value;
