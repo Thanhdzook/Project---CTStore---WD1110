@@ -61,7 +61,7 @@ class Login_Sigin extends Controller{
             }
         }
     }
-    function Check_Sigin($role){
+    function Check_Sigin(){
         //get data from
         if(isset($_POST["Register"])){
             $full_name = $_POST["FullName"];
@@ -93,15 +93,17 @@ class Login_Sigin extends Controller{
                         $this->view("Login_sigin" , ["message" => "Số điện thoại đã tồn tại !"]);
                     }
                 }
+                header("Location: /Project---CTStore---WD1110/Email/Send_Email/$email");
+                exit();
                 // insert to database
-                $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password , $role , $random_id);
-                if($check == true){
-                    if(isset($_SESSION["role"])){
-                        header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/Thêm thành công tài khoản admin !");
-                    }
-                    // header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin/Đăng ký thành công!");
-                    $this->view("Login_sigin" , ["message" => "Đăng ký thành công !"]);
-                }
+                // $check = $this->accountModel->Create_Account($full_name , $phone_number , $email , $password , $role , $random_id);
+                // if($check == true){
+                //     if(isset($_SESSION["role"])){
+                //         header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/Thêm thành công tài khoản admin !");
+                //     }
+                //     // header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin/Đăng ký thành công!");
+                //     $this->view("Login_sigin" , ["message" => "Đăng ký thành công !"]);
+                // }
             }
             
         }
