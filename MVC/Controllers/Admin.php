@@ -40,24 +40,29 @@
 
         function Lock_Account($id){
             $this->account->Lock_Account($id);
-            $this->View_List_Account();
+            $this->View_Account_Order($id);
         }
 
         function UnLock_Account($id){
             $this->account->UnLock_Account($id);
-            $this->View_List_Account();
+            $this->View_Account_Order($id);
         }
 
         function Order_Confirmation($id){
             $this->order->Fix_Order($id , 3);
-            $this->View_Payment(";");
+            $this->View_Order_Detail($id);
+        }
+        function Order_Cancel($id){
+            $this->order->Fix_Order($id , 5);
+            $this->View_Order_Detail($id);
         }
 
         function View_Account_Order($id){
-            $this->view2("Layout" , "Layout_Admin" , ["Account_Order" => $this->account->Recent_Account("account.full_name , account.email , account.phone_number , account.account_id ,
-            orders.order_id, orders.order_date , orders.status , mobilephone.mobilePhone_name , mobilephone.memory , mobilephone.color , orderdetails.unit_price , orderdetails.quantity
+            $ac = $this->account->Search_Account("account_id" , $id);
+            $row = mysqli_fetch_array($this->account->Search_Account("account_id" , $id));
+            $this->view2("Layout" , "Layout_Admin" , ["Account_Detail" => $this->account->Recent_Account(" orders.order_id, orders.order_date , orders.status , mobilephone.mobilePhone_name , mobilephone.memory , mobilephone.color , orderdetails.unit_price , orderdetails.quantity
             " , "account , orders , mobilephone , orderdetails where account.account_id = orders.account_id and orderdetails.order_id = orders.order_id and
-             orderdetails.mobilePhone_id = mobilephone.mobilePhone_id and orders.status != 1 and account.account_id = ".$id."" , "orders.order_id ") , "content" => "Admin" , "content2" => "Account_Order"]);
+             orderdetails.mobilePhone_id = mobilephone.mobilePhone_id and orders.status != 1 and account.account_id = ".$id."" , "orders.order_id ") , "content" => "Admin" , "content2" => "Account_Details" , "account" => $ac , "id_account" => $id , "status" => $row["role"]]);
         }
 
         function Search(){
@@ -93,5 +98,34 @@
                 }
             }
         }
+        function View_MobilePhone_Detail($id){
+            $mb = $this->mobilephone->Sreach_MobilePhone_By_Value("mobilePhone_id" , $id , "");
+            $this->view2("Layout" , "Layout_Admin" , ["mobilePhone"=> $mb , "content" => "Admin" , "content2" => "MobilePhone_Details"]);
+        }
+        function View_Order_Detail($id){
+            $or = $this->order->List_Order_Detail($id);
+            $row = mysqli_fetch_array($this->order->List_Order_Detail($id));
+            $status = $row["status"];
+            $id_order = $row["order_id"];
+            if($row["unique_id"] == 0){
+                $row2 = mysqli_fetch_array($this->account->Search_Account("account_id" , $row["account_id"]));
+                $data_customer = [
+                    "customer_name" => $row2["full_name"],
+                    "customer_phonenumber" => $row2["phone_number"],
+                    "customer_address" => "18 Tam Trinh"
+                ];
+            }
+            else{
+                $row2 = mysqli_fetch_array($this->account->List_Customer_By_Unique($row["unique_id"]));
+                // $row2 = mysqli_fetch_array($this->account->Search_Account("account_id" , $row["account_id"]));
+                $data_customer = [
+                    "customer_name" => $row2["customer_name"],
+                    "customer_phonenumber" => $row2["customer_phonenumber"],
+                    "customer_address" => $row2["customer_address"]
+                ];
+            }
+            $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Order_Details" , "order" => $or , "customer" => $data_customer , "status" => $status , "id_order" => $id_order]);
+        }
+
     }
 ?>

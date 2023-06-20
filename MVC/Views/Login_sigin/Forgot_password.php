@@ -107,7 +107,7 @@
   <div class="fpass-container">
     <div class="fpass-header">
       <div class="fpass-header-icon">
-        <i class="fa-solid fa-arrow-left"></i>
+      <a href="/Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin"><i class="fa-solid fa-arrow-left"></i></a>
       </div>
       <p class="fpass-header-title">Quên mật khẩu</p>
     </div>

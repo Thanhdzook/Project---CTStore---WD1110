@@ -13,7 +13,7 @@ class Show_MobilePhone extends Controller{
                 $_SESSION["Count_Cart"] = 0;
             }
             else{
-                $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1"));
+                $row = mysqli_fetch_array($this->order->List_Order( "account_id" ,$_SESSION['account_id'] , "and status = 1"));
                 $_SESSION["Count_Cart"] = mysqli_fetch_column($this->order->Check_Order_Detail("order_id" , $row["order_id"] , $row["order_id"]));
             }
         }

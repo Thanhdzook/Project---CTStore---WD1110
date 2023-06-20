@@ -203,7 +203,7 @@
                 </button>
                 <!-- /Project---CTStore---WD1110/Messages/View_chat/123 -->
                 <a href="#" class="chat-link">
-                    <button class="chat-button">
+                    <button class="chat-button" onclick="preventScroll(event)">
                         Chat
                     </button>
                 </a>
@@ -372,6 +372,10 @@
                     scrollToTopBtn.style.display = "none";
                 }
             });
+
+            function preventScroll(event) {
+                event.preventDefault();
+            }
         </script>
         <!-- -----------------chat-------------------------------- -->
         <script>

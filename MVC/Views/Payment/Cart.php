@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="quantity-container">
                                     <input type="button" class="quantity-btn-left quantity-btn decrease-btn" onclick="decreaseQuantity()" value="-"></input>
-                                    <input type="number" id="quantity-input" class="quantityInput" name="<?php echo $mobilephone_id."abc"?>" value="<?php echo $quantity?>" min="1" max="<?php echo $amount ?>">
+                                    <input type="number" id="quantity-input" class="quantityInput" readonly onfocus="this.blur();" name="<?php echo $mobilephone_id."abc"?>" value="<?php echo $quantity?>" min="1" max="<?php echo $amount ?>">
                                     <input type="button" class="quantity-btn-right quantity-btn increase-btn" onclick="increaseQuantity()" value="+"></input>
                                 </div>
                             </div>

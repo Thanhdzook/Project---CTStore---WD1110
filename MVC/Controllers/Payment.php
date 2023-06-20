@@ -12,7 +12,7 @@
                 header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin");
             }
             if(mysqli_fetch_column($this->order->Check_Order( "account_id" , $_SESSION['account_id'] , "and status = 1")) != 0){
-                $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1" ));
+                $row = mysqli_fetch_array($this->order->List_Order( "account_id" ,$_SESSION['account_id'] , "and status = 1" ));
                 $order_id = $row["order_id"];
                 if(mysqli_fetch_column($this->order->Check_Order_Detail("order_id",$order_id , $order_id )) != 0){
                     $this->view("Layout" ,["orderdetails" => $this->order->List_Order_Detail($order_id) , "content" => "Payment" , "content2" => "Cart" , "message" => $message , "order_id" => $order_id]); 
@@ -29,7 +29,7 @@
         function ViewPay(){
             $check1 = 0;
             $data3 = "";
-            $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1"));
+            $row = mysqli_fetch_array($this->order->List_Order( "account_id" ,$_SESSION['account_id'] , "and status = 1"));
             $order_id = $row["order_id"];
             $data = [
                 "id" => $this->order->List_Order_Detail($order_id)

@@ -14,6 +14,31 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.table-mb-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.table-mb-button{
+    margin-top: 10px;
+}
+.table-mb-button-add{
+    border: 2px solid var(--green-color);
+    border-radius: 10px;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    padding: 10px 10px;
+    background-color: var(--green-color);
+    color: var(--LightGold-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+/* .table-mb-button-add >button{
+    font-size: 32px;
+    border: none;
+    background-color: #fff;
+} */
 .customer-table{
     border-collapse: collapse;
     margin: 25px 0;
@@ -56,32 +81,4 @@
     background: #1a955c;
     color: #fff;
     transition: 0.5rem;
-}
-.status-pending{
-    color: rgb(255, 255, 0);
-}
-.status-confirmed{
-    color: rgb(0, 128, 0);
-}
-.status-success{
-    color: rgb(255, 165, 0);
-}
-.status-cancelled{
-    color: rgb(255, 0, 0);
-}
-.active-bottom{
-    border: 1px solid black;
-    width: 100%;
-    height: auto;
-    background-color: red;
-}
-.content-list-info {
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    padding: 10px 0;
-    list-style: none;
-}
-
-.active-bottom {
-    border-bottom: none;
 }

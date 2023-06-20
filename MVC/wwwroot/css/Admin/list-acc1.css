@@ -57,31 +57,3 @@
     color: #fff;
     transition: 0.5rem;
 }
-.status-pending{
-    color: rgb(255, 255, 0);
-}
-.status-confirmed{
-    color: rgb(0, 128, 0);
-}
-.status-success{
-    color: rgb(255, 165, 0);
-}
-.status-cancelled{
-    color: rgb(255, 0, 0);
-}
-.active-bottom{
-    border: 1px solid black;
-    width: 100%;
-    height: auto;
-    background-color: red;
-}
-.content-list-info {
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    padding: 10px 0;
-    list-style: none;
-}
-
-.active-bottom {
-    border-bottom: none;
-}

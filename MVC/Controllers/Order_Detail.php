@@ -11,21 +11,21 @@
             if(isset($_POST["Order"])){
                 // $quantity = $_POST["quantity"];
                 if(mysqli_fetch_column($this->order->Check_Order( "account_id", $_SESSION['account_id'] , "and status = 1")) != 0){
-                    $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1"));
+                    $row = mysqli_fetch_array($this->order->List_Order( "account_id" ,$_SESSION['account_id'] , "and status = 1"));
                     $order_id = $row["order_id"];
                     if(mysqli_fetch_column($this->order->Check_Order_Detail( "mobilePhone_id", $mobilephone_id , $order_id)) != 0){
                         $this->order->Fix_Order_Detail($mobilephone_id , $order_id , "+" , "1" , "quantity");
                         return 1;
                     }
                     else{
-                        $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1"));
+                        $row = mysqli_fetch_array($this->order->List_Order( "account_id" ,$_SESSION['account_id'] , "and status = 1"));
                         $this->order->Create_Order_Detail($row["order_id"] , $mobilephone_id , $unit_price , "1");
                         return 2;
                     }
                 }
                 else{
                     $this->order->Create_Order($_SESSION["account_id"]);
-                    $row = mysqli_fetch_array($this->order->List_Order($_SESSION['account_id'] , "and status = 1"));
+                    $row = mysqli_fetch_array($this->order->List_Order( "account_id" ,$_SESSION['account_id'] , "and status = 1"));
                     $this->order->Create_Order_Detail($row["order_id"] , $mobilephone_id , $unit_price , "1");
                     return 3;
                 }
@@ -87,7 +87,7 @@
             $Order = mysqli_fetch_array($this->order->Check_Order("account_id" , $_SESSION["account_id"] , " and status = 3"))[0];
             $Bought = mysqli_fetch_array($this->order->Check_Order("account_id" , $_SESSION["account_id"] , " and status = 4"))[0];
             if(mysqli_fetch_column($this->order->Check_Order( "account_id" , $_SESSION["account_id"] , "and status ".$status)) != 0){
-                $data = $this->order ->List_Order($_SESSION["account_id"] , "and status ".$status);
+                $data = $this->order ->List_Order( "account_id" ,$_SESSION["account_id"] , "and status ".$status);
                 while($row = mysqli_fetch_array($data)){
                     $string = $string . " orderdetails.order_id = " . $row["order_id"] . " or ";
                 }

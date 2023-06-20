@@ -10,8 +10,8 @@
             return mysqli_query($this->con , $qr);
         }
 
-        public function List_Order($account_id , $and){
-            $qr = "select * from orders where account_id = ".$account_id." ".$and."";
+        public function List_Order( $name , $data , $and){
+            $qr = "select * from orders where ".$name." = ".$data." ".$and."";
             return mysqli_query($this->con , $qr);
         }
         public function Create_Order($account_id){
@@ -36,10 +36,13 @@
         }
 
         public function List_Order_Detail($id){
-            $qr = "select mobilephone.mobilePhone_id , mobilephone.amount , mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity, mobilephone.sale from mobilephone , orderdetails where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
+            $qr = "select account.account_id , account.full_name , account.phone_number , account.email , mobilephone.mobilePhone_id , mobilephone.amount , 
+            mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , 
+            orderdetails.quantity, mobilephone.sale , orders.unique_id , orders.order_date , orders.order_id , orders.status
+            from mobilephone , orderdetails , orders , account
+            where orderdetails.order_id = ".$id." and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id and account.account_id = orders.account_id and orders.order_id = orderdetails.order_id";
             return mysqli_query($this->con , $qr);
         }
-
         public function List_Payment($id , $data){
             $qr = "select mobilephone.mobilePhone_id , mobilephone.price , mobilephone.mobilePhone_name , mobilephone.img , orderdetails.order_id , orderdetails.unit_price , orderdetails.quantity from mobilephone , orderdetails where orderdetails.order_id = ".$id." and (".$data.") and mobilephone.mobilePhone_id = orderdetails.mobilePhone_id";
             return mysqli_query($this->con , $qr);
@@ -57,7 +60,7 @@
 
         public function Pay( $account_id , $data , $delivery){
             $data2 = [
-                "Order" => $this->List_Order($account_id , "and status = 1")
+                "Order" => $this->List_Order( "account_id" , $account_id , "and status = 1")
             ];
             while($row2 = mysqli_fetch_array($data2["Order"])){
                 $order_id2 = $row2["order_id"];
@@ -84,7 +87,7 @@
             }
             
             $this->Create_Order($account_id);
-            $row = mysqli_fetch_array($this->List_Order($account_id , "and status = 1"));
+            $row = mysqli_fetch_array($this->List_Order( "account_id" , $account_id , "and status = 1"));
             $order_id = $row['order_id'];
             $qr2 = "update orderdetails set order_id = ".$order_id." where (order_id = ".$order_id2.") and (".$data.")";
             $result = false;
