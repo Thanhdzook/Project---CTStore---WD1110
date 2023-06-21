@@ -172,7 +172,7 @@ class Login_Sigin extends Controller{
                 }
             }
             else{
-                $this->view2("Login_sigin" , "Check_Email" , ["email" => $_SESSION["check_email"] , "message" => "mã xác nhận không đúng !" , "check" => $check]);
+                $this->view2("Login_sigin" , "Check_Email" , ["email" => $_SESSION["check_email"] , "message" => "Mã xác nhận không đúng !" , "check" => $check]);
             }
         }   
     }
@@ -192,7 +192,7 @@ class Login_Sigin extends Controller{
                 $this->View_Send_Email($_SESSION["check_email"] , 0);
             }
             else{
-                $this->view2("Login_sigin" , "Forgot_password" , ["message" => "Khong tìm thấy tài khoản có email ".$_SESSION["check_email"]]);
+                $this->view2("Login_sigin" , "Forgot_password" , ["message" => "Không tìm thấy Email ".$_SESSION["check_email"]]);
             }
         }
         elseif(isset($_SESSION["check_email"])){
@@ -219,7 +219,7 @@ class Login_Sigin extends Controller{
                 }
             }
             else{
-                $this->view("Layout" , ["content" => "Login_sigin" , "content2" => "Reset_Password" , "message" => "mật khẩu xác nhận không trùng nhau !"]);
+                $this->view("Layout" , ["content" => "Login_sigin" , "content2" => "Reset_Password" , "message" => "Mật khẩu xác nhận không trùng nhau !"]);
             }
         }
     }

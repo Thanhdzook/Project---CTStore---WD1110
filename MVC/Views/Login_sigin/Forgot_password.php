@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/forgot-password1.css">
+  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/forgot-password123.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
   <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -100,29 +100,42 @@
   </div>
   <!-- -------------------Content----------------------------- -->
   <?php
-    if(isset($data["message"])){
-      echo $data["message"];
-    }
+  if (isset($data["message"])) {
+    $dataMessage = $data["message"];
+  }
   ?>
   <div class="fpass-container">
     <div class="fpass-header">
       <div class="fpass-header-icon">
-      <a href="/Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="/Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin"><i class="fa-solid fa-arrow-left"></i></a>
       </div>
       <p class="fpass-header-title">Quên mật khẩu</p>
     </div>
     <div class="fpass-content">
       <p class="fpass-content-text">Vui lòng nhập email để tìm kiếm tài khoản của bạn.</p>
       <form action="/Project---CTStore---WD1110/Login_Sigin/Forgot_Password" method="post">
-      <div class="fpass-content-input">
+        <div class="fpass-content-input">
           <input name="email" type="email" class="content-item-input">
           <button name="submit" type="submit" class="content-item-btn">Xác nhận</button>
-      </div>
+        </div>
       </form>
     </div>
   </div>
-
-  
+  <?php
+  if (isset($data["message"])) {
+    if ($data["message"] != "null") {
+      $dataMessage = $data["message"];
+  ?>
+      <div class="box-notification">
+        <p class="notification-message"><?php echo $dataMessage ?></p>
+      </div>
+  <?php
+    }
+  }
+  ?>
+  <div class="box-notification" id="redirect-notification" style="display: none;">
+    <p class="notification-message">Please wait, redirecting...</p>
+  </div>
   <script>
     function validateInput(input) {
       var value = input.value;
@@ -132,34 +145,28 @@
         input.value = ""; // Xóa giá trị nhập vào nếu không hợp lệ
       }
     }
-    // otp-countdown-----------------------------------------------
-    var countdownElement = document.querySelector("#otp-countdown span");
-    var countdownValue = parseInt(countdownElement.innerText);
-    var countdown;
+    const notificationElement = document.querySelector('.box-notification');
 
-    // function startCountdown() {
-    //   countdown = setInterval(function() {
-    //     countdownValue -= 1;
+    function hideNotification() {
+      notificationElement.style.display = 'none';
+    }
+    setTimeout(hideNotification, 3000);
+    // -----------------------------------------
+    function showNotification() {
+      const notificationElement = document.getElementById('redirect-notification');
+      notificationElement.style.display = 'block';
+    }
 
-    //     if (countdownValue <= 0) {
-    //       clearInterval(countdown);
-    //       var resendLink = document.createElement("a");
-    //       resendLink.href = "http://localhost/Project---CTStore---WD1110/MVC/Views/Login_sigin/Forgot_password.php";
-    //       resendLink.innerText = "Gửi lại";
-    //       resendLink.style.color = "red";
-    //       resendLink.style.textDecoration = "none";
-    //       resendLink.addEventListener("click", startCountdown); // Gắn sự kiện click để bắt đầu đếm ngược lại
+    // Wait for the page to load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the form element
+      const form = document.querySelector('form');
 
-    //       var countdownParent = document.querySelector("#otp-countdown");
-    //       countdownParent.innerHTML = 'Mã OTP đã hết hạn. ';
-    //       countdownParent.appendChild(resendLink);
-    //     } else {
-    //       countdownElement.innerText = countdownValue;
-    //     }
-    //   }, 1000);
-    // }
-
-    // startCountdown(); // Khởi đầu đếm ngược ban đầu
+      // Add event listener to the form submission
+      form.addEventListener('submit', function() {
+        showNotification();
+      });
+    });
   </script>
 </body>
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png" />
     <title>CTstore Danh sách đơn hàng</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Admin/list-order.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Admin/list-orderr1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -39,6 +39,7 @@
                     <tr>
                         <th>Mã đơn hàng</th>
                         <th>Khách hàng</th>
+                        <th>Sản phẩm</th>
                         <th>Thời gian</th>
                         <th>Trạng Thái</th>
                         <th></th>
@@ -77,6 +78,7 @@
                         <tr>
                             <td><?php echo $id ?></td>
                             <td><?php echo $name ?></td>
+                            <td>iphone</td>
                             <td><?php echo $date ?></td>
                             <td class="<?php echo $statusClass ?>"><?php echo $status ?></td>
                             <td><a href="/Project---CTStore---WD1110/Admin/View_Order_Detail/<?php echo $id ?>"><button><i class="fa-solid fa-eye"></i></button></a></td>
