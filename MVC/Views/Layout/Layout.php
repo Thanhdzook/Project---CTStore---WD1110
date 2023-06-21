@@ -138,10 +138,12 @@
           <div class="col-lg-3 col-sm-6">
             <div class="single-box">
               <h2>Gửi góp ý</h2>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nhập email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-arrow-right-long"></i></span>
-              </div>
+              <form method="post" action="/Project---CTStore---WD1110/Email/Send_Email">
+                <div class="input-group mb-3">
+                  <input name="message" type="text" class="form-control" placeholder="Góp ý" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <button name="submit" class="input-group-text" id="basic-addon2"><i class="fa-solid fa-arrow-right-long"></i></button>
+                </div>
+              </form>
               <h2>Follow us on</h2>
               <p class="socials">
                 <i class="fa-brands fa-facebook"></i>
