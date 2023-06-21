@@ -123,5 +123,13 @@
             where orders.account_id = account.account_id and orders.status != 1 ".$data."";
             return mysqli_query($this->con , $qr);
         }
+        public function Cancel_Order($id , $data){
+            $qr = "update mobilephone SET amount = amount + ".$data." WHERE mobilePhone_id = '$id'";
+            $result = false;
+            if(mysqli_query($this->con , $qr)){
+                $result = true;
+            }
+            return json_encode($result);
+        }
     }
 ?>

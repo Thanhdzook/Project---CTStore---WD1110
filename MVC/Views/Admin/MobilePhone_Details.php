@@ -20,85 +20,99 @@
                 <p>Thông tin điện thoại di dộng</p>
             </div>
             <div class="box-list-btn">
-                <button class="btn-hide">Ẩn</button>
-                <button class="btn-update">Sửa</button>
+                <?php
+                    $row = mysqli_fetch_array($data["mobilePhone"]);
+                    $status = "Hiện";
+                    $link = "UnLock_MB/".$row["mobilePhone_id"];
+                    if($row["status"] == 1){
+                        $status = "Ẩn";
+                        $link = "Lock_MB/".$row["mobilePhone_id"];
+                    }
+                ?>
+                <a href="/Project---CTStore---WD1110/Admin/<?php echo $link ?>"><button class="btn-hide"><?php echo $status ?></button></a>
+                <a href ="/Project---CTStore---WD1110/Create_MobilePhone/View_Fix_MobilePhone/<?php echo $row["mobilePhone_id"] ?>"><button class="btn-update">Sửa</button></a>
             </div>
         </div>
         <div class="mb-detail-content">
             <ul class="box-list-info">
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Tên sản phẩm</p>
+                        <div><?php echo $row["mobilePhone_name"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Chip</p>
+                        <div><?php echo $row["chip"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Bộ nhớ</p>
+                        <div><?php echo $row["memory"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Camera</p>
+                        <div><?php echo $row["camera"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Hãng</p>
+                        <div><?php echo $row["operatingSystem"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Màn hình</p>
+                        <div><?php echo $row["weight"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Dung lượng Pin</p>
+                        <div><?php echo $row["pin"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Bảo hành</p>
+                        <div><?php echo $row["warrantyPeriod"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Giá</p>
+                        <div><?php echo number_format($row["price"], 0, '', ',')?>₫</div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Số lượng</p>
+                        <div><?php echo $row["amount"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Sale</p>
+                        <div><?php echo $row["sale"] ?></div>
                     </div>
                 </li>
                 <li class=".content-list-info">
                     <div class="content-info-item">
-                        <p>Thong tin</p>
-                        <div>noi dung</div>
+                        <p>Màu</p>
+                        <div><?php echo $row["color"] ?></div>
                     </div>
                 </li>
-
+                <li class=".content-list-info">
+                    <div class="content-info-item">
+                        <p>Ảnh</p>
+                        <div><img src="<?php echo $row["img"] ?>" ></div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

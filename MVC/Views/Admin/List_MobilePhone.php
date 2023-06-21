@@ -16,7 +16,7 @@
         <div class="customer-list">
             <div class="table-mb-header">
                 <div class="table-mb-title"><h1 class="customer-list-title">Danh sách sản phẩm</h1></div>
-                <a href="#" class="table-mb-button"><button class="table-mb-button-add">Thêm sản phẩm</button></a>
+                <a href="/Project---CTStore---WD1110/Create_MobilePhone/View_CreateMobilePhone" class="table-mb-button"><button class="table-mb-button-add">Thêm sản phẩm</button></a>
             </div>
 
             <table class="customer-table">

@@ -108,7 +108,16 @@
 
         function Fix_Order($id , $data){
             $this->order->Fix_Order($id , $data);
+            if($data == 5){
+                $this->Cancel_Order($id);
+            }
             $this -> View_Purchase_History(0);
+        }
+        function Cancel_Order($id){
+            $or = $this->order->List_Order_Detail($id);
+            while($row = mysqli_fetch_array($or)){
+                $this->order->Cancel_Order($row["mobilePhone_id"] , $row["quantity"]);
+            }
         }
     }
 ?>

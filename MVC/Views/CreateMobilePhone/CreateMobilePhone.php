@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <form method="post" action="./Create_MobilePhone/Inpost_MobilePhone" enctype="multipart/form-data">
+    <form method="post" action="/Project---CTStore---WD1110/Create_MobilePhone/Inpost_MobilePhone" enctype="multipart/form-data">
         <h4 class="mb-3 pb-3">Create mobilephone</h4>
         <div class="form-group">
             <input type="text" class="form-style" placeholder="Tên sản phẩm" name="mobilePhone_name">
@@ -35,10 +35,16 @@
             <input type="text" class="form-style" placeholder="Warranty Period" name="warrantyPeriod">
         </div>
         <div class="form-group">
+            <input type="text" class="form-style" placeholder="Amount" name="amount">
+        </div>
+        <div class="form-group">
             <input type="text" class="form-style" placeholder="Price" name="price">
         </div>
         <div class="form-group">
-            <input type="text" class="form-style" placeholder="Amount" name="amount">
+            <input type="text" class="form-style" placeholder="Sale" name="sale">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-style" placeholder="Color" name="color">
         </div>
         <div class="form-group">
             Chọn file để upload:

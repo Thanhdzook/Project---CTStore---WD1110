@@ -80,30 +80,30 @@
                                 $quantity = $row["quantity"];
                                 $mobilePhone_id = $row["mobilePhone_id"];
                                 $order_id = $row["order_id"];
-                                $checklink = "";
+                                // $checklink = "";
                                 // $_SESSION["check_order_id"] = $order_id;
-                                switch($row["status"]){
-                                    case 2:
-                                        $checklink = "/Order_Detail/Fix_Order/".$order_id."/5";
-                                        $checkstatus = "Hủy";
-                                        $status = "đang chờ xác nhận";
-                                        break;
-                                    case 3:
-                                        $checklink = "/Order_Detail/Fix_Order/".$order_id."/4";
-                                        $checkstatus = "Quay lại trang chủ";
-                                        $status = "đang giao";
-                                        break;
-                                    case 4:
-                                        $checklink = "/Show_MobilePhone/ShowMobilePhone/";
-                                        $checkstatus = "Đánh Giá";
-                                        $status = "đã nhận";
-                                        break;
-                                    case 5:
-                                        $checklink = "/Show_MobilePhone/ShowMobilePhone/";
-                                        $checkstatus = "Mua Lại";
-                                        $status = "đã hủy";
-                                        break;
-                                }
+                                // switch($row["status"]){
+                                //     case 2:
+                                //         $checklink = "/Order_Detail/Fix_Order/".$order_id."/5";
+                                //         $checkstatus = "Hủy";
+                                //         $status = "đang chờ xác nhận";
+                                //         break;
+                                //     case 3:
+                                //         $checklink = "/Order_Detail/Fix_Order/".$order_id."/4";
+                                //         $checkstatus = "Quay lại trang chủ";
+                                //         $status = "đang giao";
+                                //         break;
+                                //     case 4:
+                                //         $checklink = "/Show_MobilePhone/ShowMobilePhone/";
+                                //         $checkstatus = "Đánh Giá";
+                                //         $status = "đã nhận";
+                                //         break;
+                                //     case 5:
+                                //         $checklink = "/Show_MobilePhone/ShowMobilePhone/";
+                                //         $checkstatus = "Mua Lại";
+                                //         $status = "đã hủy";
+                                //         break;
+                                // }
                     ?>
                     <div class="box-order-list">
                         <?php
@@ -138,6 +138,28 @@
                             <?php
                                 if($_SESSION["check_order_id"] != $order_id){
                                     $total = 0;
+                                    switch($row["status"]){
+                                        case 2:
+                                            $checklink = "/Order_Detail/Fix_Order/".$order_id."/5";
+                                            $checkstatus = "Hủy";
+                                            $status = "đang chờ xác nhận";
+                                            break;
+                                        case 3:
+                                            $checklink = "/Order_Detail/Fix_Order/".$order_id."/4";
+                                            $checkstatus = "Quay lại trang chủ";
+                                            $status = "đang giao";
+                                            break;
+                                        case 4:
+                                            $checklink = "/Show_MobilePhone/ShowMobilePhone/";
+                                            $checkstatus = "Đánh Giá";
+                                            $status = "đã nhận";
+                                            break;
+                                        case 5:
+                                            $checklink = "/Show_MobilePhone/ShowMobilePhone/";
+                                            $checkstatus = "Mua Lại";
+                                            $status = "đã hủy";
+                                            break;
+                                    }
                             ?>
                         <div class="box-order"> 
                             <div class="box-order-header">
@@ -172,7 +194,7 @@
                         $_SESSION["check_order_id"] = $order_id;
                             }
                     ?>
-                    </div> 
+                    <!-- </div>  -->
                     <div class="box-order-end">
                         <div class="box-order-total">
                             <div class="order-total-title">Thành tiền: </div>

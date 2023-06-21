@@ -6,7 +6,7 @@ class Show_MobilePhone extends Controller{
     function __construct(){
         $this->mobilePhone = $this->model("MobilePhoneModel");
         $this->order = $this->model("OrderModel");
-        $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_All_MobilePhone());
+        $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_All_MobilePhone(0));
         if(isset($_SESSION["account_id"])){
             $row = mysqli_fetch_column($this->order->Check_Order( "account_id", $_SESSION['account_id'] , "and status = 1"));
             if($row == 0){
@@ -28,34 +28,34 @@ class Show_MobilePhone extends Controller{
                     header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/null");
                     break;
                 case 2:
-                    $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale"), "content" => "Index"]);
+                    $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"] , 0) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale"), "content" => "Index"]);
                     break;
             }
         }
         else{
-            $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale") , "content" => "Index"]);
+            $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"] , 0) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale") , "content" => "Index"]);
         }
     }
     function ShowMobilePhone_message($message , $next){
         $_SESSION["next"] = $next;
-        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale") , "content" => "Index" , "message"=> $message]);     
+        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"] , 0) , "phone_outstanding" => $this->mobilePhone->Recent_Phone("*" , "mobilephone" , "sale") , "content" => "Index" , "message"=> $message]);     
     }
 
     function SreachMobilePhone_By_Name($name){
         if(isset($_POST["Sreach"])){
             $data = $_POST["NameMobilePhone"];
-            if(mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , "")) != 0){
-                $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , ""));
-                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , trim($data) , "") , "content" => "Index"]);
+            if(mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , " and status != 0")) != 0){
+                $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , " and status != 0"));
+                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , trim($data) , " and status != 0") , "content" => "Index"]);
             }
             else {
-                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"]) , "content" => "Index" , "message" => "Không tìm thấy sản phẩm !"]);
+                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"] , 0) , "content" => "Index" , "message" => "Không tìm thấy sản phẩm !"]);
             }
         }
     }
 
     function SreachMobilePhone($name , $data){
-        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , $data , "") , "content" => "Index"]);
+        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , $data , " and status != 0") , "content" => "Index"]);
     }
 }
 ?>

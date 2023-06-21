@@ -12,7 +12,7 @@
         function View_Index_Admin($message){
             $count_admin = mysqli_fetch_column($this->account->Count_Account(1));
             $count_account = mysqli_fetch_column($this->account->Count_Account("2 or role = 3"));
-            $count_mobilephone = mysqli_fetch_column($this->mobilephone->Count_All_MobilePhone());
+            $count_mobilephone = mysqli_fetch_column($this->mobilephone->Count_All_MobilePhone(2));
             $count_order = mysqli_fetch_column($this->order->Count_All_Order());
             $this->view2("Layout" , "Layout_Admin" ,
             ["content" => "Admin" , "content2" => "Index" , "message" => $message , "count_admin" => $count_admin ,
@@ -34,7 +34,7 @@
 
         function View_MobilePhone($next){
             $_SESSION["next"] = $next;
-            $mb = $this->mobilephone->List_MobilePhone($_SESSION["next"]);
+            $mb = $this->mobilephone->List_MobilePhone($_SESSION["next"] , 2);
             $this->view2("Layout" , "Layout_Admin" , ["mobilePhone"=> $mb , "content" => "Admin" , "content2" => "List_MobilePhone"]);
         }
 
@@ -54,7 +54,20 @@
         }
         function Order_Cancel($id){
             $this->order->Fix_Order($id , 5);
+            $or = $this->order->List_Order_Detail($id);
+            while($row = mysqli_fetch_array($or)){
+                $this->order->Cancel_Order($row["mobilePhone_id"] , $row["quantity"]);
+            }
             $this->View_Order_Detail($id);
+        }
+
+        function Lock_MB($id){
+            $this->mobilephone->Lock_Unlock_MobilePhone($id , 0);
+            $this->View_MobilePhone_Detail($id);
+        }
+        function UnLock_MB($id){
+            $this->mobilephone->Lock_Unlock_MobilePhone($id , 1);
+            $this->View_MobilePhone_Detail($id);
         }
 
         function View_Account_Order($id){
@@ -100,7 +113,7 @@
         }
         function View_MobilePhone_Detail($id){
             $mb = $this->mobilephone->Sreach_MobilePhone_By_Value("mobilePhone_id" , $id , "");
-            $this->view2("Layout" , "Layout_Admin" , ["mobilePhone"=> $mb , "content" => "Admin" , "content2" => "MobilePhone_Details"]);
+            $this->view2("Layout" , "Layout_Admin" , ["mobilePhone"=> $mb , "content" => "Admin" , "content2" => "MobilePhone_Details" ]);
         }
         function View_Order_Detail($id){
             $or = $this->order->List_Order_Detail($id);
