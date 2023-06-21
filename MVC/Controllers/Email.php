@@ -12,28 +12,37 @@
     // require './PHPMailer/src/SMTP.php';
 
     Class Email extends Controller{
-        function Send_Email($email){
-            $_SESSION["random"] = rand(1000 , 9999);
-            $message = "mã xác nhận của bạn là " . $_SESSION["random"];
-            $name = htmlentities("CTstore");
-            $email = htmlentities($email);
-            $subject = htmlentities("MA XAC NHAN CUA BAN");
-            $message = htmlentities($message);
+        function Send_Email(){
+            if(isset($_SESSION["email"])){
+                if(isset($_POST["submit"])){
+                    $name = htmlentities("CTstore");
+                    $email = htmlentities('nhohonlohphp@gmail.com');
+                    $subject = htmlentities("GOP Y CUA NGUOI DUNG : ".$_SESSION["email"]);
+                    $message = htmlentities($_POST["message"]);
 
-            $mail = new PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'nhohonlohphp@gmail.com';
-            $mail->Password = 'sxsyjcojmmyexxod';
-            $mail->Port = 465;
-            $mail->SMTPSecure = 'ssl';
-            $mail->isHTML(true);
-            $mail->setFrom($email, $name);
-            $mail->addAddress($email);
-            $mail->Subject = ($subject);
-            $mail->Body = $message;
-            $mail->send();
+                    $mail = new PHPMailer(true);
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'nhohonlohphp@gmail.com';
+                    $mail->Password = 'sxsyjcojmmyexxod';
+                    $mail->Port = 465;
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->isHTML(true);
+                    $mail->setFrom($email, $name);
+                    $mail->addAddress($email);
+                    $mail->Subject = ($subject);
+                    $mail->Body = $message;
+                    $mail->send();
+                    header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Bạn sẽ sớm nhận được phản hồi !/0");
+                }
+                else{
+                    header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Góp ý không thành công !/0");
+                }
+            }
+            else{
+                header("Location: /Project---CTStore---WD1110/Login_Sigin/View_Login_Sigin");
+            }
         }
     }
 
