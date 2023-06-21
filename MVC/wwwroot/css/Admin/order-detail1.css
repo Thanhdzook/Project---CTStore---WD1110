@@ -11,12 +11,18 @@
     width: 600px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 }
 .tk-detail-header-title{
     font-size: 1.6em;
     font-weight: 500;
     text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.tk-detail-header-title i{
+    margin-right: 5px;
+    cursor: pointer;
 }
 .btn-lock{
     border: 2px solid var(--green-color);
@@ -29,6 +35,7 @@
     color: var(--LightGold-color);
     font-size: 16px;
     font-weight: 500;
+    cursor: pointer;
 }
 ul{
     padding: 0;
@@ -41,13 +48,22 @@ ul{
     overflow: hidden;
     width: 600px;
     margin: 0 auto;
+    margin-top: 30px;
 }
 .box-list-info{
     width: 100%;
 }
-.content-list-info{
-   
-}   
+.content-info-title{
+    width: 100%;
+    font-size: 16px;
+    font-size: 400;
+    padding: 10px 20px;
+    background-color: #e1e1e1;
+}
+.active-bottom{
+    background-color: #f0f0f0;
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2), 0 0px 4px 0 rgba(0, 0, 0, 0.19);
+}
 .content-info-item{
     padding: 5px 0 5px 20px;
     display: flex;
@@ -58,15 +74,14 @@ ul{
     width: 30% !important;
     font-size: 16px;
     font-size: 400;
+    margin-right: 2px;
 }
 .content-info-item > div{
     width: 70% !important;
     font-size: 16px;
     font-size: 400;
 }
-.box-list-info li:nth-child(odd) {
-    background-color: #efefef;
-}
+
 /* --------------------------order-detail-header---------------------- */
 .order-detail-header{
     margin: 0 auto;
@@ -77,4 +92,21 @@ ul{
     margin-top: 30px;
     font-size: 1.6em;
     font-weight: 500;
+}
+.status-pending{
+    color: rgb(14, 151, 236);
+}
+.status-confirmed{
+    color: rgb(0, 128, 0);
+}
+.status-success{
+    color: rgb(255, 165, 0);
+}
+.status-cancelled{
+    color: rgb(255, 0, 0);
+}
+.active-total{
+    border-top: 1px solid #9a9a9a;
+    color: #d70018;
+    font-weight: 600;
 }

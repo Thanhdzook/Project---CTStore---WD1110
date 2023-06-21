@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/forgot-password.css">
+  <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/login_sigin/forgot-password123.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
   <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -99,11 +99,6 @@
     <a href="/Project---CTStore---WD1110/Show_MobilePhone/SreachMobilePhone/operatingSystem/Oppo">Oppo</a>
   </div>
   <!-- -------------------Content----------------------------- -->
-  <?php
-    if(isset($data["message"])){
-      echo $data["message"];
-    }
-  ?>
   <div class="fpass-container">
     <div class="fpass-header">
       <!-- <div class="fpass-header-icon">
@@ -129,37 +124,56 @@
     </div>
   </div>
   <form method="post" action="/Project---CTStore---WD1110/Login_Sigin/Check_Send_Email/<?php echo $data["check"] ?>">
-  <div class="otp-container">
-    <div class="otp-header">
-      <!-- <div class="otp-header-icon">
+    <div class="otp-container">
+      <div class="otp-header">
+        <!-- <div class="otp-header-icon">
         <i class="fa-solid fa-arrow-left"></i>
       </div> -->
-      <!-- <p class="otp-header-title">Quên mật khẩu</p> -->
-    </div>
-    <div class="otp-content">
-      <p class="otp-content-text">Nhập mã OTP được gửi qua email <?php echo $data["email"] ?></p>
-      <div class="box-otp-content">
-        <div class="box-otp-list">
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel1" class="otp-item-input">
-          </div>
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel2" class="otp-item-input">
-          </div>
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel3" class="otp-item-input">
-          </div>
-          <div class="otp-item">
-            <input min="0" max="9" maxlength="1" oninput="validateInput(this)" type="tel" name="tel4" class="otp-item-input">
+        <!-- <p class="otp-header-title">Quên mật khẩu</p> -->
+      </div>
+      <div class="otp-content">
+        <p class="otp-content-text">Nhập mã OTP được gửi qua email <?php echo $data["email"] ?></p>
+        <div class="box-otp-content">
+          <div class="box-otp-list">
+            <div class="otp-item">
+              <input min="0" max="9" maxlength="1" oninput="validateInput(this); focusNextInput(this, 'tel2');" type="tel" name="tel1" class="otp-item-input">
+            </div>
+            <div class="otp-item">
+              <input min="0" max="9" maxlength="1" oninput="validateInput(this); focusNextInput(this, 'tel3');" type="tel" name="tel2" class="otp-item-input">
+            </div>
+            <div class="otp-item">
+              <input min="0" max="9" maxlength="1" oninput="validateInput(this); focusNextInput(this, 'tel4');" type="tel" name="tel3" class="otp-item-input">
+            </div>
+            <div class="otp-item">
+              <input min="0" max="9" maxlength="1" oninput="validateInput(this);" type="tel" name="tel4" class="otp-item-input">
+            </div>
           </div>
         </div>
+        <p id="otp-countdown" class="otp-countdown">Mã OTP hết hạn sau <span>60</span> giây</p>
+        <button type="submit" name="submit" class="methods-content-btn">Xác nhận</button>
       </div>
-      <p id="otp-countdown" class="otp-countdown">Mã OTP hết hạn sau <span>5</span> giây</p>
-      <button type="submit" name="submit" class="methods-content-btn">Xác nhận</button>
     </div>
-  </div>
   </form>
+  <?php
+  if (isset($data["message"])) {
+    if ($data["message"] != "null") {
+      $dataMessage = $data["message"];
+  ?>
+      <div class="box-notification">
+        <p class="notification-message"><?php echo $dataMessage ?></p>
+      </div>
+  <?php
+    }
+  }
+  ?>
   <script>
+    const notificationElement = document.querySelector('.box-notification');
+
+    function hideNotification() {
+      notificationElement.style.display = 'none';
+    }
+    setTimeout(hideNotification, 3000);
+
     function validateInput(input) {
       var value = input.value;
       var pattern = /^[0-9]$/; // Biểu thức chính quy để chỉ cho phép nhập số từ 0 đến 9
@@ -188,7 +202,7 @@
             location.reload();
             resendLink.addEventListener("click", startCountdown);
           });
-          // resendLink.addEventListener("click", startCountdown); // Gắn sự kiện click để bắt đầu đếm ngược lại
+          resendLink.addEventListener("click", startCountdown); // Gắn sự kiện click để bắt đầu đếm ngược lại
 
           var countdownParent = document.querySelector("#otp-countdown");
           countdownParent.innerHTML = 'Mã OTP đã hết hạn. ';
@@ -200,6 +214,28 @@
     }
 
     startCountdown(); // Khởi đầu đếm ngược ban đầu
+  </script>
+    <script>
+    // Function to validate input and focus on the next input field
+    function focusNextInput(input, nextInputName) {
+      const value = input.value;
+      const maxLength = parseInt(input.getAttribute('maxlength'));
+
+      if (value.length >= maxLength) {
+        const nextInput = document.getElementsByName(nextInputName)[0];
+        nextInput.focus();
+      }
+    }
+
+    // Function to validate input
+    function validateInput(input) {
+      const value = input.value;
+      const pattern = /^[0-9]$/; // Regular expression to allow only numbers from 0 to 9
+
+      if (!pattern.test(value)) {
+        input.value = ''; // Clear the input value if it is invalid
+      }
+    }
   </script>
 </body>
 

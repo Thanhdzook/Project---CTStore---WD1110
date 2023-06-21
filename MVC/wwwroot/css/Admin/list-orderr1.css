@@ -58,7 +58,7 @@
     transition: 0.5rem;
 }
 .status-pending{
-    color: rgb(255, 255, 0);
+    color: rgb(14, 151, 236);
 }
 .status-confirmed{
     color: rgb(0, 128, 0);
