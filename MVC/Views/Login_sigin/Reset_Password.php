@@ -1,7 +1,7 @@
 <?php
     $check_email = $_SESSION["check_email"];
     // unset($_SESSION["check_email"]);
-    unset($_SESSION["random"]);
+    // unset($_SESSION["random"]);
 ?>
 
 <!DOCTYPE html>
