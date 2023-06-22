@@ -139,6 +139,8 @@
             }
             $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Order_Details" , "order" => $or , "customer" => $data_customer , "status" => $status , "id_order" => $id_order]);
         }
-
+        function Messages(){
+            $this->view2("Admin" , "Messages");
+        }
     }
 ?>
