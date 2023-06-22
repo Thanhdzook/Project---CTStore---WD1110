@@ -13,18 +13,36 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f7f7f7;
-  padding: 0 10px;
+  background: #dcdcdc;
+  /* padding: 0 10px; */
 }
-
-.wrapper{
+.wrapper-left{
+  width: 30%;
   background: #fff;
-  max-width: 450px;
-  width: 100%;
+  height: 640px;
+  margin: 10px;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1), 0 4px 8px -10px rgba(0,0,0,0.5);
   border-radius: 16px;
-  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
 }
-
+.wrapper-right{
+  width: 70%;
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1), 0 4px 8px -10px rgba(0,0,0,0.5);
+  margin-right: 10px;
+  border-radius: 16px;
+}
+.message-header{
+  display: flex;
+  align-items: center;
+  
+}
+.message-header-icon{
+  margin-right: 5px;
+  font-size: 18px;
+}
+.message-header-name{
+  font-size: 18px;
+}
 
 /* form */
 .form{
@@ -164,16 +182,22 @@ body{
   font-size: 18px;
   font-weight: 500;
 }
-.users header .logout{
-  display: block;
-  background: #333;
-  color: #fff;
+.logout{
+  display: flex;
+  color: #d70018;
   outline: none;
   border: none;
   padding: 7px 15px;
   text-decoration: none;
-  border-radius: 5px;
   font-size: 17px;
+  align-items: center;
+  background-color: #dadada;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 122px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 .users .search{
   margin: 20px 0;
@@ -182,8 +206,10 @@ body{
   align-items: center;
   justify-content: space-between;
 }
-.users .search .text{
-  font-size: 18px;
+.text{
+  font-size: 22px;
+  font-weight: 600;
+
 }
 .users .search input{
   position: absolute;
@@ -210,8 +236,8 @@ body{
   font-size: 17px;
   cursor: pointer;
   border: none;
-  background: #fff;
-  color: #333;
+  background: #000000;
+  color: #ffffff;
   outline: none;
   border-radius: 0 5px 5px 0;
   transition: all 0.2s ease;
@@ -230,9 +256,9 @@ body{
   min-height: 350px;
   overflow-y: auto;
 }
-.is(.users-list, .chat-box)::-webkit-scrollbar{
+/* .is(.users-list, .chat-box)::-webkit-scrollbar{
   width: 0;
-}
+} */
 .users-list a{
   padding-bottom: 10px;
   margin-bottom: 15px;
@@ -357,7 +383,7 @@ body{
   width: 55px;
   border: none;
   outline: none;
-  background: #333;
+  background: #0084FF;
   font-size: 19px;
   cursor: pointer;
   opacity: 0.7;
@@ -391,10 +417,6 @@ body{
   .users header img{
     height: 45px;
     width: 45px;
-  }
-  .users header .logout{
-    padding: 6px 10px;
-    font-size: 16px;
   }
   :is(.users, .users-list) .content .details{
     margin-left: 15px;

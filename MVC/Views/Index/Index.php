@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png" type="image/x-icon">
     <title>CTstore Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page123.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page312.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
@@ -203,7 +203,7 @@
                 </button>
                 <a href="#" class="chat-link">
                     <button class="chat-button" onclick="preventScroll(event)">
-                        Chat
+                        <i class="fa-regular fa-comment-dots"></i>
                     </button>
                 </a>
                 <div class="chat-box" id="chatBox">
@@ -211,11 +211,11 @@
                         <p>Chat để được hỗ trợ</p>
                         <button class="close-button" id="closeButton"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
-                    <div class="chat-content">
-                        <!-- Chat messages go here -->
+                    <div class="box-chat-content">
+                        <div class="chat-content"></div>
                     </div>
                     <div class="chat-footer">
-                        <input type="text" placeholder="Type your message" class="message-input">
+                        <input type="text" placeholder="Nhập để gửi tin nhắn" class="message-input">
                         <button class="send-button"><i class="fa-solid fa-paper-plane"></i></button>
                     </div>
                 </div>
