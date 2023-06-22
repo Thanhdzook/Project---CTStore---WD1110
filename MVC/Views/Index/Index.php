@@ -197,11 +197,10 @@
                     <?php } ?>
                 </div>
             </div>
-            <div class="button-container">
+            <!-- <div class="button-container">
                 <button id="scrollToTopBtn" onclick="scrollToTop()">
                     <i class="bi bi-arrow-up"></i>
                 </button>
-                <!-- /Project---CTStore---WD1110/Messages/View_chat/123 -->
                 <a href="#" class="chat-link">
                     <button class="chat-button" onclick="preventScroll(event)">
                         Chat
@@ -220,15 +219,7 @@
                         <button class="send-button"><i class="fa-solid fa-paper-plane"></i></button>
                     </div>
                 </div>
-            </div>
-            <!-- <button id="scrollToTopBtn" onclick="scrollToTop()">
-                <i class="bi bi-arrow-up"></i>
-            </button>
-            <a href="/Project---CTStore---WD1110/Messages/View_chat/123">
-                <button>
-                    chat
-                </button>
-            </a> -->
+            </div> -->
             <div class="icons__pre-next">
                 <?php
                 if ($_SESSION["next"] != 0) {
