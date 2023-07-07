@@ -139,7 +139,14 @@
             }
             $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Order_Details" , "order" => $or , "customer" => $data_customer , "status" => $status , "id_order" => $id_order]);
         }
-        function Messages(){
+        function Messages($unique_id){
+            if($unique_id != "null"){
+                $_SESSION["UN_ID"] = $unique_id;
+                $qr = $this->account->Search_Account("unique_id" , $unique_id);
+                $row1 = mysqli_fetch_assoc($qr);
+                $_SESSION["UN_NAME"] = $row1['full_name'];
+                $_SESSION["chat_id"] = $unique_id;
+            }
             $this->view2("Admin" , "Messages");
         }
     }

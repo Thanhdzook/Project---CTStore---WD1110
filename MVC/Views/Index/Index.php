@@ -197,7 +197,7 @@
                     <?php } ?>
                 </div>
             </div>
-            <!-- <div class="button-container">
+            <div class="button-container">
                 <button id="scrollToTopBtn" onclick="scrollToTop()">
                     <i class="bi bi-arrow-up"></i>
                 </button>
@@ -208,18 +208,20 @@
                 </a>
                 <div class="chat-box" id="chatBox">
                     <div class="chat-header">
-                        <p>Chat để được hỗ trợ</p>
+                        <!-- <p>Chat để được hỗ trợ</p> -->
                         <button class="close-button" id="closeButton"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
                     <div class="box-chat-content">
                         <div class="chat-content"></div>
-                    </div>
-                    <div class="chat-footer">
-                        <input type="text" placeholder="Nhập để gửi tin nhắn" class="message-input">
-                        <button class="send-button"><i class="fa-solid fa-paper-plane"></i></button>
+
+                            <?php
+                            require_once "./MVC/Views/Messages/test.php";
+                            ?>
+
+                        </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="icons__pre-next">
                 <?php
                 if ($_SESSION["next"] != 0) {
@@ -381,6 +383,7 @@
                 chatBox.style.display = 'none';
             });
         </script>
+  <script src="/Project---CTStore---WD1110/MVC/wwwroot/js/chat-event-user.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Admin/style-layout-admin.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/Admin/style-layout-admin12.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-headset"></i>
-                    <a href="/Project---CTStore---WD1110/Admin/Messages">Hỗ trợ</a>
+                    <a href="/Project---CTStore---WD1110/Admin/Messages/null">Hỗ trợ</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>

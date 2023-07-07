@@ -47,7 +47,14 @@
             $query = mysqli_query($this->con , $data);
             while($row = mysqli_fetch_assoc($query)){
                 // select one last message
-                $sql = "SELECT * FROM messages WHERE 
+                if(!isset($_SESSION["UN_ID"])){
+                    $_SESSION["UN_ID"] = $row['unique_id'];
+                    $qr = "select * from account where unique_id = ".$_SESSION["UN_ID"]."";
+                    $row1 = mysqli_fetch_assoc(mysqli_query($this->con , $qr));
+                    $_SESSION["UN_NAME"] = $row1['full_name'];
+                }
+                
+                $sql = "SELECT * FROM messages WHERE
                                  (incomming_msg_id = ".$row['unique_id']." OR outcomming_msg_id = ".$row['unique_id'].") 
                              AND (outcomming_msg_id = ".$_SESSION['unique_id']." OR incomming_msg_id = ".$_SESSION['unique_id'].")
                              ORDER BY msg_id DESC LIMIT 1";
@@ -75,7 +82,7 @@
                 // ($row['status'] == "Không hoạt động") ? $offline = "offline" : $offline = "";
     
                 // content
-                $rs .= '<a href="/Project---CTStore---WD1110/Messages/View_chat/'.$row["unique_id"].'">
+                $rs .= '<a href="/Project---CTStore---WD1110/Admin/Messages/'.$row["unique_id"].'">
                       <div class="content">
                         <div class="details">
                           <span>'.$row['full_name'].'</span>

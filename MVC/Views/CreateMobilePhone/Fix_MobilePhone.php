@@ -23,40 +23,52 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Tên sản phẩm :</label>
                     <input type="text" class="form-style" placeholder="Tên sản phẩm" name="mobilePhone_name" value="Tên sản phẩm: <?php echo $row["mobilePhone_name"] ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style" placeholder="Chip" name="chip" value="Chip: <?php echo $row["chip"] ?>" readonly>
+                    <label>Chip :</label>
+                    <input type="text" class="form-style" placeholder="Chip" name="chip" value="<?php echo $row["chip"] ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style" placeholder="Bộ nhớ" name="memory" value="Bộ nhớ: <?php echo $row["memory"] ?>" readonly>
+                    <label>Bộ nhớ : </label>
+                    <input type="text" class="form-style" placeholder="Bộ nhớ" name="memory" value="<?php echo $row["memory"] ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style" placeholder="Camera" name="camera"value="Camere: <?php echo $row["camera"] ?>" readonly>
+                    <label>Camere :</label>
+                    <input type="text" class="form-style" placeholder="Camera" name="camera"value="<?php echo $row["camera"] ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style" placeholder="Operating System"  name="operatingSystem" value="Hệ điều hành: <?php echo $row["operatingSystem"] ?>" readonly>
+                    <label>Hệ điều hành : </label>
+                    <input type="text" class="form-style" placeholder="Operating System"  name="operatingSystem" value="<?php echo $row["operatingSystem"] ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style" placeholder="Weight" name="weight" value="Cân nặng: <?php echo $row["weight"] ?>" readonly>
+                    <label>Cân nặng : </label>
+                    <input type="text" class="form-style" placeholder="Weight" name="weight" value="<?php echo $row["weight"] ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style" placeholder="Pin" name="pin" value="Pin: <?php echo $row["pin"] ?>" readonly>
+                    <label>Pin : </label>
+                    <input type="text" class="form-style" placeholder="Pin" name="pin" value="<?php echo $row["pin"] ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style active-input" placeholder="Warranty Period" name="warrantyPeriod"  value="Thời gian bảo hành: <?php echo $row["warrantyPeriod"] ?>">
+                    <label>Thời gian bảo hành : </label>
+                    <input type="text" class="form-style active-input" placeholder="Warranty Period" name="warrantyPeriod"  value="<?php echo $row["warrantyPeriod"] ?>">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style active-input" placeholder="Amount" name="amount" value="Số lượng: <?php echo $row["amount"] ?>">
+                    <label>Số lượng : </label>
+                    <input type="text" class="form-style active-input" placeholder="Amount" name="amount" value="<?php echo $row["amount"] ?>">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style active-input" placeholder="Price" name="price" value="Giá: <?php echo $row["price"] ?>">
+                    <label>Giá : </label>
+                    <input type="text" class="form-style active-input" placeholder="Price" name="price" value="<?php echo $row["price"] ?>">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style active-input" placeholder="Sale" name="sale" value="Khuyến mãi: <?php echo $row["sale"] ?>%">
+                    <label>Khuyến mãi : </label>
+                    <input type="text" class="form-style active-input" placeholder="Sale" name="sale" value="<?php echo $row["sale"] ?>%">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-style active-input" placeholder="Color" name="color"  value="Màu sắc: <?php echo $row["color"] ?>">
+                    <label>Màu sắc : </label>
+                    <input type="text" class="form-style active-input" placeholder="Color" name="color"  value="<?php echo $row["color"] ?>">
                 </div>
                 <div class="form-group">
                     Chọn file để upload:
