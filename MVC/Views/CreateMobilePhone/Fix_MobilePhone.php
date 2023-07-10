@@ -16,7 +16,7 @@
     ?>
     <div class="container-create-mb">
         <div class="box-create-mb">
-            <form method="post" action="/Project---CTStore---WD1110/Create_MobilePhone/Inpost_MobilePhone" enctype="multipart/form-data">
+            <form method="post" action="/Project---CTStore---WD1110/Create_MobilePhone/Inpost_MobilePhone/<?php echo $row["mobilePhone_id"] ?>" enctype="multipart/form-data">
                 <div class="create-mb-title">
                     <i class="fa-solid fa-arrow-left"></i>
                     <p class="create-mb-name">Sửa thông tin</p>
@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                     <label>Tên sản phẩm :</label>
-                    <input type="text" class="form-style" placeholder="Tên sản phẩm" name="mobilePhone_name" value="Tên sản phẩm: <?php echo $row["mobilePhone_name"] ?>" readonly>
+                    <input type="text" class="form-style" placeholder="Tên sản phẩm" name="mobilePhone_name" value="<?php echo $row["mobilePhone_name"] ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label>Chip :</label>
@@ -63,8 +63,8 @@
                     <input type="text" class="form-style active-input" placeholder="Price" name="price" value="<?php echo $row["price"] ?>">
                 </div>
                 <div class="form-group">
-                    <label>Khuyến mãi : </label>
-                    <input type="text" class="form-style active-input" placeholder="Sale" name="sale" value="<?php echo $row["sale"] ?>%">
+                    <label>Khuyến mãi (%) : </label>
+                    <input type="text" class="form-style active-input" placeholder="Sale" name="sale" value="<?php echo $row["sale"] ?>">
                 </div>
                 <div class="form-group">
                     <label>Màu sắc : </label>
