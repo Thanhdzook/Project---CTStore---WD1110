@@ -25,14 +25,14 @@
                     <i class="fa-solid fa-user fa-2x text-lightblue"></i>
                     <div class="card__inner">
                         <p class="text-primary-p">Người dùng</p></p>
-                        <span class="font-bold text-title"><?php echo $data["account"] ?></span>
+                        <span class="font-bold text-title"><?php echo $data["Account"] ?></span>
                     </div>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-truck fa-2x text-red"></i>
                     <div class="card__inner">
                         <p class="text-primary-p">Đơn  hàng</p>
-                        <span class="font-bold text-title"><?php echo $data["order"] ?></span>
+                        <span class="font-bold text-title"><?php echo $data["Order"] ?></span>
                     </div>
                 </div>
                 <div class="card">

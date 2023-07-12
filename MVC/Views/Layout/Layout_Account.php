@@ -67,7 +67,7 @@
                 <div class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <a href="#" class="icon-item">
                       <div class="icon-item-icon"><i class="bi bi-person-circle" ></i></div>
-                      <div class="icon-item-content"><p class="icon-item-name" >Tài khoản</p></div>
+                      <div class="icon-item-content"><p class="icon-item-name" ><?php echo $_SESSION["FullName"] ?></p></div>
                   </a>
                     <ul class="dropdown-menu">
                       <?php

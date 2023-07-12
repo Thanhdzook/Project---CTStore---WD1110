@@ -18,30 +18,75 @@
         <div class="customer-list">
             <h1 class="customer-list-title">Doanh thu</h1>
             <div class="box-time">
-                <select id="month-select">
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <!-- Add options for other months -->
-                </select>
+                <form action="/Project---CTStore---WD1110/Admin/View_Revenue/1" method="post">
+                   <label>Tháng</label>
+                    <select id="month-select" name="month">
+                        <option value="1" <?php if($data["month"] == 1)echo "selected" ?> >January</option>
+                        <option value="2" <?php if($data["month"] == 2)echo "selected" ?> >February</option>
+                        <option value="3" <?php if($data["month"] == 3)echo "selected" ?> >March</option>
+                        <option value="4" <?php if($data["month"] == 4)echo "selected" ?> >April</option>
+                        <option value="5" <?php if($data["month"] == 5)echo "selected" ?> >May</option>
+                        <option value="6" <?php if($data["month"] == 6)echo "selected" ?> >June</option>
+                        <option value="7" <?php if($data["month"] == 7)echo "selected" ?> >July</option>
+                        <option value="8" <?php if($data["month"] == 8)echo "selected" ?> >August</option>
+                        <option value="9" <?php if($data["month"] == 9)echo "selected" ?> >September</option>
+                        <option value="10" <?php if($data["month"] == 10)echo "selected" ?> >October</option>
+                        <option value="11" <?php if($data["month"] == 11)echo "selected" ?> >November</option>
+                        <option value="12" <?php if($data["month"] == 12)echo "selected" ?> >December</option>
+                        <!-- Add options for other months -->
+                    </select>
+                    <button type="submit" name="submit">Lọc</button>
+                </form>
+                
             </div>
             <div id="chart"></div>
         </div>
 
     </div>
-
+    <?php
+        if(isset($data["Month"])){
+            $i = 0;
+            $money2 = "";
+            $money = 0;
+            $date = 0;
+            $date2 = "";
+            while($row = mysqli_fetch_array($data["Month"])){
+                if($i == 0){
+                    $date2 = $date2 . date("d",strtotime($row['order_date'])) . " , ";
+                    $date = date("d-m-Y",strtotime($row['order_date']));
+                    $i++;
+                }
+                if(date("d-m-Y",strtotime($row['order_date'])) != $date){
+                    $date2 = $date2 . date("d",strtotime($row['order_date'])) . " , ";
+                    $money2 = $money2 . $money . " , ";
+                    $money = $row["quantity"]*$row["unit_price"];
+                    $i ++;
+                }
+                else{
+                    $money = $money + $row["quantity"]*$row["unit_price"];
+                }
+                $date = date("d-m-Y",strtotime($row['order_date']));
+                // echo $money . " , " . $date . " ; ";
+            }
+            $money2 = $money2 . $money;
+        }
+        else{
+            $money2 = "";
+            $date2 = "";
+        }
+    ?>
     <script>
         var options = {
             series: [{
                 name: 'Doanh thu',
-                data: [500, 700, 600, 300, 750, 620, 500, 700, 600, 300, 750, 620] // Thay thế dữ liệu này bằng dữ liệu thực tế của bạn
+                data: [<?php echo $money2?>]
             }],
             chart: {
                 type: 'bar',
                 height: 350
             },
             xaxis: {
-                categories: ['1/2023', '2/2023', '3/2023', '4/2023', '5/2023', '6/2023','7/2023', '8/2023', '9/2023', '10/2023', '11/2023', '12/2023'] // Thay thế dữ liệu này bằng dữ liệu thực tế của bạn
+                categories: [<?php echo rtrim($date2 , " , ") ?>]
             }
         };
 

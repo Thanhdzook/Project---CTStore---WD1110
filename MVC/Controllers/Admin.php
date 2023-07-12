@@ -16,8 +16,8 @@
             $count_order = mysqli_fetch_column($this->order->Count_All_Order());
             $this->view2("Layout" , "Layout_Admin" ,
             ["content" => "Admin" , "content2" => "Index" , "message" => $message , "count_admin" => $count_admin ,
-            "account" => $count_account , "mobilephone" => $count_mobilephone ,
-            "order" => $count_order , "Recent Payment" => $this->order->Recent_Payment("account.full_name , orders.order_date , orders.order_id , orders.status" ,
+            "Account" => $count_account , "mobilephone" => $count_mobilephone ,
+            "Order" => $count_order , "Recent Payment" => $this->order->Recent_Payment("account.full_name , orders.order_date , orders.order_id , orders.status" ,
             "account , orders where orders.status != 1 and account.account_id = orders.account_id" , "order_id") , 
             "Recent Account" => $this->account->Recent_Account("full_name , email , phone_number , account_id" , "account where role != 1" , "account_id")]);
         }
@@ -31,9 +31,48 @@
             $List_Payment = $this->order->Order_Account($data);
             $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "List_Payment" , "order" => $List_Payment]);
         }
-        function View_Revenue(){
-            // $List_Payment = $this->order->Order_Account($data);
-            $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Revenue"]);
+        function View_Revenue($data){
+            $string = "";
+            if($data == 0){
+                $date = date('m-Y');
+                $check = $this->order->List_All_Order("");
+                while($row = mysqli_fetch_array($check)){
+                    if($date == date("m-Y",strtotime($row['order_date']))){
+                        $string = $string . " orderdetails.order_id = " . $row["order_id"] . " or ";
+                    }
+                }
+                if($string == ""){
+                    $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Revenue" , "Month" => null , "month" => date('m')]);
+                }
+                else{
+                    $data2 = $this->order->Revenue(rtrim($string , " or "));
+                    $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Revenue" , "Month" => $data2 , "month" => date('m')]);
+                }
+                
+            }
+            else{
+                if(isset($_POST["submit"])){
+                    // $date = $_POST["month"] . "-" . date('Y');
+                    // $date = date("m-Y",strtotime($date));
+                    $check = $this->order->List_All_Order("");
+                    while($row = mysqli_fetch_array($check)){
+                        if(date("Y") == date("Y",strtotime($row['order_date']))){
+                            if($_POST["month"] == date("m",strtotime($row['order_date']))){
+                                $string = $string . " orderdetails.order_id = " . $row["order_id"] . " or ";
+                            }
+                        }
+                        
+                    }
+                    if($string == ""){
+                        $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Revenue" , "Month" => null , "month" => $_POST["month"]]);
+                    }
+                    else{
+                        $data2 = $this->order->Revenue(rtrim($string , " or "));
+                        $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Revenue" , "Month" => $data2 , "month" => $_POST["month"]]);
+                    }
+                }
+            }
+            
         }
         function View_MobilePhone($next){
             $_SESSION["next"] = $next;

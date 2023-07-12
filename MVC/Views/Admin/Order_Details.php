@@ -17,7 +17,7 @@
     <div class="box-tk-detail">
         <div class="tk-detail-header">
             <div class="tk-detail-header-title">
-                <i class="fa-solid fa-arrow-left"></i>
+                <a href="/Project---CTStore---WD1110/Admin/View_Payment/;" style="color : black;"><i class="fa-solid fa-arrow-left"></i></a>
                 <p>Thông tin chi tiết</p>
             </div>
             <?php

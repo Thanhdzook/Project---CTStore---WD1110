@@ -14,6 +14,7 @@ class Login_Sigin extends Controller{
 
     function Check_Login(){
         $check = false;
+        $last_name = "";
         if(isset($_POST["Login"])){
             if (empty($_POST["email"])) {
                 $this->view("Login_sigin" , ["message" => "Tài khoản là bắt buộc"]);
@@ -30,6 +31,7 @@ class Login_Sigin extends Controller{
                     $role = $row["role"];
                     $id = $row["account_id"];
                     $unique_id = $row["unique_id"];
+                    $full_name = $row["full_name"];
                     $check = true;
                 }
             }
@@ -39,7 +41,14 @@ class Login_Sigin extends Controller{
                     $this->view("Login_sigin" , ["message" => "Tài khoản là bắt buộc"]);
                     exit();
                 }
+                for($i = 0 ; $i < strlen($full_name) ; $i++){
+                    if($full_name[$i] == " "){
+                        $last_name = "";
+                    }
+                    $last_name = $last_name . $full_name[$i];
+                }
                 $password = $_POST["password"];
+                $_SESSION["FullName"] = $last_name;
                 $_SESSION['email'] = $email;
                 $_SESSION['account_id'] = $id;
                 $_SESSION['password'] = $password;
@@ -66,7 +75,7 @@ class Login_Sigin extends Controller{
     function Check_Sigin($checksigin){
         if($checksigin == 1){
             // insert to database
-            $check = $this->accountModel->Create_Account($_SESSION["name_sigin"] , $_SESSION["phoneN_sigin"] , $_SESSION["email_sigin"] , $_SESSION["password_sigin"] , 2 , $_SESSION["random_id"]);
+            $check = $this->accountModel->Create_Account(trim($_SESSION["name_sigin"]), $_SESSION["phoneN_sigin"] , $_SESSION["email_sigin"] , $_SESSION["password_sigin"] , 2 , $_SESSION["random_id"]);
             if($check == true){
                 // if(isset($_SESSION["role"])){
                 //     header("Location: /Project---CTStore---WD1110/Admin/View_Index_Admin/Thêm thành công tài khoản admin !");

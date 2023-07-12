@@ -131,5 +131,12 @@
             }
             return json_encode($result);
         }
+        public function Revenue($data){
+            $qr = "select orders.order_date , orderdetails.quantity , orderdetails.order_id , orderdetails.unit_price
+            FROM orders , orderdetails
+            WHERE (".$data.") 
+            and orders.order_id = orderdetails.order_id and orders.status = 5 ORDER BY order_date asc";
+            return mysqli_query($this->con , $qr);
+        }
     }
 ?>

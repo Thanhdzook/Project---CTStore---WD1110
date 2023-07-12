@@ -71,7 +71,7 @@
                         $_SESSION["check_order_id"] = 0;
                         if(isset($data["Purchase_History"])){
                             while($row = mysqli_fetch_array($data["Purchase_History"])){
-                                $date = $row["order_date"];
+                                $date = date("H:i:s d-m-Y",strtotime($row['order_date']));
                                 $statusabc = $row["status"];
                                 $name = $row["mobilePhone_name"];
                                 $price = $row["price"];

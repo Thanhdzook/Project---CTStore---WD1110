@@ -18,7 +18,7 @@
         <div class="box-create-mb">
             <form method="post" action="/Project---CTStore---WD1110/Create_MobilePhone/Inpost_MobilePhone/<?php echo $row["mobilePhone_id"] ?>" enctype="multipart/form-data">
                 <div class="create-mb-title">
-                    <i class="fa-solid fa-arrow-left"></i>
+                    <a href="/Project---CTStore---WD1110/Admin/View_MobilePhone_Detail/<?php echo $row["mobilePhone_id"] ?>" style="color : black;"><i class="fa-solid fa-arrow-left"></i></a>
                     <p class="create-mb-name">Sửa thông tin</p>
                 </div>
 

@@ -59,27 +59,27 @@
             </div>
             <div class="sidebar__bottom-box">
                 
-                <div class="sidebar__link active-link">
+                <div class="sidebar__link <?php if(isset($data["Recent Account"]))echo "active-link"; ?> ">
                     <i class="fa fa-home "></i>
                     <a href="/Project---CTStore---WD1110/Admin/View_Index_Admin/null">Trang chủ</a>
                 </div>
-                <div class="sidebar__link">
+                <div class="sidebar__link <?php if(isset($data["mobilePhone"]))echo "active-link"; ?>">
                     <i class="fa-solid fa-mobile-screen-button"></i>
                     <a href="/Project---CTStore---WD1110/Admin/View_MobilePhone/0">Sản phẩm</a>
                 </div>
-                <div class="sidebar__link">
+                <div class="sidebar__link <?php if(isset($data["order"]))echo "active-link"; ?>">
                     <i class="fa-solid fa-truck"></i>
                     <a href="/Project---CTStore---WD1110/Admin/View_Payment/;">Đơn hàng</a>
                 </div>
-                <div class="sidebar__link">
+                <div class="sidebar__link <?php if(isset($data["month"]))echo "active-link"; ?>"> 
                     <i class="fa-solid fa-chart-simple"></i>
-                    <a href="/Project---CTStore---WD1110/Admin/View_Revenue">Doanh thu</a>
+                    <a href="/Project---CTStore---WD1110/Admin/View_Revenue/0">Doanh thu</a>
                 </div>
-                <div class="sidebar__link">
+                <div class="sidebar__link <?php if(isset($data["account"]))echo "active-link"; ?>">
                     <i class="fa-solid fa-user"></i>
                     <a href="/Project---CTStore---WD1110/Admin/View_List_Account">Người dùng</a>
                 </div>
-                <div class="sidebar__link">
+                <div class="sidebar__link <?php if(isset($data["chuabiet"]))echo "active-link"; ?>">
                     <i class="fa-solid fa-headset"></i>
                     <a href="/Project---CTStore---WD1110/Admin/Messages/null">Hỗ trợ</a>
                 </div>
