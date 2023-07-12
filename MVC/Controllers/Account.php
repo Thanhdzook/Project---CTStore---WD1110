@@ -31,7 +31,6 @@ class Account extends Controller{
     //         }
     //     }
     // }
-
     public function View_Fix_Infor_Account(){
         $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" ,$_SESSION["email"]) ,"content" => "Account" , "content2" => "Fix_Infor_Account"]);
     }
@@ -47,33 +46,39 @@ class Account extends Controller{
     public function Check_Password($password){
         return ($password == $_SESSION['password']) ? true : false;
     }
-    public function Fix_Infor_Account($message){
-        if($message == "password ok"){
+    public function Fix_Infor_Account(){
+        // if($message == "password ok"){
+        //     if(isset($_POST["submit"])){
+        //         if($this->Check_Password($_POST["password"]) == true){
+        //             $check = $this->accountModel->Update_Infor_Account($_SESSION['full_name'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
+        //             if($check == true){
+        //                 unset($_SESSION['full_name']);
+        //                 // unset($_SESSION['phone_number']);
+        //                 // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản thành công !");
+        //                 $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản thành công !"]);
+        //             }
+        //             else{
+        //                 // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản không thành công !");
+        //                 $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản không thành công !"]);
+        //             }
+        //         }
+        //         else{
+        //             $this->view2("Layout" , "Layout_Account", ["content" => "Account" , "content2" => "Check_Password" , "message" => "Sai mật khẩu !"]);
+        //         }
+        //     }
+        // }
+        // else{
             if(isset($_POST["submit"])){
-                if($this->Check_Password($_POST["password"]) == true){
-                    $check = $this->accountModel->Update_Infor_Account($_SESSION['full_name'],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
-                    if($check == true){
-                        unset($_SESSION['full_name']);
-                        // unset($_SESSION['phone_number']);
-                        // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản thành công !");
-                        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản thành công !"]);
-                    }
-                    else{
-                        // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Cập nhật tài khoản không thành công !");
-                        $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản không thành công !"]);
-                    }
+                $check = $this->accountModel->Update_Infor_Account($_POST["full_name"],$_SESSION['email'],$_SESSION["account_id"] , $_SESSION['password']);
+                if($check == true){
+                    unset($_SESSION['full_name']);
+                    $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản thành công !"]);
                 }
                 else{
-                    $this->view2("Layout" , "Layout_Account", ["content" => "Account" , "content2" => "Check_Password" , "message" => "Sai mật khẩu !"]);
+                    $this->view2("Layout" , "Layout_Account" , ["account_infor" => $this->accountModel->Search_Account( "email" , $_SESSION["email"]) ,"content" => "Account" , "content2" => "Infor_Account" , "message" => "Cập nhật tài khoản không thành công !"]);
                 }
             }
-        }
-        else{
-            if(isset($_POST["submit"])){
-                $_SESSION['full_name'] = $_POST["full_name"];
-                header("Location: /Project---CTStore---WD1110/Account/View_Check_Password");
-            }
-        }
+        // }
     }
 
     public function Fix_Password(){
