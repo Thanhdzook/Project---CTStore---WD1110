@@ -31,7 +31,10 @@
             $List_Payment = $this->order->Order_Account($data);
             $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "List_Payment" , "order" => $List_Payment]);
         }
-
+        function View_Revenue(){
+            // $List_Payment = $this->order->Order_Account($data);
+            $this->view2("Layout" , "Layout_Admin" , ["content" => "Admin" , "content2" => "Revenue"]);
+        }
         function View_MobilePhone($next){
             $_SESSION["next"] = $next;
             $mb = $this->mobilephone->List_MobilePhone($_SESSION["next"] , 2);

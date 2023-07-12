@@ -72,6 +72,10 @@
                     <a href="/Project---CTStore---WD1110/Admin/View_Payment/;">Đơn hàng</a>
                 </div>
                 <div class="sidebar__link">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <a href="/Project---CTStore---WD1110/Admin/View_Revenue">Doanh thu</a>
+                </div>
+                <div class="sidebar__link">
                     <i class="fa-solid fa-user"></i>
                     <a href="/Project---CTStore---WD1110/Admin/View_List_Account">Người dùng</a>
                 </div>

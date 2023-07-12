@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Project---CTStore---WD1110/MVC/wwwroot/img/t2.png" type="image/x-icon">
     <title>CTstore Trang chủ</title>
-    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page312.css">
+    <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/css/home_page/home_page123312.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/Project---CTStore---WD1110/MVC/wwwroot/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
@@ -17,24 +17,26 @@
 
 <body>
     <div class="block-top-home">
-        <div class="banner-left"></div>
+        <div class="banner-left">
+            <img src="/Project---CTStore---WD1110/MVC/wwwroot/img/bannerleft1232.png" style="border-radius: 15px;" alt="">
+        </div>
         <div class="slider">
             <div id="carouselExample" class="carousel slide slider-content-right-top-container">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/hs-s23-512-09016.png" class="d-block w-100" alt="...">
+                        <img src="/Project---CTStore---WD1110/MVC/wwwroot/img/1.png" alt="...">
                     </div>
                     <div class="carousel-item ">
-                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/mo-ban-huawei-band-8.png" class="d-block w-100" alt="...">
+                        <img src="/Project---CTStore---WD1110/MVC/wwwroot/img/2.png" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/sli-note-12-th66666.png" class="d-block w-100" alt="...">
+                        <img src="/Project---CTStore---WD1110/MVC/wwwroot/img/3.png" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/mo-ban-huawei-band-8.png" class="d-block w-100" alt="...">
+                        <img src="/Project---CTStore---WD1110/MVC/wwwroot/img/4.png" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://cdn2.cellphones.com.vn/690x300,webp,q100/https://dashboard.cellphones.com.vn/storage/ip14-prm-th6.png" class="d-block w-100" alt="...">
+                        <img src="/Project---CTStore---WD1110/MVC/wwwroot/img/5.png" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -214,176 +216,192 @@
                     <div class="box-chat-content">
                         <div class="chat-content"></div>
 
-                            <?php
-                            require_once "./MVC/Views/Messages/test.php";
-                            ?>
+                        <?php
+                        require_once "./MVC/Views/Messages/test.php";
+                        ?>
 
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="icons__pre-next">
-                <?php
-                if ($_SESSION["next"] != 0) {
-                ?>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"] - 10) ?>">
-                        <button><i class="fa-solid fa-circle-left" style="font-size: 32px;"></i></button></a>
-                <?php } ?>
-                <?php
-                if ($_SESSION["next"] < $_SESSION["count_mobilephone"] - 10) {
-                ?>
-                    <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"] + 10) ?>">
-                        <button><i class="fa-solid fa-circle-right" style="font-size: 32px;"></i></button></a>
-                <?php } ?>
-            </div>
         </div>
-        <script>
-            const rightbtn = document.querySelector('.carousel-control-next-icon')
-            const leftbtn = document.querySelector('.carousel-control-prev-icon')
-            const imgNumber = document.querySelectorAll('.carousel-item img')
-            // console.log(imgNumber)
-            const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom .right-bottom-item')
-            const imgNumberLi1 = document.querySelectorAll('.slider-content-right-bottom-circle .bottom-circle-item')
+        <div class="icons__pre-next">
+            <?php
+            if ($_SESSION["next"] != 0) {
+            ?>
+                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"] - 10) ?>">
+                    <button><i class="fa-solid fa-circle-left" style="font-size: 32px;"></i></button></a>
+            <?php } ?>
+            <?php
+            if ($_SESSION["next"] < $_SESSION["count_mobilephone"] - 10) {
+            ?>
+                <a href="/Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/null/<?php echo ($_SESSION["next"] + 10) ?>">
+                    <button><i class="fa-solid fa-circle-right" style="font-size: 32px;"></i></button></a>
+            <?php } ?>
+        </div>
+    </div>
+    <script>
+        const rightbtn = document.querySelector('.carousel-control-next-icon')
+        const leftbtn = document.querySelector('.carousel-control-prev-icon')
+        const imgNumber = document.querySelectorAll('.carousel-item img')
+        // console.log(imgNumber)
+        const imgNumberLi = document.querySelectorAll('.slider-content-right-bottom .right-bottom-item')
+        const imgNumberLi1 = document.querySelectorAll('.slider-content-right-bottom-circle .bottom-circle-item')
+        // console.log(imgNumberLi1)
+        // console.log(imgNumberLi)
+        let index = 0
+
+        rightbtn.addEventListener("click", function() {
+            index = index + 1
+            if (index > imgNumber.length - 1) {
+                index = 0
+            }
+            removeActive()
+            removeActive1()
+            imgNumberLi[index].classList.add("active-slide")
+            imgNumberLi1[index].classList.add("active-slide1")
             // console.log(imgNumberLi1)
-            // console.log(imgNumberLi)
-            let index = 0
+        });
+        leftbtn.addEventListener("click", function() {
+            index = index - 1
+            if (index < 0) {
+                index = imgNumber.length - 1
+            }
+            removeActive()
+            removeActive1()
+            imgNumberLi[index].classList.add("active-slide")
+            imgNumberLi1[index].classList.add("active-slide1")
+        });
+        // Get the active slide element
+        var rightBottomItems = document.querySelectorAll('.right-bottom-item');
+        var rightBottomItems1 = document.querySelectorAll('.bottom-circle-item');
+        var carouselItems = document.querySelectorAll('.carousel-item');
 
-            rightbtn.addEventListener("click", function() {
-                index = index + 1
-                if (index > imgNumber.length - 1) {
-                    index = 0
+        // Loop through each right-bottom-item element
+        for (var i = 0; i < rightBottomItems.length; i++) {
+            // Add a click event listener to each right-bottom-item element
+            rightBottomItems[i].addEventListener('click', function() {
+                console.log(rightBottomItems[i])
+                // Remove the "active" class from all carousel items
+                for (var j = 0; j < carouselItems.length; j++) {
+                    carouselItems[j].classList.remove('active');
                 }
+
+                // Get the index of the clicked right-bottom-item element
+                var clickedIndex = Array.prototype.indexOf.call(this.parentNode.children, this);
+                console.log(clickedIndex)
+
+                // Add the "active" class to the corresponding carousel item
+                if (carouselItems[clickedIndex]) {
+                    console.log(carouselItems[clickedIndex])
+                    carouselItems[clickedIndex].classList.add('active');
+                }
+            });
+        }
+        for (var i = 0; i < rightBottomItems1.length; i++) {
+            // Add a click event listener to each right-bottom-item element
+            rightBottomItems1[i].addEventListener('click', function() {
+                console.log(rightBottomItems1[i])
+                // Remove the "active" class from all carousel items
+                for (var j = 0; j < carouselItems.length; j++) {
+                    carouselItems[j].classList.remove('active');
+                }
+
+                // Get the index of the clicked right-bottom-item element
+                var clickedIndex = Array.prototype.indexOf.call(this.parentNode.children, this);
+                console.log(clickedIndex)
+
+                // Add the "active" class to the corresponding carousel item
+                if (carouselItems[clickedIndex]) {
+                    console.log(carouselItems[clickedIndex])
+                    carouselItems[clickedIndex].classList.add('active');
+                }
+            });
+        }
+
+        imgNumberLi.forEach(function(image, index) {
+            image.addEventListener("click", function() {
                 removeActive()
-                removeActive1()
-                imgNumberLi[index].classList.add("active-slide")
-                imgNumberLi1[index].classList.add("active-slide1")
-                // console.log(imgNumberLi1)
-            });
-            leftbtn.addEventListener("click", function() {
-                index = index - 1
-                if (index < 0) {
-                    index = imgNumber.length - 1
-                }
-                removeActive()
-                removeActive1()
-                imgNumberLi[index].classList.add("active-slide")
-                imgNumberLi1[index].classList.add("active-slide1")
-            });
-            // Get the active slide element
-            var rightBottomItems = document.querySelectorAll('.right-bottom-item');
-            var rightBottomItems1 = document.querySelectorAll('.bottom-circle-item');
-            var carouselItems = document.querySelectorAll('.carousel-item');
-
-            // Loop through each right-bottom-item element
-            for (var i = 0; i < rightBottomItems.length; i++) {
-                // Add a click event listener to each right-bottom-item element
-                rightBottomItems[i].addEventListener('click', function() {
-                    console.log(rightBottomItems[i])
-                    // Remove the "active" class from all carousel items
-                    for (var j = 0; j < carouselItems.length; j++) {
-                        carouselItems[j].classList.remove('active');
-                    }
-
-                    // Get the index of the clicked right-bottom-item element
-                    var clickedIndex = Array.prototype.indexOf.call(this.parentNode.children, this);
-                    console.log(clickedIndex)
-
-                    // Add the "active" class to the corresponding carousel item
-                    if (carouselItems[clickedIndex]) {
-                        console.log(carouselItems[clickedIndex])
-                        carouselItems[clickedIndex].classList.add('active');
-                    }
-                });
-            }
-            for (var i = 0; i < rightBottomItems1.length; i++) {
-                // Add a click event listener to each right-bottom-item element
-                rightBottomItems1[i].addEventListener('click', function() {
-                    console.log(rightBottomItems1[i])
-                    // Remove the "active" class from all carousel items
-                    for (var j = 0; j < carouselItems.length; j++) {
-                        carouselItems[j].classList.remove('active');
-                    }
-
-                    // Get the index of the clicked right-bottom-item element
-                    var clickedIndex = Array.prototype.indexOf.call(this.parentNode.children, this);
-                    console.log(clickedIndex)
-
-                    // Add the "active" class to the corresponding carousel item
-                    if (carouselItems[clickedIndex]) {
-                        console.log(carouselItems[clickedIndex])
-                        carouselItems[clickedIndex].classList.add('active');
-                    }
-                });
-            }
-
-            imgNumberLi.forEach(function(image, index) {
-                image.addEventListener("click", function() {
-                    removeActive()
-                    image.classList.add("active-slide")
-                })
+                image.classList.add("active-slide")
             })
-            imgNumberLi1.forEach(function(image, index) {
-                image.addEventListener("click", function() {
-                    removeActive1()
-                    image.classList.add("active-slide1")
-                })
+        })
+        imgNumberLi1.forEach(function(image, index) {
+            image.addEventListener("click", function() {
+                removeActive1()
+                image.classList.add("active-slide1")
             })
+        })
 
-            function removeActive() {
-                let imgactive = document.querySelector('.active-slide');
-                imgactive.classList.remove("active-slide")
-            }
+        function removeActive() {
+            let imgactive = document.querySelector('.active-slide');
+            imgactive.classList.remove("active-slide")
+        }
 
-            function removeActive1() {
-                let imgactive1 = document.querySelector('.active-slide1');
-                imgactive1.classList.remove("active-slide1")
-            }
-            // -------------------------
-            const notificationElement = document.querySelector('.notification-top');
+        function removeActive1() {
+            let imgactive1 = document.querySelector('.active-slide1');
+            imgactive1.classList.remove("active-slide1")
+        }
 
-            function hideNotification() {
-                notificationElement.style.display = 'none';
-            }
-            setTimeout(hideNotification, 4000);
-        </script>
-        <!-- nhay len dau trang -->
-        <script>
-            // Function to scroll back to the top of the page
-            function scrollToTop() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            }
+        $(document).ready(function() {
+            setInterval(function() {
+                var currentSlide = $('.carousel-item.active');
+                var nextSlide = currentSlide.next('.carousel-item');
 
-            window.addEventListener("scroll", function() {
-                var scrollToTopBtn = document.getElementById("scrollToTopBtn");
-                if (document.documentElement.scrollTop > 200) {
-                    scrollToTopBtn.style.display = "block";
-                } else {
-                    scrollToTopBtn.style.display = "none";
+                if (nextSlide.length === 0) {
+                    nextSlide = $('.carousel-item').first();
                 }
-            });
 
-            function preventScroll(event) {
-                event.preventDefault();
+                currentSlide.removeClass('active');
+                nextSlide.addClass('active');
+            }, 3000);
+        });
+
+        // -------------------------
+        const notificationElement = document.querySelector('.notification-top');
+
+        function hideNotification() {
+            notificationElement.style.display = 'none';
+        }
+        setTimeout(hideNotification, 4000);
+    </script>
+    <!-- nhay len dau trang -->
+    <script>
+        // Function to scroll back to the top of the page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        window.addEventListener("scroll", function() {
+            var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            if (document.documentElement.scrollTop > 200) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
             }
-        </script>
-        <!-- -----------------chat-------------------------------- -->
-        <script>
-            const chatButton = document.querySelector('.chat-button');
-            const chatBox = document.getElementById('chatBox');
-            const closeButton = document.getElementById('closeButton');
+        });
 
-            chatButton.addEventListener('click', function() {
-                chatBox.style.display = 'block';
-            });
+        function preventScroll(event) {
+            event.preventDefault();
+        }
+    </script>
+    <!-- -----------------chat-------------------------------- -->
+    <script>
+        const chatButton = document.querySelector('.chat-button');
+        const chatBox = document.getElementById('chatBox');
+        const closeButton = document.getElementById('closeButton');
 
-            closeButton.addEventListener('click', function() {
-                chatBox.style.display = 'none';
-            });
-        </script>
-  <script src="/Project---CTStore---WD1110/MVC/wwwroot/js/chat-event-user.js"></script>
+        chatButton.addEventListener('click', function() {
+            chatBox.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', function() {
+            chatBox.style.display = 'none';
+        });
+    </script>
+    
+    <script src="/Project---CTStore---WD1110/MVC/wwwroot/js/chat-event-user.js"></script>
 </body>
 
 </html>
