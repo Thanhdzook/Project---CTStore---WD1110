@@ -10,7 +10,7 @@
             $this->view2("Layout" , "Layout_Admin" , ["content" => "CreateMobilePhone"]);
         }
 
-        function Inpost_MobilePhone(){
+        function Inpost_MobilePhone($checkinpost){
             if ($_SERVER['REQUEST_METHOD'] !== 'POST')
             {
                 echo "Phải Post dữ liệu";
@@ -80,25 +80,29 @@
             {
                 if (move_uploaded_file($_FILES["fileupload"]["tmp_name"], $target_file))
                 {
-                // $random_id = rand(time(), 1000000000);
-                // rename("/Project---CTStore---WD1110/MVC/wwwroot/img/".basename( $_FILES["fileupload"]["name"]), "/Project---CTStore---WD1110/MVC/wwwroot/img/".$random_id."png");
-                $mobilePhone_name = $_POST["mobilePhone_name"];
-                $chip = $_POST["chip"];
-                $memory = $_POST["memory"];
-                $camera = $_POST["camera"];
-                $operatingSystem = $_POST["operatingSystem"];
-                $weight = $_POST["weight"];
-                $pin = $_POST["pin"];
-                $warrantyPeriod = $_POST["warrantyPeriod"];
-                $price = $_POST["price"];
-                $amount = $_POST["amount"];
-                $sale = $_POST["sale"];
-                $color = $_POST["color"];
-                $img = "/Project---CTStore---WD1110/MVC/wwwroot/img/".$random_id.".png";;
+                    // $random_id = rand(time(), 1000000000);
+                    // rename("/Project---CTStore---WD1110/MVC/wwwroot/img/".basename( $_FILES["fileupload"]["name"]), "/Project---CTStore---WD1110/MVC/wwwroot/img/".$random_id."png");
+                    $mobilePhone_name = $_POST["mobilePhone_name"];
+                    $chip = $_POST["chip"];
+                    $memory = $_POST["memory"];
+                    $camera = $_POST["camera"];
+                    $operatingSystem = $_POST["operatingSystem"];
+                    $weight = $_POST["weight"];
+                    $pin = $_POST["pin"];
+                    $warrantyPeriod = $_POST["warrantyPeriod"];
+                    $price = $_POST["price"];
+                    $amount = $_POST["amount"];
+                    $sale = $_POST["sale"];
+                    $color = $_POST["color"];
+                    $img = "/Project---CTStore---WD1110/MVC/wwwroot/img/".$random_id.".png";;
 
-                //insert to database
-                $check = $this->MobilePhoneModel->Create_MobilePhone($mobilePhone_name, $chip, $memory, $camera, $operatingSystem, $weight, $pin, $warrantyPeriod, $price, $amount, $img , $sale , $color);
-                echo $check;
+                    //insert to database
+                    if($checkinpost == 0){
+                        $check = $this->MobilePhoneModel->Create_MobilePhone($mobilePhone_name, $chip, $memory, $camera, $operatingSystem, $weight, $pin, $warrantyPeriod, $price, $amount, $img , $sale , $color);
+                    }
+                    else{
+                        $check = $this->MobilePhoneModel->Fix_MobilePhone( $checkinpost ,$mobilePhone_name, $chip, $memory, $camera, $operatingSystem, $weight, $pin, $warrantyPeriod, $price, $amount, $img , $sale , $color);
+                    }
                 }
                 else
                 {

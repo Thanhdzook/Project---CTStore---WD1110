@@ -13,7 +13,7 @@
 <body>
     <div class="container-create-mb">
         <div class="box-create-mb">
-            <form method="post" action="/Project---CTStore---WD1110/Create_MobilePhone/Inpost_MobilePhone" enctype="multipart/form-data">
+            <form method="post" action="/Project---CTStore---WD1110/Create_MobilePhone/Inpost_MobilePhone/0" enctype="multipart/form-data">
                 <div class="create-mb-title">
                     <i class="fa-solid fa-arrow-left"></i>
                     <p class="create-mb-name">Thêm sản phẩm</p>
