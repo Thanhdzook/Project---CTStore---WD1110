@@ -3,7 +3,7 @@
     width: 100%;
 }
 .user-info-mobile{
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 .user-info-mobile .ct-container {
     max-width: 600px;
@@ -74,7 +74,12 @@
     font-weight: 400;
     line-height: 1.5;
 }
+.wapper-change-pass{
+    margin: 0 auto;
+    width: 600px !important;
+}
 .botton-change-pass{
+    width: 100%;
     cursor: pointer;
     display: block;
     background: #fd2424;

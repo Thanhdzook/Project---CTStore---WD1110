@@ -75,7 +75,8 @@
                     unset($_SESSION['count']);
                     unset($_SESSION['mobilePhone_id']);
                     if($check == true){
-                        header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Đặt hàng thành công !/0");
+                        $this->View_Payment_Comfirm();
+                        // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Đặt hàng thành công !/0");
                     }
                     else{
                         header("Location: /Project---CTStore---WD1110/ShowMobilePhone_message/ViewCart/Đặt hàng thành không công !/0");
@@ -84,7 +85,7 @@
                 else{
                     $name = $_POST["name"];
                     $phoneN = $_POST["phoneN"];
-                    $addres = $_POST["addres"];
+                    $addres = $_POST["address"];
                     $random_id = rand(time(), 1000000000);
                     $this->account->Create_Customer($_SESSION["account_id"] , $name , $phoneN , $addres , $random_id);
                     // $unique_id = $this->account->List_Customer_By_Unique($random_id);
@@ -96,7 +97,8 @@
                     unset($_SESSION['count']);
                     unset($_SESSION['mobilePhone_id']);
                     if($check == true){
-                        header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Đặt hàng thành công !/0");
+                        $this->View_Payment_Comfirm();
+                        // header("Location: /Project---CTStore---WD1110/Show_MobilePhone/ShowMobilePhone_message/Đặt hàng thành công !/0");
                     }
                     else{
                         header("Location: /Project---CTStore---WD1110/ShowMobilePhone_message/ViewCart/Đặt hàng thành không công !/0");
@@ -107,6 +109,9 @@
             
         }
 
+        function View_Payment_Comfirm(){
+            $this->view("Layout" , ["content" => "Payment" , "content2" => "Comfirm_payment"]);
+        }
 
     }
 ?>

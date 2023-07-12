@@ -46,16 +46,16 @@ class Show_MobilePhone extends Controller{
             $data = $_POST["NameMobilePhone"];
             if(mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , " and status != 0")) != 0){
                 $_SESSION["count_mobilephone"] = mysqli_fetch_column($this->mobilePhone->Count_MobilePhone_By_Value($name,trim($data) , " and status != 0"));
-                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , trim($data) , " and status != 0") , "content" => "Index"]);
+                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , trim($data) , " and status != 0") , "content" => "Index" , "content2" => "Product"]);
             }
             else {
-                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"] , 0) , "content" => "Index" , "message" => "Không tìm thấy sản phẩm !"]);
+                $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->List_MobilePhone($_SESSION["next"] , 0) , "content" => "Index" , "content2" => "Product" , "message" => "Không tìm thấy sản phẩm !"]);
             }
         }
     }
 
     function SreachMobilePhone($name , $data){
-        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , $data , " and status != 0") , "content" => "Index"]);
+        $this->view("Layout" , ["mobilePhone"=> $this->mobilePhone->Sreach_MobilePhone_By_Value($name , $data , " and status != 0") , "content" => "Index" , "content2" => "Product"]);
     }
 }
 ?>
